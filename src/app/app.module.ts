@@ -145,6 +145,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         AuthenticationModule,
         OrganizationsModule,
         AppRoutingModule,
+        FlexLayoutModule,
         OAuthModule.forRoot({
             resourceServer: {
                 allowedUrls: allowedURLS,
