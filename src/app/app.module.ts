@@ -63,6 +63,8 @@ import { SelectOrgComponent } from "./select-org/select-org.component";
 import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 
 import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
+import { TransformRulesComponent } from './transform-rules/transform-rules.component';
+import { ScrollingModule } from "@angular/cdk/scrolling";
 
 
 export function storageFactory(): OAuthStorage {
@@ -94,6 +96,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
          DataTransformationComponent,
          SparqlQueryViewComponent,
          SparqlQueryViewComponent,
+         TransformRulesComponent,
 
 
 
@@ -146,6 +149,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         OrganizationsModule,
         AppRoutingModule,
         FlexLayoutModule,
+        ScrollingModule,
         OAuthModule.forRoot({
             resourceServer: {
                 allowedUrls: allowedURLS,

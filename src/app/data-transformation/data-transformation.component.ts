@@ -13,6 +13,8 @@ export class DataTransformationComponent {
   currentBreakpoint: string;
   cols: number = 2;
   rowHeight: string = "40em";
+
+
   constructor(private breakpointObserver: BreakpointObserver,private mediaMatcher: MediaMatcher) {
     this.mobileQuery = this.mediaMatcher.matchMedia('(max-width: 599.98px)');
     this.currentBreakpoint = this.getBreakpoint();

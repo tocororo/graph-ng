@@ -1,0 +1,22 @@
+<div class="transform-rules-container">
+  <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <mat-accordion *cdkVirtualFor="let item of items" class="w-100-h-100">
+    <mat-expansion-panel  (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+
+      class="example-item">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ item }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Actualmente estoy {{ panelOpenState ? "abierto" : "cerrado" }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Soy visible porque estoy abierto</p>
+    </mat-expansion-panel>
+
+    </mat-accordion>
+  </cdk-virtual-scroll-viewport>
+</div>
