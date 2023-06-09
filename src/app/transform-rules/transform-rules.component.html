@@ -1,28 +1,27 @@
 <div class="transform-rules-container">
-  <h1>Reglas de Transformacion</h1>
-  <cdk-virtual-scroll-viewport   itemSize="50" >
+  <h1 >Reglas de Transformacion</h1>
+  <cdk-virtual-scroll-viewport itemSize="50">
     <mat-accordion *cdkVirtualFor="let item of items" class="w-100-h-100">
-    <mat-expansion-panel  (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false"
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        class="expansion-panel"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ item }}
+          </mat-panel-title>
+          <mat-checkbox
+            color="primary"
+            (click)="toAddRule($event, item)"
+          ></mat-checkbox>
 
-      class="expansion-panel">
-
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{ item }}
-        </mat-panel-title>
-
-
-
-
-
-        <mat-panel-description>
-          Actualmente estoy {{ panelOpenState ? "abierto" : "cerrado" }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>Soy visible porque estoy abierto</p>
-    </mat-expansion-panel>
-
+          <mat-panel-description>
+            Actualmente estoy {{ panelOpenState ? "abierto" : "cerrado" }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Soy visible porque estoy abierto</p>
+      </mat-expansion-panel>
     </mat-accordion>
   </cdk-virtual-scroll-viewport>
 </div>

@@ -65,6 +65,7 @@ import { DataTransformationComponent } from './data-transformation/data-transfor
 import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
 import { TransformRulesComponent } from './transform-rules/transform-rules.component';
 import { ScrollingModule } from "@angular/cdk/scrolling";
+import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -97,6 +98,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
          SparqlQueryViewComponent,
          SparqlQueryViewComponent,
          TransformRulesComponent,
+         EntityPanelComponent,
 
 
 
