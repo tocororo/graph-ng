@@ -17,7 +17,18 @@
   align-items: center;
 
 }
-
+.buttons-section{
+display: flex;
+.button-container {
+  display: flex;
+  align-self: flex-start;
+button{
+  margin: 1em;
+  height: 5vh;
+  width: 8vw;
+}
+}
+}
 
  /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
  @media screen and (max-width: 600px) {

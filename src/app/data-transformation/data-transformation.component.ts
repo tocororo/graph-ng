@@ -12,6 +12,8 @@ export class DataTransformationComponent {
   mobileQuery: MediaQueryList;
   currentBreakpoint: string;
   cols: number = 2;
+  public buttons_array:any[]=[{label:"GUARDAR",color:"basic"},{label:"CANCELAR",color:"primary"},{label:"TRANSFORMAR",color:"accent"}]
+
 
 
 

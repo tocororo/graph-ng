@@ -10,6 +10,7 @@ export class EntityPanelComponent implements OnInit {
 public items=[1,2,3,4,5,6,7]
 public size:string="medium"
 public isMobile: boolean=true;
+
 /**
  * use to know the actual breakpoint(handset,table or desktop)
  */

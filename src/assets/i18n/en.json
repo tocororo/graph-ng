@@ -22,6 +22,8 @@
     "SEGURIDAD": "Security",
     "ADMINISTRACION": "Settings",
     "SALIR": "Exit",
+    "CANCELAR":"Cancel",
+    "TRANSFORMAR":"Transform",
     "YO": "Me",
     "EMPEZAR": "Get Started",
     "PROD_SERV": "Products and Services",
