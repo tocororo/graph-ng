@@ -77,6 +77,9 @@
     "TRANSFORMACION_DATOS":"Transformación de Datos",
     "HOME":"Inicio",
     "CONSULTAS_SPARQL":"Consultas SPARQL",
+    "PANEL_ENTIDADES":"Panel de Entidades",
+    "REGLAS_TRANSFORMACION":"Reglas de Transformacion",
+
 
     "FOOTER_TEXT_DEVELOP": "desarrollado con",
     "FOOTER_TEXT_AND": "y",

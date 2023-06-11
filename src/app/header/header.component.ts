@@ -254,13 +254,7 @@ export class HeaderComponent implements OnInit {
 
     this.staticMenuOptions = this.menuOptions || [
 
-      {
-        nameTranslate: "IMPORTAR",
-        icon: "publish",
-        useRouterLink: true,
-        hideLabel: true,
-        href: '/import',
-      },
+
       {
         nameTranslate: "APLICACIONES",
         icon: "apps",

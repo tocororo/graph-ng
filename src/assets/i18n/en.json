@@ -79,6 +79,8 @@
     "TRANSFORMACION_DATOS":"Data Transformation",
     "HOME":"Home",
     "CONSULTAS_SPARQL":" SPARQL Queries",
+    "PANEL_ENTIDADES":"Entity Pane",
+    "REGLAS_TRANSFORMACION":"Transformation Rules",
 
 
     "TOCO_SEARCH_QUERY_INPUT": {
