@@ -56,7 +56,7 @@ this.addGridStyle()
    * get the name of the current breakpoint based on the screen size
    * @returns the name of the current breakpoint
    */
-  private getBreakpoint(): string {
+  public getBreakpoint(): string {
     if (this.mobileQuery.matches) {
       return 'Handset';
     } else if (this.breakpointObserver.isMatched(Breakpoints.Tablet)) {
