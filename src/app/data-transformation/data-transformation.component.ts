@@ -12,7 +12,8 @@ export class DataTransformationComponent {
   mobileQuery: MediaQueryList;
   currentBreakpoint: string;
   cols: number = 2;
-  rowHeight: string = "40em";
+
+
 
 
   constructor(private breakpointObserver: BreakpointObserver,private mediaMatcher: MediaMatcher) {
@@ -26,6 +27,7 @@ this.addGridStyle()
 
 
   }
+
 /**
  * check if it is mobile view, if so, assign 1 to my column variable and
  * to the height of my rows of 30 em and so on with all my breakpoints
@@ -34,16 +36,17 @@ this.addGridStyle()
   public addGridStyle(){
     if (this.getBreakpoint() === 'Handset') {
       this.cols = 1;
-      this.rowHeight = "30em";
+
+
     } else if (this.getBreakpoint()  === 'Tablet') {
       console.log(1);
       this.cols = 1;
-      this.rowHeight = "35em";
 
     } else {
       console.log(2);
       this.cols = 2;
-      this.rowHeight = "40em";
+
+
     }
 
 

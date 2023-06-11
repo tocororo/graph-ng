@@ -1,1 +1,10 @@
-<p>entity-panel works!</p>
+
+<ng-container class="entity-panel-container" >
+  <h1 class="title">Panel de Entidades</h1>
+  <cdk-virtual-scroll-viewport itemSize="50" orientation="horizontal" >
+<div *cdkVirtualFor="let item of items" class="entity-container" style="height: 100%;width: 100%;">
+  <div class="entity-button" [matBadge]="item" [matBadgeSize]="size">{{item}}</div>
+</div>
+</cdk-virtual-scroll-viewport>
+
+</ng-container>

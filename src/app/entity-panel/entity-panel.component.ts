@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./entity-panel.component.scss']
 })
 export class EntityPanelComponent {
-
+public items=[1,2,3,4,5,6,7]
+public size:string="large"
 }

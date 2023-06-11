@@ -1,0 +1,75 @@
+.entity-panel-container {
+  width: 100%;
+  height: 90%;
+}
+cdk-virtual-scroll-viewport {
+  height: 80%;
+  width: 22vw;
+  margin-top: 3em;
+  .entity-container {
+    align-items: center;
+    .entity-button {
+      height: 10vh;
+      width: 20vw;
+      margin: 8px;
+      border-radius: 10px;
+      background-color: aqua;
+    }
+  }
+}
+
+.w-100-h-100 {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  text-align: center; /* Centrar el texto */
+  font-size: 3rem; /* Tamaño de fuente inicial */
+  margin-top: 30px;
+
+
+}
+ /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
+ @media screen and (max-width: 600px) {
+  .title {
+    text-align: center; /* Centrar el texto */
+    font-size: 2rem; /* Tamaño de fuente inicial */
+    margin-top: 30px;
+
+  }
+  cdk-virtual-scroll-viewport {
+    height: 80%;
+    width: 100%;
+    margin-top: 0,5em;
+    .entity-container {
+      align-items: center;
+      .entity-button {
+        height: 100%;
+        width: 10vw;
+        margin: 2px;
+        border-radius: 6px;
+        background-color: aqua;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .title {
+    text-align: center; /* Centrar el texto */
+    font-size: 1.8rem; /* Tamaño de fuente inicial */
+    margin-top: 30px;
+
+
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .title {
+    text-align: center; /* Centrar el texto */
+    font-size: 3rem; /* Tamaño de fuente inicial */
+    margin-top: 30px;
+
+
+  }
+}
