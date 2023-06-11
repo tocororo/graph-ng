@@ -16,15 +16,18 @@ public isMobile: boolean=true;
 @Input() breakpoint: string;
 
 ngOnInit(): void {
-  console.log(this.breakpoint==="Handset");
+
 }
 
 getItemSize() {
-  return this.isMobile ? 40 : 50; // Adjust the item size for mobile and desktop
+  return this.breakpoint==="Handset" ? 40 : 50; // Adjust the item size for mobile and desktop
 }
-
+/**
+ * use to know if the scream is a mobile scream
+ * @returns the boolean value of the expresion
+ */
 getOrientation() {
-  console.log(this.breakpoint);
+
 
   return this.breakpoint==="Handset" ? 'horizontal' : 'vertical'; // Set the orientation based on mobile or desktop
 }

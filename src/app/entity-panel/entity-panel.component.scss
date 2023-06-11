@@ -1,7 +1,8 @@
 cdk-virtual-scroll-viewport {
-  height: 55vh;
+  height: 50vh;
   width: 28vw;
-  margin-top: 3em;
+  margin-top: 0px;
+  margin-bottom: 3em;
   .entity-container {
     .entity-button {
       height: 95%;
@@ -9,18 +10,16 @@ cdk-virtual-scroll-viewport {
       margin: 8px;
       border-radius: 10px;
       background-color: #f5f5f5;
+      align-items: center;
     }
   }
 }
 
-.w-100-h-100 {
-  width: 100%;
-  height: 100%;
-}
+
 .title {
   text-align: center; /* Centrar el texto */
   font-size: 3rem; /* Tamaño de fuente inicial */
-  margin-top: 30px;
+  margin-top: 6px;
 }
 /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
 @media screen and (max-width: 600px) {
@@ -49,12 +48,19 @@ cdk-virtual-scroll-viewport {
     margin: 8px;
   }
 }
+ /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
+ @media screen and (max-width: 600px) {
 
-@media screen and (min-width: 601px) and (max-width: 1200px) {
+  /* Tamaño de fuente para pantallas pequeñas */
+
+}
+
+@media screen and  (min-width: 601px)and  (max-width: 1200px) {
+  /* Tamaño de fuente para pantallas medianas */
   .title {
     text-align: center; /* Centrar el texto */
     font-size: 1.8rem; /* Tamaño de fuente inicial */
-    margin-top: 30px;
+    margin-top: 1px;
   }
   .scroll-container {
     height: 48vh;
@@ -69,19 +75,34 @@ cdk-virtual-scroll-viewport {
 }
 
 @media screen and (min-width: 1201px) {
-  .title {
-    text-align: center; /* Centrar el texto */
-    font-size: 3rem; /* Tamaño de fuente inicial */
-    margin-top: 30px;
-  }
-  .scroll-container {
-    height: 48vh;
-    width: 28vw;
-    display: inline;
 
-    margin: 10px;
-    .entity-container {
-      height: 12vh;
+ /* Tamaño de fuente para pantallas grandes */
+ .title {
+  text-align: center; /* Centrar el texto */
+  font-size: 3rem; /* Tamaño de fuente inicial */
+  margin-top: 3px;
+}
+.scroll-container {
+  height: 48vh;
+  width: 28vw;
+  display: inline;
+
+  margin: 10px;
+  .entity-container {
+    height: 12vh;
+    .entity-button{
+      height: 14vh;
+      margin: 30px 15px;
     }
   }
+}
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+
+}
+
+@media screen and (min-width: 1201px) {
+
 }
