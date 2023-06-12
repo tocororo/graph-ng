@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="cols" >
+<mat-grid-list [cols]="cols_section1" >
   <mat-grid-tile  >
 <div class="tile-height-entity-panel">
   <app-entity-panel [breakpoint]="getBreakpoint()"></app-entity-panel>
@@ -13,9 +13,9 @@
 
   </mat-grid-tile>
 </mat-grid-list>
-<mat-grid-list [cols]="cols" >
-  <mat-grid-tile>Primera columna</mat-grid-tile>
-  <mat-grid-tile class="buttons-section"><section class="button-container">
+<mat-grid-list [cols]="cols_section2" >
+  <mat-grid-tile  [colspan]="colspan_section2" >Primera columna</mat-grid-tile>
+  <mat-grid-tile   class="buttons-section"><section class="button-container">
 
     <div class="example-button-row" *ngFor="let item of buttons_array">
       <button mat-raised-button [color]="item.color">{{ item.label| translate }}</button>

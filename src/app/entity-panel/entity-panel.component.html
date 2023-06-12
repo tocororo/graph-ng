@@ -8,7 +8,8 @@
           <mat-icon>add</mat-icon>
         </button>
       </div></div>
-    <div *cdkVirtualFor="let item of items" class="entity-container">
+    <div *cdkVirtualFor="let item of items,let position" class="entity-container">
+
       <div class="entity-button" [matBadge]="item" [matBadgeSize]="size">{{ item }}</div>
     </div>
   </div>
