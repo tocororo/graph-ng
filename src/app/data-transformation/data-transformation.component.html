@@ -14,7 +14,8 @@
   </mat-grid-tile>
 </mat-grid-list>
 <mat-grid-list [cols]="cols_section2" >
-  <mat-grid-tile  [colspan]="colspan_section2" >Primera columna</mat-grid-tile>
+  <mat-grid-tile  [colspan]="colspan_section2" ><app-outputs></app-outputs>
+  </mat-grid-tile>
   <mat-grid-tile   class="buttons-section"><section class="button-container">
 
     <div class="example-button-row" *ngFor="let item of buttons_array">
