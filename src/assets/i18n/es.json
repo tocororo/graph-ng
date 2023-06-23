@@ -22,6 +22,8 @@
     "SEGURIDAD": "Seguridad",
     "ADMINISTRACION": "Administración",
     "SALIR": "Salir",
+    "CANCELAR":"Cancelar",
+    "TRANSFORMAR":"Transformar",
     "YO": "Yo",
     "EMPEZAR": "Empezar",
     "PROD_SERV": "Productos y Servicios",
@@ -72,6 +74,12 @@
     "BUSQUEDA": "Descubre",
     "EVALUACION_APP": "Evaluación",
     "SMOODLE": "S-Moodle",
+    "TRANSFORMACION_DATOS":"Transformación de Datos",
+    "HOME":"Inicio",
+    "CONSULTAS_SPARQL":"Consultas SPARQL",
+    "PANEL_ENTIDADES":"Panel de Entidades",
+    "REGLAS_TRANSFORMACION":"Reglas de Transformacion",
+
 
     "FOOTER_TEXT_DEVELOP": "desarrollado con",
     "FOOTER_TEXT_AND": "y",

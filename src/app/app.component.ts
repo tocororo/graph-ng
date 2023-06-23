@@ -19,6 +19,7 @@ export enum Layouts {
 
 export class AppComponent
 {
+[x: string]: any;
 	/**
 	  * Returns the available language texts.
 	  */
@@ -42,7 +43,17 @@ export class AppComponent
 
   public Layouts = Layouts;
   public layout: Layouts;
-
+  /**
+   * this menu represent all the views of the site
+   * by carlosmonterrey17@gmail.com
+   */
+  public arrayMenuItems=[{content:'HOME',routerlink:"/"},
+  {content:'TRANSFORMACION_DATOS',routerlink:"/data"},
+  {content:'CONSULTAS_SPARQL',routerlink:"query"}]
+  /**
+   * use to display the view title
+   */
+public view_title:string=this.arrayMenuItems[0].content
 	public constructor(private _env: Environment,
 		// private _matomoInjector: MatomoInjector,
 		private _router: Router,
@@ -109,4 +120,9 @@ export class AppComponent
 	{
 		return this._router.url == '/';
 	}
+public changeFontContent(index){
+  this.view_title=index.content
+  console.log(index);
+
+}
 }
