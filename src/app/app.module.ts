@@ -67,6 +67,7 @@ import { TransformRulesComponent } from './transform-rules/transform-rules.compo
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { OutputsComponent } from './outputs/outputs.component';
+import { NgxGraphModule } from "@swimlane/ngx-graph";
 
 
 export function storageFactory(): OAuthStorage {
@@ -154,6 +155,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         AppRoutingModule,
         FlexLayoutModule,
         ScrollingModule,
+        NgxGraphModule,
         OAuthModule.forRoot({
             resourceServer: {
                 allowedUrls: allowedURLS,

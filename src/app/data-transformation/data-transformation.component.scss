@@ -19,6 +19,15 @@
 }
 .buttons-section{
 display: flex;
+.container-button-spinner{
+  display: block;
+  .spinner-card-container{
+    width: 28vw;
+  height: 27vh;
+  margin: 2em;
+
+  }
+}
 .button-container {
   display: flex;
   align-self: flex-start;
@@ -28,6 +37,7 @@ button{
   height: 5vh;
   width: 8vw;
 }
+
 }
 }
 

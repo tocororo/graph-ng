@@ -1,28 +1,44 @@
-<mat-grid-list [cols]="cols_section1" >
-  <mat-grid-tile  >
-<div class="tile-height-entity-panel">
-  <app-entity-panel [breakpoint]="getBreakpoint()"></app-entity-panel>
-</div>
-
+<mat-grid-list [cols]="cols_section1">
+  <mat-grid-tile>
+    <div class="tile-height-entity-panel">
+      <app-entity-panel [breakpoint]="getBreakpoint()"></app-entity-panel>
+    </div>
   </mat-grid-tile>
   <mat-grid-tile>
-<div class="tile-height-rules-panel">
-  <app-transform-rules style="width: 100%;height: 100%;"></app-transform-rules>
-</div>
-
-
+    <div class="tile-height-rules-panel">
+      <app-transform-rules
+        style="width: 100%; height: 100%"
+      ></app-transform-rules>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
-<mat-grid-list [cols]="cols_section2" >
-  <mat-grid-tile  [colspan]="colspan_section2" ><app-outputs></app-outputs>
+<mat-grid-list [cols]="cols_section2">
+  <mat-grid-tile [colspan]="colspan_section2"
+    ><app-outputs></app-outputs>
   </mat-grid-tile>
-  <mat-grid-tile   class="buttons-section"><section class="button-container">
+  <mat-grid-tile class="buttons-section">
+    <section class="container-button-spinner">
+      <section class="button-container">
 
-    <div class="example-button-row" *ngFor="let item of buttons_array">
-      <button mat-raised-button [color]="item.color">{{ item.label| translate }}</button>
+        <div class="example-button-row" *ngFor="let item of buttons_array">
+          <button mat-raised-button [color]="item.color">
+            {{ item.label | translate }}
+          </button>
+        </div>
+      </section>
+      <mat-card class="spinner-card-container">
+        <mat-card-content>
+          <h2 class="example-h2">Result</h2>
 
-
-
-    </div>
-  </section></mat-grid-tile>
+          <mat-progress-spinner
+            class="example-margin"
+            color="primary"
+            mode="determinate"
+            value="3"
+          >
+          </mat-progress-spinner>
+        </mat-card-content> </mat-card
+    >
+    </section>
+   </mat-grid-tile>
 </mat-grid-list>
