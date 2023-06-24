@@ -25,6 +25,16 @@ display: flex;
     width: 28vw;
   height: 27vh;
   margin: 2em;
+mat-card-content{
+  display: flex;
+  height: 100%;
+   justify-content: center;
+   .progress-spinner{
+    width: 10em !important;
+    height: 10em  !important;
+    margin-top: 2em;
+   }
+}
 
   }
 }
@@ -36,6 +46,7 @@ button{
   margin: 1em;
   height: 5vh;
   width: 8vw;
+  font-size: 90%;
 }
 
 }
@@ -60,6 +71,22 @@ button{
   app-entity-panel{
   width: 95vw;
   height: 100%;
+
+  }
+  .spinner-card-container{
+    width: 100% !important;
+    margin: 0px !important;
+
+  }
+  .button-container {
+    display: flex;
+    align-self: flex-start;
+    margin: 1em;
+     button{
+    margin: 5px !important;
+
+    width: 26vw !important;
+  }
 
   }
 }
