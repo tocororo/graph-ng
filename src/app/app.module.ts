@@ -68,6 +68,7 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { NgxGraphModule } from "@swimlane/ngx-graph";
+import { SparqlInputComponent } from './sparql-query-view/sparql-input/sparql-input.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -102,6 +103,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
          TransformRulesComponent,
          EntityPanelComponent,
          OutputsComponent,
+         SparqlInputComponent,
 
 
 

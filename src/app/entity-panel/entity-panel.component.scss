@@ -71,7 +71,7 @@ margin: 0px 10px;
       height: 20vh;
       background-color: white;
       width: 27vw;
-      margin: 0px 10px;
+      margin: 0px 12px;
       border-radius: 10px;
       border: 2px black dashed;
 
@@ -135,7 +135,15 @@ margin: 0px 10px;
     height: 48vh;
     width: 28vw;
     display: inline;
+    .toadd-button-container {
+      display: flex;
+      justify-content: center;
+      height: 12vh;
+      background-color: white;
+      width: 25vw;
+      margin: 0px 12px;
 
+     }
     margin: 10px;
     .entity-container {
       height: 12vh;

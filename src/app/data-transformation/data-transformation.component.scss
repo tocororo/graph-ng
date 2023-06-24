@@ -19,12 +19,12 @@
 }
 .buttons-section{
 display: flex;
-.container-button-spinner{
+.button-spinner-container{
   display: block;
   .spinner-card-container{
     width: 28vw;
-  height: 27vh;
-  margin: 2em;
+    height: 32vh;
+    margin: 0.5em 0px 2em 2em;
 mat-card-content{
   display: flex;
   height: 100%;

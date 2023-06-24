@@ -4,6 +4,7 @@ import {
   MediaMatcher,
 } from "@angular/cdk/layout";
 import { Component, OnInit } from "@angular/core";
+import { GetBreakpointService } from "../shared-services/get-breakpoint.service";
 
 @Component({
   selector: "app-data-transformation",
@@ -24,10 +25,10 @@ export class DataTransformationComponent implements OnInit{
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private mediaMatcher: MediaMatcher
+    private mediaMatcher: MediaMatcher,public get_breakpoint_service:GetBreakpointService
   ) {
-    this.mobileQuery = this.mediaMatcher.matchMedia("(max-width: 599.98px)");
-    this.currentBreakpoint = this.getBreakpoint();
+
+    this.currentBreakpoint = get_breakpoint_service.getBreakpoint();
   }
 
   ngOnInit() {
@@ -40,31 +41,18 @@ export class DataTransformationComponent implements OnInit{
    *
    */
   public addGridStyle() {
-    if (this.getBreakpoint() === "Handset") {
+    if (this.get_breakpoint_service.getBreakpoint() === "Handset") {
       this.cols_section1 = 1;
       this.cols_section2 = 1;
-    } else if (this.getBreakpoint() === "Tablet") {
+    } else if (this.get_breakpoint_service.getBreakpoint() === "Tablet") {
       this.cols_section1 = 2;
       this.cols_section2 = 3;
     } else {
-      console.log(2);
+
       this.cols_section1 = 2;
       this.colspan_section2 = 2;
     }
   }
-  /**
-   * get the name of the current breakpoint based on the screen size
-   * @returns the name of the current breakpoint
-   */
-  public getBreakpoint(): string {
-    if (this.mobileQuery.matches) {
-      return "Handset";
-    } else if (this.breakpointObserver.isMatched(Breakpoints.Tablet)) {
-      return "Tablet";
-    } else if (this.breakpointObserver.isMatched(Breakpoints.Web)) {
-      return "Web";
-    } else {
-      return "Unknown";
-    }
-  }
+
+
 }

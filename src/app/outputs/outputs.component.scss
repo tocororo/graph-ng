@@ -26,8 +26,8 @@
 
   .output-container{
     display: flex;
-    width: 100%;
-    height: 32vh;
+    width: 90vw;
+    height: 28vh;
     cdk-virtual-scroll-viewport{
       height: 24vh;
       margin: 1px;
@@ -38,6 +38,12 @@
       }
     }
   }
+
+.title{
+
+  margin-left: 3.5em;
+  font-size: revert;
+}
 
 }
 
