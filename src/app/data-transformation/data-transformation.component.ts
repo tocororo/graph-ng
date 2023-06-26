@@ -47,6 +47,7 @@ export class DataTransformationComponent implements OnInit{
     } else if (this.get_breakpoint_service.getBreakpoint() === "Tablet") {
       this.cols_section1 = 2;
       this.cols_section2 = 3;
+      this.colspan_section2=2;
     } else {
 
       this.cols_section1 = 2;

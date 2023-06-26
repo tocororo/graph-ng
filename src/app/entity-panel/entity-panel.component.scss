@@ -100,16 +100,16 @@ margin: 0px 10px;
 
 
 }
-/* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
+/* Media queries para ajustar el tamaño  */
 @media screen and (max-width: 600px) {
-  /* Tamaño de fuente para pantallas pequeñas */
+  /* Tamaño  para pantallas pequeñas */
 }
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
-  /* Tamaño de fuente para pantallas medianas */
+  /* Tamaño  para pantallas medianas */
   .title {
-    text-align: center; /* Centrar el texto */
-    font-size: 1.8rem; /* Tamaño de fuente inicial */
+    text-align: center;
+    font-size: 1.8rem;
     margin-top: 1px;
   }
   .scroll-container {

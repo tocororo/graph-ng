@@ -23,7 +23,7 @@
  @media screen and (max-width: 600px) {
 
   /* Tamaño de fuente para pantallas pequeñas */
-
+.container
   .output-container{
     display: flex;
     width: 90vw;
@@ -49,6 +49,28 @@
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
   /* Tamaño de fuente para pantallas medianas */
+
+
+  .title{
+    margin-left: 5.5em;
+    font-size: 20px;
+    margin-top: 1.5em;
+  }
+  .output-container{
+    display: flex;
+    width: 60vw;
+    height: 25vh;
+    cdk-virtual-scroll-viewport{
+      height: 15vh;
+      margin: 1px;
+      background-color: #f5f5f5f5;
+      border: 1px black solid;
+      mat-list-item{
+        height: 1.5vh;
+      }
+    }
+  }
+
 
 }
 

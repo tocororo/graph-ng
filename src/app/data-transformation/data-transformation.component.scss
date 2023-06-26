@@ -17,6 +17,7 @@
   align-items: center;
 
 }
+
 .buttons-section{
 display: flex;
 .button-spinner-container{
@@ -30,8 +31,8 @@ mat-card-content{
   height: 100%;
    justify-content: center;
    .progress-spinner{
-    width: 10em !important;
-    height: 10em  !important;
+    width: 10em ;
+    height: 10em  ;
     margin-top: 2em;
    }
 }
@@ -105,7 +106,33 @@ button{
     margin: 5px
 
   }
-}
+  .output-section{
+    margin-top: 3em !important;
+    app-outputs{
+      height: 25vh;
+
+    }
+    .button-spinner-container{
+      height: 25vh;
+      width: 35vw;
+      margin-left: 12px;
+      .button-container{
+        button{
+          margin: 14px 2px;
+          height: 4vh;
+          width: 9vw;
+          font-size: 69%;
+      }
+        }
+        .progress-spinner{
+          width: 8em ;
+          height: 8em  ;
+          margin-top: 0em;
+         }}
+  }
+    }
+
+
 
 @media screen and (min-width: 1201px) {
 
