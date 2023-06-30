@@ -16,7 +16,11 @@
 
   /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
   @media screen and (max-width: 600px) {
-
+    .title {
+      text-align: center; /* Centrar el texto */
+      font-size: 1.25rem ; /* Tamaño de fuente para pantallas medianas */
+      margin-top: 54px !important;
+  }
   }
 
   @media screen and (min-width: 601px) and (max-width: 1200px) {

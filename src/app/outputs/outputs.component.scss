@@ -23,10 +23,10 @@
  @media screen and (max-width: 600px) {
 
   /* Tamaño de fuente para pantallas pequeñas */
-.container
+
   .output-container{
     display: flex;
-    width: 90vw;
+    width: 90vw ;
     height: 28vh;
     cdk-virtual-scroll-viewport{
       height: 24vh;
@@ -41,8 +41,8 @@
 
 .title{
 
-  margin-left: 3.5em;
-  font-size: revert;
+  margin-left: 3.25em;
+  font-size: 1.25em;
 }
 
 }

@@ -77,6 +77,11 @@ button{
   .spinner-card-container{
     width: 100% !important;
     margin: 0px !important;
+    .progress-spinner{
+      width: 8em ;
+      height: 8em ;
+      margin-top: 2em ;
+     }
 
   }
   .button-container {
@@ -124,11 +129,7 @@ button{
           font-size: 69%;
       }
         }
-        .progress-spinner{
-          width: 8em ;
-          height: 8em  ;
-          margin-top: 0em;
-         }}
+        }
   }
     }
 
@@ -149,5 +150,10 @@ button{
   margin: 5px
 
 }
+  .progress-spinner{
+          width: 10em !important ;
+          height: 10em !important ;
+          margin-top: 1.5em !important;
+         }
 }
 
