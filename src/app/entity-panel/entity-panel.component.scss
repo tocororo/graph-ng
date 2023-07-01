@@ -105,7 +105,7 @@ margin: 0px 10px;
   /* Tamaño  para pantallas pequeñas */
   .title {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.25em;
     margin-top: 1px;
   }
 
@@ -152,8 +152,8 @@ margin: 0px 10px;
   /* Tamaño de fuente para pantallas grandes */
   .title {
     text-align: center !important; /* Centrar el texto */
-    font-size: 1.25rem; /* Tamaño de fuente inicial */
-    margin-top: 3px;
+    font-size: 2em; /* Tamaño de fuente inicial */
+    margin-top: 30px;
 
   }
   .scroll-container {

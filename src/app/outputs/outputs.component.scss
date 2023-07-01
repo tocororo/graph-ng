@@ -35,13 +35,14 @@
       border: 1px black solid;
       mat-list-item{
         height: 2vh;
+        margin: 1px;
       }
     }
   }
 
 .title{
 
-  margin-left: 3.25em;
+  margin-left: 5.25em;
   font-size: 1.25em;
 }
 
@@ -67,6 +68,7 @@
       border: 1px black solid;
       mat-list-item{
         height: 1.5vh;
+        margin: 1px;
       }
     }
   }
@@ -77,6 +79,11 @@
 @media screen and (min-width: 1201px) {
 
  /* Tamaño de fuente para pantallas grandes */
+ .title{
+  margin-left: 5.5em;
+  font-size: 2em;
+  margin-top: 1.5em;
+}
 
 }
 

@@ -18,7 +18,7 @@
   @media screen and (max-width: 600px) {
     .title {
       text-align: center; /* Centrar el texto */
-      font-size: 1.25rem ; /* Tamaño de fuente para pantallas medianas */
+      font-size: 1.25em ; /* Tamaño de fuente para pantallas medianas */
       margin-top: 54px !important;
   }
   }
@@ -26,16 +26,16 @@
   @media screen and (min-width: 601px) and (max-width: 1200px) {
 
     .title {
-      text-align: center; /* Centrar el texto */
-      font-size: 1.8rem !important; /* Tamaño de fuente para pantallas medianas */
-      margin-top: 54px !important;
+      text-align: center;
+      font-size: 1.8rem ;
+      margin-top: 54px ;
   }
   }
   @media screen and (min-width: 1201px) {
 
     .title {
       text-align: center; /* Centrar el texto */
-      font-size: 3rem; /* Tamaño de fuente inicial */
-      margin-top: 30px;
+      font-size: 2em; /* Tamaño de fuente inicial */
+      margin-top: 48px;
   }
 }
