@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GetBreakpointService } from '../shared-services/get-breakpoint.service';
 
 @Component({
   selector: 'app-sparql-query-view',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sparql-query-view.component.scss']
 })
 export class SparqlQueryViewComponent {
+
 
 }

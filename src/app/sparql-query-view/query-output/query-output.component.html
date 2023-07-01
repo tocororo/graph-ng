@@ -1,0 +1,9 @@
+<ng-container>
+  <section class="result-visualization-section">
+    <app-query-result></app-query-result>
+  </section>
+  <section *ngIf="!(currentBreakpoint=='Handset')" class="result-detail-section">
+    <app-query-result-detail ></app-query-result-detail>
+
+  </section>
+</ng-container>

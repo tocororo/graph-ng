@@ -1,43 +1,45 @@
-<mat-grid-list>
-  <mat-grid-tile>
-
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <p>sparql-query-view works!</p>
-
-  </mat-grid-tile>
-</mat-grid-list>
-
-<ngx-graph
-  class="chart-container"
-  [view]="[800, 200]"
-  [showMiniMap]="true"
-  [links]="[
-    {
-      id: 'a',
-      source: 'first',
-    target: 'second',
-      label: 'is parent of'
-    }, {
-      id: 'b',
-      source: 'first',
-      target: 'third',
-      label: 'custom label'
-    }
-  ]"
-  [nodes]="[
-    {
-      id: 'first',
-      label: 'A'
-    }, {
-      id: 'second',
-      label: 'B'
-    }, {
-      id: 'third',
-      label: 'C'
-    }
-  ]"
->
-</ngx-graph>
 
 
+
+<mat-tab-group>
+  <mat-tab label="First">
+
+  <ngx-graph
+    class="chart-container"
+    [view]="[800, 200]"
+    [showMiniMap]="true"
+    [links]="[
+      {
+        id: 'a',
+        source: 'first',
+      target: 'second',
+        label: 'is parent of'
+      }, {
+        id: 'b',
+        source: 'first',
+        target: 'third',
+        label: 'custom label'
+      }
+    ]"
+    [nodes]="[
+      {
+        id: 'first',
+        label: 'A'
+      }, {
+        id: 'second',
+        label: 'B'
+      }, {
+        id: 'third',
+        label: 'C'
+      }
+    ]"
+  >
+  </ngx-graph></mat-tab>
+  <mat-tab label="Second"> <mat-grid-list cols="1" rowHeight="25em">
+    <mat-grid-tile><app-sparql-input ></app-sparql-input></mat-grid-tile>
+    <mat-grid-tile><app-query-output class="sparql-input-container"></app-query-output></mat-grid-tile>
+
+  </mat-grid-list>
+   </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>

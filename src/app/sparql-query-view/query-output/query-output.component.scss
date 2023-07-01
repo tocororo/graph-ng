@@ -1,10 +1,22 @@
-.sparql-input-container{
-  display: inline-flex;
-  width: 100%;
-  height: 100%;
-}
+
+
+  .result-visualization-section{
+    width: 70%;
+    height: 100%;
+
+  }
+  .result-detail-section{
+    width: 30%;
+    height: 100%;
+
+  }
 
 @media screen and (max-width: 600px) {
+  .result-visualization-section{
+    width: 100%;
+    height: 100%;
+
+  }
 
 
 }
@@ -16,10 +28,5 @@
 
 @media screen and (min-width: 1201px) {
   /* Tamaño de fuente para pantallas grandes */
-  .sparql-input-container{
-    display: inline-flex;
-    width: 100%;
-    height: 100%;
-  }
-}
 
+}

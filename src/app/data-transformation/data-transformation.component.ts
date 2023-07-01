@@ -24,8 +24,7 @@ export class DataTransformationComponent implements OnInit{
   ];
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    private mediaMatcher: MediaMatcher,public get_breakpoint_service:GetBreakpointService
+   public get_breakpoint_service:GetBreakpointService
   ) {
 
     this.currentBreakpoint = get_breakpoint_service.getBreakpoint();

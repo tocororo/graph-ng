@@ -69,6 +69,9 @@ import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { NgxGraphModule } from "@swimlane/ngx-graph";
 import { SparqlInputComponent } from './sparql-query-view/sparql-input/sparql-input.component';
+import { QueryOutputComponent } from './sparql-query-view/query-output/query-output.component';
+import { QueryResultComponent } from './sparql-query-view/query-result/query-result.component';
+import { QueryResultDetailComponent } from './sparql-query-view/query-result-detail/query-result-detail.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -104,6 +107,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
          EntityPanelComponent,
          OutputsComponent,
          SparqlInputComponent,
+         QueryOutputComponent,
+         QueryResultComponent,
+         QueryResultDetailComponent,
 
 
 
