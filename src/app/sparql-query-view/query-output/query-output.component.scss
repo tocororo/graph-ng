@@ -3,6 +3,9 @@
   .result-visualization-section{
     width: 70%;
     height: 100%;
+    .app-query-result{
+      display:block; height:35vh;width: 100%; max-width: 80vw;
+    }
 
   }
   .result-detail-section{
@@ -23,6 +26,10 @@
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
   /* Tamaño  para pantallas medianas */
+  .app-query-result{
+    display:block;
+     height:32vh;width: 100%; max-width: 80vw;
+  }
 
 }
 
