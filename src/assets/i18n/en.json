@@ -81,6 +81,11 @@
     "CONSULTAS_SPARQL":" SPARQL Queries",
     "PANEL_ENTIDADES":"Entity Pane",
     "REGLAS_TRANSFORMACION":"Transformation Rules",
+    "TABLA":"Table",
+    "GRAFO":"Graph",
+    "DOCUMENTACION":"Documentation",
+    "HISTORIAL":"History",
+    "SALIDA_ALGORITMO":"Output of the algorithm",
 
 
     "TOCO_SEARCH_QUERY_INPUT": {

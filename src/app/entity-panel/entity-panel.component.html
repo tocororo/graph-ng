@@ -10,7 +10,7 @@
       </div></div>
     <div *cdkVirtualFor="let item of items,let position" class="entity-container">
 
-      <div class="entity-button" [matBadge]="item" [matBadgeSize]="size">{{ item }}</div>
+      <div class="entity-button" [matBadge]="item" [matBadgeSize]="size"> <span class="entity-label">{{ item }}</span></div>
     </div>
   </div>
   </cdk-virtual-scroll-viewport>

@@ -79,6 +79,11 @@
     "CONSULTAS_SPARQL":"Consultas SPARQL",
     "PANEL_ENTIDADES":"Panel de Entidades",
     "REGLAS_TRANSFORMACION":"Reglas de Transformacion",
+    "TABLA":"Tabla",
+    "GRAFO":"Grafo",
+    "DOCUMENTACION":"Documentacion",
+    "HISTORIAL":"Historial",
+    "SALIDA_ALGORITMO":"Salida del algoritmo",
 
 
     "FOOTER_TEXT_DEVELOP": "desarrollado con",
