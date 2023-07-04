@@ -16,11 +16,11 @@
             (click)="toAddRule($event, item)"
           ></mat-checkbox>
 
-          <mat-panel-description>
+          <mat-panel-description class="rule-title">
             Actualmente estoy {{ panelOpenState ? "abierto" : "cerrado" }}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <p>Soy visible porque estoy abierto</p>
+        <p class="rule-description">Soy visible porque estoy abierto</p>
       </mat-expansion-panel>
     </mat-accordion>
   </cdk-virtual-scroll-viewport>
