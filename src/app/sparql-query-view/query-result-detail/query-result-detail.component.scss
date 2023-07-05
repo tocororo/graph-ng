@@ -1,0 +1,27 @@
+@media screen and (max-width: 600px) {
+
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  /* Tamaño  para pantallas medianas */
+
+
+}
+
+@media screen and (min-width: 1201px) {
+  /* Tamaño de fuente para pantallas grandes */
+  .container{
+    height: 100%;
+    width: 100%;
+
+
+  }
+
+  .tab-group{
+    width: 90%;
+    border: 1px grey solid;
+
+  }
+
+}
