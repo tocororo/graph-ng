@@ -7,6 +7,13 @@ import { GetBreakpointService } from '../shared-services/get-breakpoint.service'
   styleUrls: ['./sparql-query-view.component.scss']
 })
 export class SparqlQueryViewComponent {
+public currentBreakpoint:String
 
+constructor(
+  public get_breakpoint_service:GetBreakpointService
+ ) {
+
+   this.currentBreakpoint = get_breakpoint_service.getBreakpoint();
+ }
 
 }

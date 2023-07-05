@@ -1,6 +1,6 @@
 
 
-<ng-container class="container">
+<ng-container *ngIf="(currentBreakpoint=='Web')" class="container">
   <mat-tab-group class="tab-group">
     <mat-tab [label]="'DOCUMENTACION' | translate ">
 
@@ -13,4 +13,23 @@
      </mat-tab>
     <mat-tab [label]="'HISTORIAL' | translate "> Content 3 </mat-tab>
   </mat-tab-group>
+  </ng-container>
+
+
+<ng-container *ngIf="!(currentBreakpoint=='Web')" class="container">
+  <mat-grid-list cols="1" rowHeight="25em">
+    <mat-grid-tile><app-sparql-input ></app-sparql-input></mat-grid-tile>
+    <mat-grid-tile><app-query-output class="sparql-input-container"></app-query-output></mat-grid-tile>
+
+  </mat-grid-list>
+  </ng-container>
+
+
+  <ng-container  *ngIf="!(currentBreakpoint=='Web')"
+  >
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+
+    </mat-drawer>  </mat-drawer-container>
   </ng-container>
