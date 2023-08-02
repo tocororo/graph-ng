@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundPeopleComponent } from './page-not-found-people/page-not-found-people.component';
-import { SearchComponent } from './search/search.component';
+
 import {PeopleViewComponent} from "./people-view/people-view.component";
 import {Layouts} from "./app.component";
 
