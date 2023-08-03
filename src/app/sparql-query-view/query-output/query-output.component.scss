@@ -45,6 +45,12 @@
 
 @media screen and (min-width: 1201px) {
   /* Tamaño de fuente para pantallas grandes */
+  .container-output{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 3em; /* proporciona entre section y section un espacio  */
+  }
   .result-visualization-section{
     width: 100%;
     height: 100%;
@@ -59,8 +65,9 @@
   }
   .query-result-detail{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     height: 100%;
     width: 28vw;
+    
   }
 }

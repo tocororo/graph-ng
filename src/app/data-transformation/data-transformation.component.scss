@@ -21,7 +21,8 @@
 .buttons-section{
 display: flex;
 .button-spinner-container{
-  display: block;
+  display: flex;
+flex-direction: column;
   .spinner-card-container{
     width: 28vw;
     height: 32vh;
