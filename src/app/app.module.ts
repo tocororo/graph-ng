@@ -55,8 +55,7 @@ import { MainlayoutComponent } from "./layout/mainlayout/mainlayout.component";
 import { PeopleLayoutComponent } from "./layout/people-layout/people-layout.component";
 import { OrgService } from "./org.service";
 import { PageNotFoundPeopleComponent } from "./page-not-found-people/page-not-found-people.component";
-import { GeneralTabComponent } from "./people-view/general-tab/general-tab.component";
-import { PeopleViewComponent } from "./people-view/people-view.component";
+
 
 import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 
@@ -88,10 +87,10 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         PageNotFoundPeopleComponent,
         FooterComponent,
        
-        PeopleViewComponent,
+      
         MainlayoutComponent,
         PeopleLayoutComponent,
-        GeneralTabComponent,
+      
         HeaderComponent,
         MenuComponent,
         MenuItemComponent,

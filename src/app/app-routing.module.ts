@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundPeopleComponent } from './page-not-found-people/page-not-found-people.component';
 
-import {PeopleViewComponent} from "./people-view/people-view.component";
 import {Layouts} from "./app.component";
 
 import { PeopleActiveResolverService } from './people/people-resolver';
@@ -45,12 +44,7 @@ const routes: Routes = [
       'person': PeopleActiveResolverService
     },
     children: [
-      {
-        path: 'view',
-        component: PeopleViewComponent,
-        // data: { layout: Layouts.People },
-
-      }]
+     ]
   },
 	// {
 	// 	path: '**',
