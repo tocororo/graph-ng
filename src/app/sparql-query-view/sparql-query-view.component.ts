@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetBreakpointService } from '../shared-services/get-breakpoint.service';
+import { GetBreakpointService } from '../../services/shared-services/get-breakpoint.service';
 
 @Component({
   selector: 'app-sparql-query-view',

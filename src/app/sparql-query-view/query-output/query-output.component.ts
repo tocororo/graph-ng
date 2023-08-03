@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GetBreakpointService } from 'src/app/shared-services/get-breakpoint.service';
+import { GetBreakpointService } from 'src/services/shared-services/get-breakpoint.service';
+
 
 @Component({
   selector: 'app-query-output',

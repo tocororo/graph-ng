@@ -58,7 +58,6 @@ import { PageNotFoundPeopleComponent } from "./page-not-found-people/page-not-fo
 import { GeneralTabComponent } from "./people-view/general-tab/general-tab.component";
 import { PeopleViewComponent } from "./people-view/people-view.component";
 
-import { SelectOrgComponent } from "./select-org/select-org.component";
 import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 
 import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
@@ -97,7 +96,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         MenuComponent,
         MenuItemComponent,
 
-        SelectOrgComponent,
+       
          DataTransformationComponent,
          SparqlQueryViewComponent,
          SparqlQueryViewComponent,

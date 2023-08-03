@@ -4,7 +4,7 @@ import {
   MediaMatcher,
 } from "@angular/cdk/layout";
 import { Component, OnInit } from "@angular/core";
-import { GetBreakpointService } from "../shared-services/get-breakpoint.service";
+import { GetBreakpointService } from "../../services/shared-services/get-breakpoint.service";
 
 @Component({
   selector: "app-data-transformation",

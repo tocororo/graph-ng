@@ -8,8 +8,15 @@
 
 </div>
 <section class="toolbar-main" fxLayout="column" fxLayoutAlign="center center">
-  <div class=" bg-primary-color div-container" fxLayoutAlign="center center">
-    <mat-icon *ngIf="(view_title=='CONSULTAS_SPARQL')" aria-hidden="false" aria-label="Example home icon" fontIcon="menu" color="f5f5f5"></mat-icon>
+  <div class=" bg-primary-color div-container div-toolbar" fxLayoutAlign="center center">
+    <mat-icon  class="menu-item" *ngIf="(view_title=='CONSULTAS_SPARQL')"
+     aria-hidden="false"  fontIcon="menu" 
+     [matMenuTriggerFor]="menu"></mat-icon>
+     <mat-menu #menu="matMenu">
+      <button mat-menu-item>{{'CONSULTAS_SPARQL' | translate}}</button>
+      <button mat-menu-item>{{'DOCUMENTACION' | translate}}</button>
+      <button mat-menu-item>{{'HISTORIAL' | translate}}</button>
+    </mat-menu>
     <div class=" div-font">
         <h3 class="mat-display-2">{{ view_title | translate }}</h3>
     </div>
