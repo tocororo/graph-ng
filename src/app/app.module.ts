@@ -65,12 +65,13 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { NgxGraphModule } from "@swimlane/ngx-graph";
-import { SparqlInputComponent } from './sparql-query-layout/sparql-input/sparql-input.component';
-import { QueryOutputComponent } from './sparql-query-layout/query-output/query-output.component';
-import { QueryResultComponent } from './sparql-query-layout/query-result/query-result.component';
-import { QueryResultDetailComponent } from './sparql-query-layout/query-result-detail/query-result-detail.component';
 import { DocumentationViewComponent } from './documentation-view/documentation-view.component';
 import { QueryViewComponent } from './sparql-query-layout/query-view/query-view.component';
+import { HistorialViewComponent } from './sparql-query-layout/historial-view/historial-view.component';
+import { SparqlInputComponent } from "./sparql-query-layout/query-view/sparql-input/sparql-input.component";
+import { QueryOutputComponent } from "./sparql-query-layout/query-view/query-output/query-output.component";
+import { QueryResultDetailComponent } from "./sparql-query-layout/query-view/query-result-detail/query-result-detail.component";
+import { QueryResultComponent } from "./sparql-query-layout/query-view/query-result/query-result.component";
 
 
 export function storageFactory(): OAuthStorage {
@@ -110,6 +111,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
          QueryResultDetailComponent,
          DocumentationViewComponent,
          QueryViewComponent,
+         HistorialViewComponent,
 
 
 

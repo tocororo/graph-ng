@@ -17,6 +17,9 @@
   
   @media screen and (min-width: 1201px) {
     /* Tamaño de fuente para pantallas grandes */
+   .card{
+      height:99% ;
+    }
     .sparql-input-container{
       display: inline-flex;
       width: 100%;
