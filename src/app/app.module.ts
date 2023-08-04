@@ -59,16 +59,18 @@ import { PageNotFoundPeopleComponent } from "./page-not-found-people/page-not-fo
 
 import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 
-import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
+import { SparqlQueryLayoutComponent } from './sparql-query-layout/sparql-query-layout.component';
 import { TransformRulesComponent } from './transform-rules/transform-rules.component';
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { NgxGraphModule } from "@swimlane/ngx-graph";
-import { SparqlInputComponent } from './sparql-query-view/sparql-input/sparql-input.component';
-import { QueryOutputComponent } from './sparql-query-view/query-output/query-output.component';
-import { QueryResultComponent } from './sparql-query-view/query-result/query-result.component';
-import { QueryResultDetailComponent } from './sparql-query-view/query-result-detail/query-result-detail.component';
+import { SparqlInputComponent } from './sparql-query-layout/sparql-input/sparql-input.component';
+import { QueryOutputComponent } from './sparql-query-layout/query-output/query-output.component';
+import { QueryResultComponent } from './sparql-query-layout/query-result/query-result.component';
+import { QueryResultDetailComponent } from './sparql-query-layout/query-result-detail/query-result-detail.component';
+import { DocumentationViewComponent } from './documentation-view/documentation-view.component';
+import { QueryViewComponent } from './sparql-query-layout/query-view/query-view.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -89,7 +91,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
        
       
         MainlayoutComponent,
-        
+        DocumentationViewComponent,
       
         HeaderComponent,
         MenuComponent,
@@ -97,8 +99,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 
        
          DataTransformationComponent,
-         SparqlQueryViewComponent,
-         SparqlQueryViewComponent,
+         SparqlQueryLayoutComponent,
+      
          TransformRulesComponent,
          EntityPanelComponent,
          OutputsComponent,
@@ -106,6 +108,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
          QueryOutputComponent,
          QueryResultComponent,
          QueryResultDetailComponent,
+         DocumentationViewComponent,
+         QueryViewComponent,
 
 
 

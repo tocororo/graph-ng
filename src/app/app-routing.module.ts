@@ -11,7 +11,9 @@ import { PeopleActiveResolverService } from './people/people-resolver';
 
 import { MainlayoutComponent } from './layout/mainlayout/mainlayout.component';
 import { DataTransformationComponent } from './data-transformation/data-transformation.component';
-import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
+import { SparqlQueryLayoutComponent } from './sparql-query-layout/sparql-query-layout.component';
+import { DocumentationViewComponent } from './documentation-view/documentation-view.component';
+import { QueryViewComponent } from './sparql-query-layout/query-view/query-view.component';
 
 const routes: Routes = [
 	// {
@@ -28,14 +30,21 @@ const routes: Routes = [
         path: 'data',
         component: DataTransformationComponent,
         // data: { layout: Layouts.Main },
-      }, {
+      }, 
+      {
         path: 'query',
-        component: SparqlQueryViewComponent,
-        // data: { layout: Layouts.Main },
-      },
+        component: SparqlQueryLayoutComponent,
+        
+        children: [
+          {path: 'documentation',
+          component: DocumentationViewComponent},
+          {path: 'view',
+          component: QueryViewComponent}
+        ]
+      }
 
 
-    ],
+    ]
   },
  
 	// {
