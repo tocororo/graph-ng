@@ -8,7 +8,7 @@ import { PageNotFoundPeopleComponent } from './page-not-found-people/page-not-fo
 import {Layouts} from "./app.component";
 
 import { PeopleActiveResolverService } from './people/people-resolver';
-import { PeopleLayoutComponent } from './layout/people-layout/people-layout.component';
+
 import { MainlayoutComponent } from './layout/mainlayout/mainlayout.component';
 import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
@@ -37,15 +37,7 @@ const routes: Routes = [
 
     ],
   },
-  {
-    path: 'person/:uuid',
-    component: PeopleLayoutComponent,
-    resolve: {
-      'person': PeopleActiveResolverService
-    },
-    children: [
-     ]
-  },
+ 
 	// {
 	// 	path: '**',
 	// 	component: PageNotFoundPeopleComponent

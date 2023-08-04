@@ -52,7 +52,7 @@ import { MenuComponent } from "./header/menu/menu.component";
 import { HomeComponent } from "./home/home.component";
 
 import { MainlayoutComponent } from "./layout/mainlayout/mainlayout.component";
-import { PeopleLayoutComponent } from "./layout/people-layout/people-layout.component";
+
 import { OrgService } from "./org.service";
 import { PageNotFoundPeopleComponent } from "./page-not-found-people/page-not-found-people.component";
 
@@ -80,7 +80,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-    exports: [MainlayoutComponent, PeopleLayoutComponent],
+    exports: [MainlayoutComponent],
     declarations: [
         AppComponent,
         HomeComponent,
@@ -89,7 +89,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
        
       
         MainlayoutComponent,
-        PeopleLayoutComponent,
+        
       
         HeaderComponent,
         MenuComponent,

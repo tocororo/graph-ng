@@ -95,20 +95,26 @@ h3{
 .center-elements {
     width: auto;
 }
-@media screen and (max-width: 490px) {
-    .center-elements {
-        width: 100%;
-    }
-}
-@media screen and (max-width: 600px) {
-.div-toolbar{
-  height: 13vh !important ;
-}
 .menu-item{
   color: $color-white;
   transform: scale(1.5);
   margin-left: 8px;
 }
+@media screen and (min-width: 1201px) {
+  .menu-item{
+    display: none;
+ 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .center-elements {
+    width: 100%;
+}
+.div-toolbar{
+  height: 13vh !important ;
+}
+
 .div-font{
   padding:10px 1em 10px 2em ;
 
