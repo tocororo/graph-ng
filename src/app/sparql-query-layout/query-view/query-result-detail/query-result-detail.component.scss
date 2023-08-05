@@ -1,3 +1,4 @@
+
 .header-detail{
   display: flex;
   flex-direction: row-reverse;
@@ -8,11 +9,11 @@
   .circle-type{
     height: 85%;
     min-width: 4vw;
-    width: 4vw;
+    width: auto;
 
     background-color: aqua;
     border-radius: 20px;
-    border: 1px black solid;
+    border: 1px grey solid;
     cursor: pointer;
     display: inline-flex; /* Hace que el círculo tome el ancho del contenido */
     align-items: center; /* Centra el contenido verticalmente */
@@ -32,12 +33,26 @@
   transition: width 2s ease;
   transform: scale(1.1); /* Aumento de tamaño al hacer clic */
   
-  width: auto;
+  
   
   
 }
 
+
 }
+.list-container{
+  margin: 1px;
+  
+  
+  
+  .list-item-container{
+    padding: 0px;
+    height: 7vh ;
+    width: 98%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
 cdk-virtual-scroll-viewport{
   height: 25vh;
   width: 100%;
@@ -69,7 +84,7 @@ cdk-virtual-scroll-viewport{
     display: flex;
     flex-direction: column;
     height: 99%;
-    width: 100%;
+    width: 92%;
     mat-card-content{
       height: 100%;
     }
