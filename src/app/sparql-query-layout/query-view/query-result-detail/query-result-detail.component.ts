@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class QueryResultDetailComponent {
 
-
+  items = Array.from({length: 10}).map((_, i) => `Item #${i}`);
 }

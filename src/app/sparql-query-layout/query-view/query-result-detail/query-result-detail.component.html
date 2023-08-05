@@ -6,7 +6,13 @@
     </mat-card-header>
     <mat-card-content> <mat-tab-group class="tab-group">
       <mat-tab [label]="'PROPIEDADES' | translate ">
-  
+        
+          <cdk-virtual-scroll-viewport class="scroll-container"  itemSize="50" class="example-viewport">
+            <div *cdkVirtualFor="let item of items" class="example-item"><h2>{{item}}</h2></div>
+          </cdk-virtual-scroll-viewport>
+
+    
+        
       </mat-tab>
       <mat-tab [label]="'RELACIONES' | translate ">
       </mat-tab>
