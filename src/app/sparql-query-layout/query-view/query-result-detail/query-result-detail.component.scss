@@ -1,14 +1,39 @@
 .header-detail{
   display: flex;
   flex-direction: row-reverse;
-  gap:7em ;
+  justify-content: space-between;
+  border-bottom: 1px gray solid;
+  width: 100%;
+
   .circle-type{
     height: 85%;
+    min-width: 4vw;
     width: 4vw;
+
     background-color: aqua;
     border-radius: 20px;
     border: 1px black solid;
+    cursor: pointer;
+    display: inline-flex; /* Hace que el círculo tome el ancho del contenido */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; 
+    transition: width 0.5s ease;
+    overflow: hidden; /* Evita que el contenido del círculo salga cuando no hay hover */
+
+  
   }
+  .circle-type p {
+    margin: 0px  !important; /* Elimina el margen por defecto del párrafo */
+    white-space: nowrap; /* Evita que el texto se rompa en múltiples líneas */
+    padding: 0px !important; /* Añade un espacio interno para separar el texto del borde del círculo */
+  }
+
+.circle-type:hover {
+  transform: scale(1.1); /* Aumento de tamaño al hacer clic */
+  width: auto;
+  
+  
+}
 }
 
 
