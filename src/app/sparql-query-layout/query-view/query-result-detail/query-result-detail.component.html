@@ -8,8 +8,16 @@
       <mat-tab [label]="'PROPIEDADES' | translate ">
         
           <cdk-virtual-scroll-viewport class="scroll-container"  itemSize="50" class="example-viewport">
-            <div *cdkVirtualFor="let item of items" class="example-item"><h2>{{item}}</h2></div>
-          </cdk-virtual-scroll-viewport>
+            <mat-list>
+            <div *cdkVirtualFor="let item of items" class="example-item">
+              
+                <mat-list-item>{{item}}</mat-list-item>
+                <mat-divider></mat-divider>
+                
+            
+              
+              <h2></h2></div></mat-list>
+          </cdk-virtual-scroll-viewport>  
 
     
         
