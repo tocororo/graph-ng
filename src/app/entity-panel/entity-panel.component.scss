@@ -9,7 +9,7 @@ cdk-virtual-scroll-viewport {
     justify-content: center;
     height: 12vh;
     background-color: white;
-    width: 26vw;
+    width: 25vw;
     margin: 0px 10px;
     border-radius: 10px;
     border: 2px black dashed;
@@ -29,8 +29,8 @@ cdk-virtual-scroll-viewport {
   }
   .entity-container {
     .entity-button {
-      height: 95%;
-      width: 90%;
+      height: 12vh;
+      width: 25vw;
       margin: 8px;
       margin-bottom: 1em;
       border-radius: 10px;
@@ -120,14 +120,37 @@ cdk-virtual-scroll-viewport {
     display: inline;
 
     margin: 10px;
+    .toadd-button-container {
+      display: flex;
+      justify-content: center;
+      height: 10vh;
+      background-color: white;
+      width: 24vw;
+      margin: 12px 10px 10px 10px;
+      border-radius: 10px;
+      border: 2px black dashed;
+
+      transition: transform 0.3s ease;
+      .toadd-button {
+        display: flex;
+        justify-content: center;
+        width: 5em;
+        margin-top: 3em;
+      }}
     .entity-container {
-      height: 7vh !important;
+      height: 10vh;
+      .entity-button {
+        width: 24vw;
+        height: 10vh;
+        margin: 12px 10px 10px 10px;
+
+      }
     }
   }
   .toadd-button-container {
     display: flex;
     justify-content: center;
-    height: 7vh !important;
+    height: 8vh ;
     background-color: white;
     width: 20vw;
     margin: 0px 20px;
@@ -170,10 +193,11 @@ cdk-virtual-scroll-viewport {
     margin: 10px;
     .entity-container {
       height: 12vh;
-      margin: 0px 0px 38px 0px;
+      margin: 0px 0px 25px 0px;
       .entity-button {
-        height: 14vh;
-        margin: 30px 15px;
+        height: 12vh;
+        margin: 25px 15px;
+        width: 25vw;
         .entity-label{
           font-size: 2em;
         }
