@@ -11,7 +11,15 @@
     <div *cdkVirtualFor="let item of items,let position=index" class="entity-container">
 
 
-      <div class="button-container" [ngClass]="{'entity-button': position > 0, 'toadd-button': position === 0}" [matBadge]="item" [matBadgeSize]="size"> <span class="entity-label">{{ item }}</span></div>
+      <div *ngIf="position > 0"  class="button-container entity-button"
+      [matBadge]="item" [matBadgeSize]="size"> <span class="entity-label">{{ item }}</span>
+    </div>
+    <div  *ngIf="position === 0" class="button-container toadd-button" >
+      <button mat-fab color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon>add</mat-icon>
+      </button>
+
+    </div>
     </div>
   </div>
   </cdk-virtual-scroll-viewport>

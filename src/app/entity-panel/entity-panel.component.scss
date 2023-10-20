@@ -18,9 +18,7 @@ cdk-virtual-scroll-viewport {
     margin: 24px 10px 10px 10px;
 
   }
-  .button-container:hover {
-    transform: scale(1.05);
-  }
+
 
   .toadd-button {
     background-color: white;
@@ -46,7 +44,7 @@ cdk-virtual-scroll-viewport {
   .title {
     text-align: center;
     /* Centrar el texto */
-    font-size: $font-title;
+    font-size: $font-title-sm;
     /* Tamaño de fuente inicial */
     margin-top: 30px;
   }
@@ -78,7 +76,6 @@ cdk-virtual-scroll-viewport {
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
 
-  /* Tamaño  para pantallas medianas */
   .title {
     text-align: center;
     font-size: $font-title-md;
@@ -128,6 +125,9 @@ cdk-virtual-scroll-viewport {
         height: 12vh;
         margin: 24px 10px 10px 10px;
 
+      }
+      .button-container:hover {
+        transform: scale(1.05);
       }
     }
     }
