@@ -1,9 +1,23 @@
-.tab-group-container{
-  height: 100%;
-  border:1px grey solid;
-  padding: 2px;
-  margin: 2px;
+@media screen and (max-width: 600px) {
+  /* Tamaño de fuente para pantallas pequeñas */
 
+  .tab-group-container {
+    height: 100%;
+    border: 1px grey solid;
+    padding: 2px;
+    margin: 2px;
+
+  }
 }
 
+@media screen and (max-width: 600px) {
 
+  /* Tamaño de fuente para pantallas grandes */
+  .tab-group-container {
+    height: 100%;
+    width: auto;
+
+  }
+
+
+}

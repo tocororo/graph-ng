@@ -3,14 +3,15 @@
 
   <cdk-virtual-scroll-viewport [itemSize]="getItemSize()" >
     <div class="scroll-container">
-      <div class="toadd-button-container" > <div class="toadd-button">
+    <!--   <div class="toadd-button-container" > <div class="toadd-button">
         <button mat-fab color="primary" aria-label="Example icon button with a home icon">
           <mat-icon>add</mat-icon>
         </button>
-      </div></div>
-    <div *cdkVirtualFor="let item of items,let position" class="entity-container">
+      </div></div> -->
+    <div *cdkVirtualFor="let item of items,let position=index" class="entity-container">
 
-      <div class="entity-button" [matBadge]="item" [matBadgeSize]="size"> <span class="entity-label">{{ item }}</span></div>
+
+      <div class="button-container" [ngClass]="{'entity-button': position > 0, 'toadd-button': position === 0}" [matBadge]="item" [matBadgeSize]="size"> <span class="entity-label">{{ item }}</span></div>
     </div>
   </div>
   </cdk-virtual-scroll-viewport>

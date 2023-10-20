@@ -22,6 +22,10 @@
 
 
 }
+@media screen and (max-width: 600px) {
+  /* Tamaño de fuente para pantallas pequeñas */
+
+}
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
   /* Tamaño  para pantallas medianas */
@@ -49,6 +53,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    max-height: 100%;
+
     gap: 3em; /* proporciona entre section y section un espacio  */
   }
   .result-visualization-section{
