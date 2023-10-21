@@ -1,7 +1,14 @@
 <mat-grid-list [cols]="cols_section1">
   <mat-grid-tile>
     <div class="tile-height-entity-panel">
-      <app-entity-panel [breakpoint]="get_breakpoint_service.getBreakpoint()"></app-entity-panel>
+      <app-entity-panel 
+      [breakpoint]="get_breakpoint_service.getBreakpoint()">
+
+      </app-entity-panel>
+      <div class="button-action-container">
+        <button mat-stroked-button>Import <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="import"></mat-icon></button>
+
+      </div>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>

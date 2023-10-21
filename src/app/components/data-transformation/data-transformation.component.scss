@@ -12,10 +12,22 @@
   height: 28em;
   width: 100%;
   margin: 5px;
-  display: grid;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 
+
+}
+.button-action-container{
+  height: 28em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button{
+    height: 5vh;
+    width: 60%;
+  }
 }
 
 .buttons-section{
@@ -59,10 +71,22 @@ button{
 
   /* Tamaño de fuente para pantallas pequeñas */
   .tile-height-entity-panel{
-    height: 18em;
+    height: 22em;
     width: 100%;
-    margin: 5px
+    margin: 5px;
+    display:grid;
+    
 
+  }
+  .button-action-container{
+    height: 3em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+      width: 20%;
+    }
   }
   .tile-height-rules-panel {
     height: 24em;

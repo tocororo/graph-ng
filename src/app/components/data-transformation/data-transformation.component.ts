@@ -4,7 +4,7 @@ import {
   MediaMatcher,
 } from "@angular/cdk/layout";
 import { Component, OnInit } from "@angular/core";
-import { GetBreakpointService } from "../../services/shared-services/get-breakpoint.service";
+import { GetBreakpointService } from "src/services/shared-services/get-breakpoint.service";
 
 @Component({
   selector: "app-data-transformation",
@@ -21,6 +21,7 @@ export class DataTransformationComponent implements OnInit{
     { label: "GUARDAR", color: "basic" },
     { label: "CANCELAR", color: "primary" },
     { label: "TRANSFORMAR", color: "accent" },
+
   ];
 
   constructor(

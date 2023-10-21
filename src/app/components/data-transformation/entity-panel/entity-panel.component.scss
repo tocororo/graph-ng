@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import "../../../../styles.scss";
 
 cdk-virtual-scroll-viewport {
   height: 50vh;
@@ -16,6 +16,8 @@ cdk-virtual-scroll-viewport {
     width: 24vw;
     height: 12vh;
     margin: 24px 10px 10px 10px;
+    transition: transform 0.3s ease;
+
 
   }
 

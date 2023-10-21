@@ -30,14 +30,14 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 
 import { OAuthModule, OAuthStorage } from "angular-oauth2-oidc";
 import {
-  AngularMaterialModule,
-  AuthenticationModule,
-  CoreModule,
-  Environment, OrganizationServiceNoAuth, SearchModule,
-  SearchService,
-  SourceServiceNoAuth,
-  StaticsModule,
-  TocoFormsModule, OrganizationsModule
+    AngularMaterialModule,
+    AuthenticationModule,
+    CoreModule,
+    Environment, OrganizationServiceNoAuth, SearchModule,
+    SearchService,
+    SourceServiceNoAuth,
+    StaticsModule,
+    TocoFormsModule, OrganizationsModule
 } from "toco-lib";
 
 import { allowedURLS, environment } from "src/environments/environment";
@@ -57,13 +57,11 @@ import { OrgService } from "./org.service";
 import { PageNotFoundPeopleComponent } from "./page-not-found-people/page-not-found-people.component";
 
 
-import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 
 import { SparqlQueryLayoutComponent } from './sparql-query-layout/sparql-query-layout.component';
-import { TransformRulesComponent } from './transform-rules/transform-rules.component';
 import { ScrollingModule } from "@angular/cdk/scrolling";
-import { EntityPanelComponent } from './entity-panel/entity-panel.component';
-import { OutputsComponent } from './outputs/outputs.component';
+import { EntityPanelComponent } from './components/data-transformation/entity-panel/entity-panel.component';
+import { OutputsComponent } from './components/data-transformation/outputs/outputs.component';
 import { NgxGraphModule } from "@swimlane/ngx-graph";
 import { DocumentationViewComponent } from './documentation-view/documentation-view.component';
 import { QueryViewComponent } from './sparql-query-layout/query-view/query-view.component';
@@ -72,14 +70,16 @@ import { SparqlInputComponent } from "./sparql-query-layout/query-view/sparql-in
 import { QueryOutputComponent } from "./sparql-query-layout/query-view/query-output/query-output.component";
 import { QueryResultDetailComponent } from "./sparql-query-layout/query-view/query-result-detail/query-result-detail.component";
 import { QueryResultComponent } from "./sparql-query-layout/query-view/query-result/query-result.component";
+import { DataTransformationComponent } from "./components/data-transformation/data-transformation.component";
+import { TransformRulesComponent } from "./components/data-transformation/transform-rules/transform-rules.component";
 
 
 export function storageFactory(): OAuthStorage {
-  return localStorage;
+    return localStorage;
 }
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
@@ -89,29 +89,29 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         HomeComponent,
         PageNotFoundPeopleComponent,
         FooterComponent,
-       
-      
+
+
         MainlayoutComponent,
         DocumentationViewComponent,
-      
+
         HeaderComponent,
         MenuComponent,
         MenuItemComponent,
 
-       
-         DataTransformationComponent,
-         SparqlQueryLayoutComponent,
-      
-         TransformRulesComponent,
-         EntityPanelComponent,
-         OutputsComponent,
-         SparqlInputComponent,
-         QueryOutputComponent,
-         QueryResultComponent,
-         QueryResultDetailComponent,
-         DocumentationViewComponent,
-         QueryViewComponent,
-         HistorialViewComponent,
+
+        DataTransformationComponent,
+        SparqlQueryLayoutComponent,
+
+        TransformRulesComponent,
+        EntityPanelComponent,
+        OutputsComponent,
+        SparqlInputComponent,
+        QueryOutputComponent,
+        QueryResultComponent,
+        QueryResultDetailComponent,
+        DocumentationViewComponent,
+        QueryViewComponent,
+        HistorialViewComponent,
 
 
 
@@ -183,4 +183,4 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

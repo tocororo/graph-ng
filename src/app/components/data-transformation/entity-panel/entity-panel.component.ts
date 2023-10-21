@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EntityPanelComponent implements OnInit {
 
-public items=[1,2,3,4,5,6,7]
+public items=[1]
 public size:string="medium"
 public isMobile: boolean=true;
 
