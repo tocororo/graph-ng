@@ -5,6 +5,8 @@ import {
 } from "@angular/cdk/layout";
 import { Component, OnInit } from "@angular/core";
 import { GetBreakpointService } from "src/services/shared-services/get-breakpoint.service";
+import { UploadWidgetComponent } from "./upload-widget/upload-widget.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: "app-data-transformation",
@@ -25,7 +27,7 @@ export class DataTransformationComponent implements OnInit{
   ];
 
   constructor(
-   public get_breakpoint_service:GetBreakpointService
+   public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog
   ) {
 
     this.currentBreakpoint = get_breakpoint_service.getBreakpoint();
@@ -53,6 +55,13 @@ export class DataTransformationComponent implements OnInit{
       this.cols_section1 = 2;
       this.colspan_section2 = 2;
     }
+  }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(UploadWidgetComponent, {
+      width: 'auto',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
 

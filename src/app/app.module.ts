@@ -42,7 +42,6 @@ import {
 
 import { allowedURLS, environment } from "src/environments/environment";
 
-import { NgxDropzoneModule } from "node_modules/ngx-dropzone";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -72,6 +71,8 @@ import { QueryResultDetailComponent } from "./sparql-query-layout/query-view/que
 import { QueryResultComponent } from "./sparql-query-layout/query-view/query-result/query-result.component";
 import { DataTransformationComponent } from "./components/data-transformation/data-transformation.component";
 import { TransformRulesComponent } from "./components/data-transformation/transform-rules/transform-rules.component";
+import { NgxDropzoneModule } from "ngx-dropzone";
+import { UploadWidgetComponent } from "./components/data-transformation/upload-widget/upload-widget.component";
 
 
 export function storageFactory(): OAuthStorage {
@@ -112,6 +113,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         DocumentationViewComponent,
         QueryViewComponent,
         HistorialViewComponent,
+        UploadWidgetComponent
 
 
 
@@ -122,7 +124,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         HttpClientModule,
         MatTableModule,
         MatPaginatorModule,
-        NgxDropzoneModule,
+        
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -166,6 +168,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         FlexLayoutModule,
         ScrollingModule,
         NgxGraphModule,
+        NgxDropzoneModule
+        ,
+
         OAuthModule.forRoot({
             resourceServer: {
                 allowedUrls: allowedURLS,

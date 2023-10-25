@@ -1318,6 +1318,13 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-6.0.4.tgz#923ca57e173c6b232bbbb07347b1be982f03e783"
   integrity sha512-s3jaWicZd0pkP0jf5ysyHUI/RE7MHos6qlToFcGWXVp+ykHOy77OUMrfbgJ9it2C5bow7OIQwYYaHjk9XlBQ2A==
 
+"@bytescale/upload-widget-angular@^9.7.0":
+  version "9.7.0"
+  resolved "https://r.cnpmjs.org/@bytescale/upload-widget-angular/-/upload-widget-angular-9.7.0.tgz#7748510d7578ad2f44e3c0653031501567e7b05f"
+  integrity sha512-/LxguXMG8hSch/vC41ONH7kfUkMsPHqlvKI7hqK3V+kEURqrXyPqJxdtycBOLuMtWZL4RYbdGma6FGfet0hlmg==
+  dependencies:
+    tslib "^2.3.0"
+
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
@@ -6486,7 +6493,7 @@ neo-async@^2.6.2:
 
 ngx-dropzone@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-dropzone/-/ngx-dropzone-3.1.0.tgz#f2045a9ca90903fa96304f1b2aa33a922f14b15a"
+  resolved "https://r.cnpmjs.org/ngx-dropzone/-/ngx-dropzone-3.1.0.tgz#f2045a9ca90903fa96304f1b2aa33a922f14b15a"
   integrity sha512-5RBaEl07QUcY6sv/BBPyIxN6nbWY/KqTGheEKgbuGS0N1QPFY7NJUo8+X3fYUwQgLS+wjJeqPiR37dd0YNDtWA==
   dependencies:
     tslib "^2.0.0"

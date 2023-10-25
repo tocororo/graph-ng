@@ -1,0 +1,18 @@
+.container{
+    
+}
+/* Tamaño  para pantallas pequenas */
+
+@media screen and (max-width: 600px) {}
+
+/* Tamaño  para pantallas medianas */
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {}
+/* Tamaño  para pantallas grandes */
+
+@media screen and (min-width: 1201px) {
+    .container{
+    width: 10vw;
+    height: 10vh;
+    }
+}
