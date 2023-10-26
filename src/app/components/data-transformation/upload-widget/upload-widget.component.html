@@ -1,6 +1,13 @@
+<h5 class="head-title">Importe su fichero JSON de configuracion</h5>
 <ngx-dropzone (change)="onSelect($event)">
-	<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+	<ngx-dropzone-label class="main-drop-label">Aqui</ngx-dropzone-label>
 	<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+		<ngx-dropzone-label class="name-label">{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
 	</ngx-dropzone-preview>
+   
 </ngx-dropzone>
+<div class="button-container">
+    <button mat-button mat-dialog-close>Importar</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+
+</div>

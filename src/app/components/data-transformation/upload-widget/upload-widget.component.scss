@@ -1,9 +1,46 @@
-.container{
-    
+.head-title{
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+    ngx-dropzone{
+        margin: 1em;
+        .main-drop-label{
+            font-size: x-large;
+        }
+    }
+    .button-container{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin: 1em;
+    }
+
 /* Tamaño  para pantallas pequenas */
 
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+    ngx-dropzone{
+        margin: 0.5em;
+        height: 50%;
+        .main-drop-label{
+            font-size: x-large;
+        }
+        ngx-dropzone-preview {
+            height: 15vh;
+            min-width: 42vw;
+            .name-label{
+                font-size: small;
+            }
+
+        }
+    }
+    .button-container{
+        display: flex;
+        justify-content: center;
+        margin: 0.5em;
+    }
+}
 
 /* Tamaño  para pantallas medianas */
 
@@ -11,8 +48,11 @@
 /* Tamaño  para pantallas grandes */
 
 @media screen and (min-width: 1201px) {
-    .container{
-    width: 10vw;
-    height: 10vh;
+    .main-drop-label{
+        font-size: x-large;
     }
+    .name-label{
+            font-size: small;
+    }
+ 
 }

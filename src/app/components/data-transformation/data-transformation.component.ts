@@ -19,6 +19,9 @@ export class DataTransformationComponent implements OnInit{
   cols_section1: number = 2;
   cols_section2: number = 3;
   colspan_section2: number = 1;
+  modal_height: string="30vh";
+  modal_widht: string="30vh";
+
   public buttons_array: any[] = [
     { label: "GUARDAR", color: "basic" },
     { label: "CANCELAR", color: "primary" },
@@ -46,6 +49,7 @@ export class DataTransformationComponent implements OnInit{
     if (this.get_breakpoint_service.getBreakpoint() === "Handset") {
       this.cols_section1 = 1;
       this.cols_section2 = 1;
+      this.modal_widht="55vw"
     } else if (this.get_breakpoint_service.getBreakpoint() === "Tablet") {
       this.cols_section1 = 2;
       this.cols_section2 = 3;
@@ -58,7 +62,8 @@ export class DataTransformationComponent implements OnInit{
   }
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(UploadWidgetComponent, {
-      width: 'auto',
+      width: this.modal_widht,
+      height: this.modal_height,
       enterAnimationDuration,
       exitAnimationDuration,
     });
