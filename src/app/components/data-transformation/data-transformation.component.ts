@@ -49,7 +49,8 @@ export class DataTransformationComponent implements OnInit{
     if (this.get_breakpoint_service.getBreakpoint() === "Handset") {
       this.cols_section1 = 1;
       this.cols_section2 = 1;
-      this.modal_widht="55vw"
+      this.modal_widht="60vw"
+      this.modal_height="48vh"
     } else if (this.get_breakpoint_service.getBreakpoint() === "Tablet") {
       this.cols_section1 = 2;
       this.cols_section2 = 3;
@@ -64,6 +65,7 @@ export class DataTransformationComponent implements OnInit{
     this.dialog.open(UploadWidgetComponent, {
       width: this.modal_widht,
       height: this.modal_height,
+      maxHeight:this.modal_height,
       enterAnimationDuration,
       exitAnimationDuration,
     });
