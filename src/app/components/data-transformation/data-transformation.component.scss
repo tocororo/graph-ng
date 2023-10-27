@@ -1,200 +1,220 @@
-
-
-.buttons-section{
+.buttons-section {
   display: flex;
-  .button-spinner-container{
+
+  .button-spinner-container {
     display: flex;
-  flex-direction: column;
-    .spinner-card-container{
+    flex-direction: column;
+
+    .spinner-card-container {
       width: 28vw;
       height: 32vh;
       margin: 0.5em 0px 2em 2em;
-  mat-card-content{
-    display: flex;
-    height: 100%;
-     justify-content: center;
-     .progress-spinner{
-      width: 10em ;
-      height: 10em  ;
-      margin-top: 2em;
-     }
-  }
-  
+
+      mat-card-content {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+
+        .progress-spinner {
+          width: 10em;
+          height: 10em;
+          margin-top: 2em;
+        }
+      }
+
     }
   }
+
   .button-container {
     display: flex;
     align-self: flex-start;
     margin: 1em;
-  button{
-    margin: 1em;
-    height: 5vh;
-    width: 8vw;
-    font-size: 90%;
-  }
-  
-  }
-  }
-  
-   /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
-   @media screen and (max-width: 600px) {
-    .tile-height-entity-panel{
-      height: 22em;
-      width: 100%;
-      margin: 5px;
-      display:grid;
-      
-  
+
+    button {
+      margin: 1em;
+      height: 5vh;
+      width: 8vw;
+      font-size: 90%;
     }
-    .button-import-container{
-      height: 3em;
-      width: 100%;
-      margin-top: 1em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      button{
-        width: 30%;
-      }
+
+  }
+}
+
+/* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
+@media screen and (max-width: 600px) {
+  .tile-height-entity-panel {
+    height: 22em;
+    width: 100%;
+    margin: 5px;
+    display: grid;
+
+
+  }
+
+  .button-import-container {
+    height: 3em;
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 30%;
     }
-    .tile-height-rules-panel {
-      height: 24em;
-      width: 100%;
-      margin: 5px
-  
-    }
-    app-entity-panel{
+  }
+
+  .tile-height-rules-panel {
+    height: 24em;
+    width: 100%;
+    margin: 5px
+  }
+
+  app-entity-panel {
     width: 95vw;
     height: 30vh;
-  
+
+  }
+
+  .spinner-card-container {
+    width: 100% !important;
+    margin: 0px !important;
+
+    .progress-spinner {
+      width: 8em;
+      height: 8em;
+      margin-top: 2em;
     }
-    .spinner-card-container{
-      width: 100% !important;
-      margin: 0px !important;
-      .progress-spinner{
-        width: 8em ;
-        height: 8em ;
-        margin-top: 2em ;
-       }
-  
-    }
-    .button-container {
-      display: flex;
-      align-self: flex-start;
-      margin: 1em;
-       button{
+
+  }
+
+  .button-container {
+    display: flex;
+    align-self: flex-start;
+    margin: 1em;
+
+    button {
       margin: 5px !important;
-  
+
       width: 26vw !important;
     }
-  
+
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+
+  /* Tamaño de fuente para pantallas medianas */
+  .tile-height-entity-panel {
+    height: 22em;
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    gap: 2em;
+
+
+  }
+
+  app-entity-panel {
+    width: 95%;
+    height: 30vh;
+    margin-top: 1.5em;
+
+  }
+
+  .button-import-container {
+    height: 100%;
+    width: 30%;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 30%;
     }
   }
-  
-  @media screen and (min-width: 601px) and (max-width: 1200px) {
-    /* Tamaño de fuente para pantallas medianas */
-    .tile-height-entity-panel{
-      height: 22em;
-      width: 100%;
-      margin: 5px;
-      display:flex;
-      gap: 2em;
-      
-  
+
+  .tile-height-rules-panel {
+    height: 26em;
+    width: 100%;
+    margin: 5px
+  }
+
+  .output-section {
+    margin-top: 3em !important;
+
+    app-outputs {
+      height: 25vh;
+
     }
-    app-entity-panel{
-      width: 95%;
-      height: 30vh;
-      margin-top: 1.5em;
-    
-      }
-    .button-import-container{
-      height: 100%;
-      width: 30%;
-      margin-top: 1em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      button{
-        width: 30%;
-      }
-    }
-    .tile-height-rules-panel {
-      height: 26em;
-      width: 100%;
-      margin: 5px
-  
-    }
-   
-    .output-section{
-      margin-top: 3em !important;
-      app-outputs{
-        height: 25vh;
-  
-      }
-      .button-spinner-container{
-        height: 22vh;
-        width: 35vw;
-  
-        .button-container{
-          margin: 0px;
-          
-          button{
-            margin: 14px 2px;
-            height: 4vh;
-            width: 9vw;
-            font-size: 69%;
+
+    .button-spinner-container {
+      height: 22vh;
+      width: 35vw;
+
+      .button-container {
+        margin: 0px;
+
+        button {
+          margin: 14px 2px;
+          height: 4vh;
+          width: 9vw;
+          font-size: 69%;
         }
-          }
-          .spinner-card-container{
-            height: 14.5vh;
-            margin: 0px;
-          }
-          .progress-spinner{
-            width: 10em  ;
-            height: 10em  ;
-            margin-top: 1em !important;
-  
-           }
-          }
-    }
       }
-  
-  
-  
-  @media screen and (min-width: 1201px) {
-  
-   /* Tamaño de fuente para pantallas grandes */
-   .tile-height-entity-panel{
+
+      .spinner-card-container {
+        height: 14.5vh;
+        margin: 0px;
+      }
+
+      .progress-spinner {
+        width: 10em;
+        height: 10em;
+        margin-top: 1em !important;
+
+      }
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 1201px) {
+
+  /* Tamaño de fuente para pantallas grandes */
+  .tile-height-entity-panel {
     height: 42em;
     width: 100%;
     margin: 5px;
-    display:contents;
-  
-  
+    display: contents;
+
+
   }
-  .button-import-container{
+
+  .button-import-container {
     height: 100%;
     width: 40%;
     margin-top: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
-    button{
+
+    button {
       width: 50%;
     }
   }
+
   .tile-height-rules-panel {
     height: 42em;
     width: 100%;
     margin: 5px
-  
   }
-    .progress-spinner{
-            width: 10em !important ;
-            height: 10em !important ;
-            margin-top: 2.5em !important;
-           }
+
+  .progress-spinner {
+    width: 10em !important;
+    height: 10em !important;
+    margin-top: 2.5em !important;
   }
-  
-  
+}
