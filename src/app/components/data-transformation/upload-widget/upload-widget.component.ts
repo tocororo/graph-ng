@@ -12,6 +12,7 @@ export class UploadWidgetComponent {
     console.log(event);
     this.files.push(...event.addedFiles);
     await this.processFile();
+    
   }
   
   onRemove(event) {
@@ -23,25 +24,31 @@ export class UploadWidgetComponent {
     console.log(this.files);
  
   }
-     async processFile() {
-    let selectedFile =this.files[0]
-    console.log(this.files[0]);
-   // Validar que el archivo tenga la extensión .json
-   if (selectedFile.name.endsWith('.json')) {
-    // Leer el contenido del archivo
+  // Process the selected file
+async processFile() {
+  // Get the first selected file
+  let selectedFile = this.files[0];
+  
+  // Validate that the file has a .json extension
+  if (selectedFile.name.endsWith('.json')) {
+    // Read the content of the file
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
       try {
+        // Parse the file content as JSON
         const parsedData = JSON.parse(fileReader.result as string);
-        // Ahora 'parsedData' contiene el objeto JSON parseado del archivo
-        console.log('Archivo JSON válido:', parsedData);
+        
+        // The 'parsedData' now contains the parsed JSON object from the file
+        console.log('Valid JSON file:', parsedData);
       } catch (error) {
-        console.error('El archivo no es un JSON válido.', error);
+        console.error('The file is not a valid JSON.', error);
         selectedFile = null;
       }
     };
     fileReader.readAsText(selectedFile);
+    
   } else {
-    console.error('El archivo no tiene la extensión .json');
-  }}
+    console.error('The file does not have a .json extension');
+  }
+}
   }

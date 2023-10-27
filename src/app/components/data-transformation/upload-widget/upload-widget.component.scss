@@ -1,3 +1,7 @@
+.container{
+    display: grid;
+    height: 40vh;
+    width: auto;
 .head-title{
     margin: 0.5em;
     display: flex;
@@ -15,7 +19,7 @@
         align-items: center;
         justify-content: end;
         margin: 1em;
-    }
+    }}
 
 /* Tamaño  para pantallas pequenas */
 
@@ -48,11 +52,25 @@
 /* Tamaño  para pantallas grandes */
 
 @media screen and (min-width: 1201px) {
-    .main-drop-label{
-        font-size: x-large;
+    .container{
+        display: grid;
+        height: 40vh;
+        width: auto;
     }
-    .name-label{
-            font-size: small;
+    ngx-dropzone{
+        margin: 2em;
+        
+        .main-drop-label{
+            font-size: larger;
+            margin: 2em;
+        }
+        ngx-dropzone-preview {
+          
+            .name-label{
+                font-size: larger;
+            }
+
+        }
     }
  
 }

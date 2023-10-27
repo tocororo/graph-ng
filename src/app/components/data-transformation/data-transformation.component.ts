@@ -56,7 +56,8 @@ export class DataTransformationComponent implements OnInit{
       this.cols_section2 = 3;
       this.colspan_section2=2;
     } else {
-
+      this.modal_widht="40vw"
+      this.modal_height="40vh"
       this.cols_section1 = 2;
       this.colspan_section2 = 2;
     }
@@ -66,6 +67,7 @@ export class DataTransformationComponent implements OnInit{
       width: this.modal_widht,
       height: this.modal_height,
       maxHeight:this.modal_height,
+      
       enterAnimationDuration,
       exitAnimationDuration,
     });

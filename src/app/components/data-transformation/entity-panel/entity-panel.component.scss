@@ -1,20 +1,12 @@
 @import "../../../../styles.scss";
 
-cdk-virtual-scroll-viewport {
-  height: 50vh;
-  width: 28vw;
-  margin-top: 0px;
-  margin-bottom: 3em;
-
-}
 
 .entity-container {
   .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 24vw;
-    height: 12vh;
+  
     margin: 24px 10px 10px 10px;
     transition: transform 0.3s ease;
 
@@ -83,27 +75,26 @@ cdk-virtual-scroll-viewport {
     font-size: $font-title-md;
     margin-top: 1px;
   }
-
-  .scroll-container {
-    height: 48vh;
+  cdk-virtual-scroll-viewport {
+    height: 24vh;
     width: 28vw;
-    display: inline;
 
-    margin: 10px;
+    margin-top: 1em;
+    margin-bottom: 3em;
+  
     .button-container {
       width: 25vw;
-      height: 6vh;
-      margin: 1em 10px;
-
-
+      height: 7vh;
+      margin: 0.5em 10px;
     }
-
-  }
-
-  .entity-label {
+  } .entity-label {
     font-size: 1em;
   }
-}
+
+  }
+
+ 
+
 
 /* Tamaño  para pantallas grandes */
 
@@ -119,6 +110,10 @@ cdk-virtual-scroll-viewport {
 
 
     cdk-virtual-scroll-viewport {
+      height: 50vh;
+      width: 28vw;
+      margin-top: 0px;
+      margin-bottom: 3em;
       .scroll-container {
         margin: 1em;
 

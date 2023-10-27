@@ -1,34 +1,4 @@
-.tile-height-rules-panel{
-  height: 28em;
-  width: 100%;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-}
-
-.tile-height-entity-panel{
-  height: 28em;
-  width: 100%;
-  margin: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-
-}
-.button-action-container{
-  height: 28em;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  button{
-    height: 5vh;
-    width: 60%;
-  }
-}
 
 .buttons-section{
 display: flex;
@@ -68,8 +38,6 @@ button{
 
  /* Media queries para ajustar el tamaño de fuente en diferentes tamaños de pantalla */
  @media screen and (max-width: 600px) {
-
-  /* Tamaño de fuente para pantallas pequeñas */
   .tile-height-entity-panel{
     height: 22em;
     width: 100%;
@@ -78,14 +46,15 @@ button{
     
 
   }
-  .button-action-container{
+  .button-import-container{
     height: 3em;
     width: 100%;
+    margin-top: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
     button{
-      width: 20%;
+      width: 30%;
     }
   }
   .tile-height-rules-panel {
@@ -96,7 +65,7 @@ button{
   }
   app-entity-panel{
   width: 95vw;
-  height: 100%;
+  height: 30vh;
 
   }
   .spinner-card-container{
@@ -125,10 +94,30 @@ button{
 @media screen and (min-width: 601px) and (max-width: 1200px) {
   /* Tamaño de fuente para pantallas medianas */
   .tile-height-entity-panel{
-    height: 18em;
-    width: 95vw;
-    margin: 5px
+    height: 22em;
+    width: 100%;
+    margin: 5px;
+    display:flex;
+    gap: 2em;
+    
 
+  }
+  app-entity-panel{
+    width: 95%;
+    height: 30vh;
+    margin-top: 1.5em;
+  
+    }
+  .button-import-container{
+    height: 100%;
+    width: 30%;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+      width: 30%;
+    }
   }
   .tile-height-rules-panel {
     height: 26em;
@@ -136,6 +125,7 @@ button{
     margin: 5px
 
   }
+ 
   .output-section{
     margin-top: 3em !important;
     app-outputs{
@@ -148,6 +138,7 @@ button{
 
       .button-container{
         margin: 0px;
+        
         button{
           margin: 14px 2px;
           height: 4vh;
