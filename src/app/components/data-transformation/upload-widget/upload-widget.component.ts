@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigurationJsonService } from 'src/services/configuration-json.service';
 
 @Component({
   selector: 'app-upload-widget',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class UploadWidgetComponent {
   files: File[] = [];
-
+constructor(private configurationService: ConfigurationJsonService) { }
   async onSelect(event) {
     console.log(event);
     this.files.push(...event.addedFiles);
@@ -37,9 +38,15 @@ async processFile() {
       try {
         // Parse the file content as JSON
         const parsedData = JSON.parse(fileReader.result as string);
-        
+       //Set the parsed  JSON data in the ConfigurationJsonService
+        this.configurationService.setConfigurationJson(parsedData);
         // The 'parsedData' now contains the parsed JSON object from the file
         console.log('Valid JSON file:', parsedData);
+        this.configurationService.getConfigurationJson().subscribe(json => {
+          console.log("asdsd",json);
+          
+          // Realiza acciones adicionales con el JSON de configuración
+        });
       } catch (error) {
         console.error('The file is not a valid JSON.', error);
         selectedFile = null;
