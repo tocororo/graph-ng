@@ -13,26 +13,47 @@ import { ConfigurationJsonService } from "src/services/configuration-json.servic
 })
 export class TransformRulesComponent {
   panelOpenState = false;
-  items =[1,2,3,4,5,6,7,8,9,0,11,12,13]
-  checked:boolean=true
-  constructor(private  configurationService: ConfigurationJsonService){}
+  items = []
+  entity_label: string
+
+  checked: boolean = true
+  constructor(private configurationService: ConfigurationJsonService) { }
   ngOnInit(): void {
     this.chargeRulesbyConfiguration()
-  
+
   }
   chargeRulesbyConfiguration() {
     this.configurationService.getRulesPropertiesLabel().subscribe(label => {
-     console.log("label",label);
-     
-    });
-  
+      console.log("alalal",label);
+      
+      this.entity_label = label
+    })
+    this.configurationService.getConfigurationJson().subscribe(json => {
+      if (json) {
+        const entries = Object.entries(json.entities);
+        entries.map(([key, value]) => {
+          if (value["name"]==this.entity_label) {
+            console.log("value",value);
+         }
+         console.log(this.entity_label);
+
+          console.log(key + ": " + value["name"]);
+        })
+
+      } else {
+        this.items = [0, 1, 2, 3, 4]
+      }
+    })
   }
-/**
- * stop the event propagation of the click in the checkbox and add the rule to the rulesarray
- * @param event the click event
- * @param item the rule to add
- */
-  public toAddRule(event,item){
+
+
+
+  /**
+   * stop the event propagation of the click in the checkbox and add the rule to the rulesarray
+   * @param event the click event
+   * @param item the rule to add
+   */
+  public toAddRule(event, item) {
     event.stopPropagation()
     console.log(event);
     console.log(item);

@@ -49,9 +49,10 @@ chargeEntitiesbyConfiguration() {
 
 }
 chargeProperties(event){
-  event.target.click(); 
   const label =  event.target.querySelector('.entity-label').textContent;
-  this.configurationService.setRulesPropertiesLabel(label)
-  console.log("Label:", label);
+  if (label) {
+    this.configurationService.setRulesPropertiesLabel(label)
+
+  }
 }
 }
