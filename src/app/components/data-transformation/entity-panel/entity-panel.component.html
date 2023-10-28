@@ -11,8 +11,8 @@
     <div *cdkVirtualFor="let item of items,let position=index" class="entity-container">
 
 
-      <div *ngIf="position > 0"  class="button-container entity-button"
-      [matBadge]="item" [matBadgeSize]="size"> <span class="entity-label">{{ item }}</span>
+      <div *ngIf="position > 0"  class="button-container entity-button" (click)="chargeProperties($event)"
+      [matBadge]="position" [matBadgeSize]="size"> <span  class="entity-label">{{ item }}</span>
     </div>
     <div  *ngIf="position === 0" class="button-container toadd-button" >
       <button mat-fab color="primary" aria-label="Example icon button with a home icon">
