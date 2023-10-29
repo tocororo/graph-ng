@@ -14,7 +14,7 @@ import { ConfigurationJsonService } from "src/services/configuration-json.servic
 })
 export class TransformRulesComponent {
   panelOpenState = false;
-  items = []
+  items: any
   entity_label: string
   entities: Entity[] = []
 
@@ -22,7 +22,7 @@ export class TransformRulesComponent {
   constructor(private configurationService: ConfigurationJsonService) { }
   ngOnInit(): void {
     this.chargeEntitiesbyConfiguration()
-     this.getRulesbyEntityName()
+    this.getRulesbyEntityName()
 
   }
   chargeEntitiesbyConfiguration() {
@@ -37,39 +37,48 @@ export class TransformRulesComponent {
     })
 
   }
- /** 
- * Retrieves the rules based on the entity name obtained from the configuration service. 
- * It subscribes to the observable returned by the  getRulesPropertiesLabel()  method of the configuration service. 
- * If a valid label is received, it sets the  entity_label  property and proceeds to search for the corresponding entity in the  entities  array. 
- * It logs the entity name and the obtained label for debugging purposes. 
- * If a matching entity is found, it sets the  items  property to the properties of the entity's mapping. 
- * If no label is received, it logs a message indicating that the label is null. 
- */ 
+  /** 
+  * Retrieves the rules based on the entity name obtained from the configuration service. 
+  * It subscribes to the observable returned by the  getRulesPropertiesLabel()  method of the configuration service. 
+  * If a valid label is received, it sets the  entity_label  property and proceeds to search for the corresponding entity in the  entities  array. 
+  * It logs the entity name and the obtained label for debugging purposes. 
+  * If a matching entity is found, it sets the  items  property to the properties of the entity's mapping. 
+  * If no label is received, it logs a message indicating that the label is null. 
+  */
   getRulesbyEntityName() {
     this.configurationService.getRulesPropertiesLabel().subscribe((label: string) => {
       try {
 
-      if (label) {
-        this.entity_label = label
-        this.entities.map((entity) => {
-          console.log("entity", entity.name);
-          console.log("entity_label", this.entity_label);
-          if (entity.name === this.entity_label) {
-            console.log("es la q busco", entity);
-            this.items = Object.entries(entity.mapping.properties);
+        if (label) {
+          const rules: any[] = []
+
+          this.entity_label = label
+          this.entities.map((entity) => {
+            console.log("entity", entity.name);
+            console.log("entity_label", this.entity_label);
+            if (entity.name === this.entity_label) {
+              console.log("es la q busco", entity.mapping.properties);
+              const properties = entity.mapping.properties;
+              Object.entries(properties).forEach(([key, value]) => {
+                rules.push({ key, value });
+              }
+              );
+              this.items = rules
 
 
 
-          }
-        })
-      } else {
-        throw new Error("The label is null.");
 
+            }
+          })
+        } else {
+          throw new Error("The label is null.");
+
+        }
+
+      } catch (error) {
+        console.error(error);
       }
-
-    } catch (error) {
-      console.error(error);
-    }})
+    })
   }
   /**
    * stop the event propagation of the click in the checkbox and add the rule to the rulesarray
@@ -88,4 +97,6 @@ export class TransformRulesComponent {
 
 
   }
+
 }
+

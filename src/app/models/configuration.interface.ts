@@ -36,3 +36,8 @@ export interface Configuration {
     relation: string;
     identifier?: string;
   }
+
+  export interface Rule{
+    key:string;
+    value:string;
+  }
