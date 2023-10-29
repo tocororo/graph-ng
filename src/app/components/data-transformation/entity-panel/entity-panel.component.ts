@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Configuration } from 'src/app/models/configuration.interface';
 import { ConfigurationJsonService } from 'src/services/configuration-json.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ConfigurationJsonService } from 'src/services/configuration-json.servic
 })
 export class EntityPanelComponent implements OnInit {
 
-public items=[1]
+public items:string[]=["1"]
 
 public size:string="medium"
 public isMobile: boolean=true;
@@ -39,11 +40,14 @@ getOrientation() {
  * If the JSON data is available, it updates the  items  array with the values from the  order_for_mapping  property. Otherwise, it sets a default value of  [1]  for the  items  array. 
  */ 
 chargeEntitiesbyConfiguration() {
-  this.configurationService.getConfigurationJson().subscribe(json => {
-    if (json) {
-      this.items = [1, ...json.order_for_mapping];
+  this.configurationService.getConfigurationJson().subscribe((configuration:Configuration) => {
+    if (configuration ) {
+      if (configuration.order_for_mapping) {
+        this.items = ["1", ...configuration.order_for_mapping];
+
+      }
     }else{
-      this.items = [1];
+      this.items = ["1"];
     }
   });
 
@@ -52,6 +56,8 @@ chargeProperties(event){
   const label =  event.target.querySelector('.entity-label').textContent;
   if (label) {
     this.configurationService.setRulesPropertiesLabel(label)
+    console.log("label entity",label);
+    
 
   }
 }
