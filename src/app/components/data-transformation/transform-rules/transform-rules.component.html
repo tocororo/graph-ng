@@ -16,11 +16,12 @@
             {{ item.key }}
           </mat-panel-description>
         </mat-expansion-panel-header>
+       <div class="expansion-panel-body-container">
         <ng-container *ngIf="!isAnArrayofValues(item.value)">
           <div class="rule-description">
             <p>{{item.value}}</p>
             <div class="action-container">
-              <span class="material-symbols-outlined delete-icon">
+              <span class="material-symbols-outlined delete-icon" (click)="ToDeleteRule(item.value)">
                 delete
               </span>
               <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
@@ -31,7 +32,7 @@
         <ng-container *ngIf="isAnArrayofValues(item.value)">
           <div class="rule-description" *ngFor="let value of item.value">
             <p>{{value}}</p><div class="action-container">
-              <span class="material-symbols-outlined delete-icon">
+              <span class="material-symbols-outlined delete-icon" (click)="ToDeleteRule(value,item.key)">
                 delete
               </span>
               <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
@@ -45,6 +46,7 @@
         </mat-form-field>
         <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key)" color="basic">ADD</button>
         </div>
+       </div>
       </mat-expansion-panel>
 
     </mat-accordion>

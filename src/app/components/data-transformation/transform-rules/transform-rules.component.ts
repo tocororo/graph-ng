@@ -118,12 +118,42 @@ this.inputField.nativeElement.value = ""
     }
    
   }
-  isAnArrayofValues(value): boolean {
-    if (Array.isArray(value)) {
-      return true
-    }
-    return false
+ 
+  /**
+   * 
+   * @param value 
+   * @returns 
+   */
+  /** 
+ * Checks if the given value is an array. 
+ *  
+ * @param value The value to be checked. 
+ * @returns True if the value is an array, false otherwise. 
+ */ 
+isAnArrayofValues(value): boolean { 
+  return Array.isArray(value); 
+}
+
+/**
+ * Deletes a rule from the items array based on the given value and optional key.
+ * If a key is provided, it will only delete the rule with a matching key.
+ * If no key is provided, it will delete all rules with the given value.
+ * 
+ * @param value The value to be deleted from the rules.
+ * @param key (Optional) The key of the rule to be deleted.
+ */
+ToDeleteRule(value: string, key?: string){
+  if (key) {
+    console.log(key);
+    this.items.map((item)=>{
+      if (item.key===key) {
+        item.value = item.value.filter(item => item !== value);
+      }
+    })
+  } else {
+    this.items.value = this.items.value.filter(item => item !== value);
   }
+}
 
 }
 
