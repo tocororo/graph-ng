@@ -28,7 +28,7 @@ export interface Configuration {
   }
   
   export  interface NestedMappings {
-    [key: string]: string;
+    [key: string]: string[];
   }
   export interface Relationship {
     description?: string;
@@ -39,5 +39,5 @@ export interface Configuration {
 
   export interface Rule{
     key:string;
-    value:string;
+    value:string[];
   }

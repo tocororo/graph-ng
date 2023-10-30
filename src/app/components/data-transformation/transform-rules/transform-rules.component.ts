@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { Configuration, Entity } from "src/app/models/configuration.interface";
+import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Configuration, Entity, Rule } from "src/app/models/configuration.interface";
 import { ConfigurationJsonService } from "src/services/configuration-json.service";
 
 
@@ -18,6 +18,9 @@ export class TransformRulesComponent {
   entity_label: string
   entities: Entity[] = []
 
+  @ViewChild('inputField') inputField: ElementRef;
+
+
   checked: boolean = true
   constructor(private configurationService: ConfigurationJsonService) { }
   ngOnInit(): void {
@@ -32,7 +35,7 @@ export class TransformRulesComponent {
 
 
       } else {
-        this.items = [0, 1, 2, 3, 4]
+        this.items = []
       }
     })
 
@@ -63,18 +66,12 @@ export class TransformRulesComponent {
                 rules.push({ key, value });
               }
               );
-              this.items = rules
-
-
-
-
-            }
+              this.items = rules }
           })
         } else {
           throw new Error("The label is null.");
 
         }
-
       } catch (error) {
         console.error(error);
       }
@@ -96,6 +93,42 @@ export class TransformRulesComponent {
 
 
 
+  }
+  toAddValue(key){
+    const inputValue = this.inputField.nativeElement.value;
+    this.items.map((obj:Rule )=> {
+      if (obj.key=== key) {
+        if (Array.isArray(obj.value)) {
+          obj.value.push(inputValue)
+
+          
+        }else{
+          const array_of_values:string[]=[]
+          array_of_values.push(obj.value)
+          array_of_values.push(inputValue)
+          obj.value=array_of_values
+
+
+
+        }
+        
+        console.log("obj.value.",obj.value);
+        
+        
+      }
+    })
+    
+    console.log(inputValue);
+    console.log(key);
+    
+    
+    
+  }
+  isAnArrayofValues(value):boolean{
+    if (Array.isArray(value)) {
+      return true
+    }
+return false
   }
 
 }
