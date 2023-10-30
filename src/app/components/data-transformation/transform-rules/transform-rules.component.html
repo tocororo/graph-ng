@@ -1,41 +1,52 @@
+<header>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</header>
 <div class="transform-rules-container">
-  <h1 class="title" >{{ "REGLAS_TRANSFORMACION"| translate }}</h1>
+  <h1 class="title">{{ "REGLAS_TRANSFORMACION"| translate }}</h1>
   <cdk-virtual-scroll-viewport itemSize="50">
     <mat-accordion *cdkVirtualFor="let item of items" class="w-100-h-100">
-      <mat-expansion-panel 
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-        class="expansion-panel"
-      >
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="expansion-panel">
         <mat-expansion-panel-header>
           <mat-panel-title>
           </mat-panel-title>
-      
+
           <mat-panel-description class="rule-title">
             {{ item.key }}
-       </mat-panel-description>
+          </mat-panel-description>
         </mat-expansion-panel-header>
         <ng-container *ngIf="!isAnArrayofValues(item.value)">
-          <p class="rule-description">{{item.value}}<mat-checkbox
-            color="primary"
-            (click)="toAddRule($event, item)"
-          ></mat-checkbox></p>  </ng-container>
+          <div class="rule-description">
+            <p>{{item.value}}</p>
+            <div class="action-container">
+              <span class="material-symbols-outlined delete-icon">
+                delete
+              </span>
+              <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
+            </div>
+          </div>
+        </ng-container>
 
-          <ng-container *ngIf="isAnArrayofValues(item.value)">
-            <p *ngFor="let value of item.value"  class="rule-description">{{value}}<mat-checkbox
-            color="primary"
-            (click)="toAddRule($event, item)"
-          ></mat-checkbox></p>
-          </ng-container>
+        <ng-container *ngIf="isAnArrayofValues(item.value)">
+          <div class="rule-description" *ngFor="let value of item.value">
+            <p>{{value}}</p><div class="action-container">
+              <span class="material-symbols-outlined delete-icon">
+                delete
+              </span>
+              <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
+            </div>
+          </div>
+        </ng-container>
 
-          <mat-form-field class="add-value">
-            <mat-label>Add</mat-label>
-            <input type="url" matInput #inputField>
-          </mat-form-field>
-            <button mat-button (click)="toAddValue(item.key)" color="basic">ADD</button>
+        <mat-form-field class="add-value">
+          <mat-label>Add</mat-label>
+          <input type="url" matInput #inputField>
+        </mat-form-field>
+        <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key)" color="basic">ADD</button>
+        </div>
       </mat-expansion-panel>
-      
+
     </mat-accordion>
   </cdk-virtual-scroll-viewport>
 </div> <mat-divider></mat-divider>
-

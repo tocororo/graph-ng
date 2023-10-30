@@ -66,7 +66,8 @@ export class TransformRulesComponent {
                 rules.push({ key, value });
               }
               );
-              this.items = rules }
+              this.items = rules
+            }
           })
         } else {
           throw new Error("The label is null.");
@@ -84,51 +85,44 @@ export class TransformRulesComponent {
    */
   public toAddRule(event, item) {
     event.stopPropagation()
-    console.log(event);
-    console.log(item);
-    console.log("label", this.items);
-    console.log("entity_label", this.entity_label);
-
-
-
 
 
   }
-  toAddValue(key){
+  /**
+ * Adds a value to the value array of an item or converts it to an array if it's not already.
+ * 
+ * @param key The key to identify the item.
+ */
+  toAddValue(key) {
+
     const inputValue = this.inputField.nativeElement.value;
-    this.items.map((obj:Rule )=> {
-      if (obj.key=== key) {
-        if (Array.isArray(obj.value)) {
-          obj.value.push(inputValue)
+    if (inputValue) {
+ // Find the item with the matching key
+ this.items.map((obj: Rule) => {
+  // Check if the value is already an array
+  if (obj.key === key) {
 
-          
-        }else{
-          const array_of_values:string[]=[]
-          array_of_values.push(obj.value)
-          array_of_values.push(inputValue)
-          obj.value=array_of_values
+    if (Array.isArray(obj.value)) {
+      obj.value.push(inputValue)
+    } else {
+      // If it's not an array, convert it to an array and add both the existing value and the inputValue
+      obj.value = [obj.value, inputValue];
 
+    }
 
-
-        }
-        
-        console.log("obj.value.",obj.value);
-        
-        
-      }
-    })
-    
-    console.log(inputValue);
-    console.log(key);
-    
-    
-    
   }
-  isAnArrayofValues(value):boolean{
+})
+// Clear the input field
+
+this.inputField.nativeElement.value = ""
+    }
+   
+  }
+  isAnArrayofValues(value): boolean {
     if (Array.isArray(value)) {
       return true
     }
-return false
+    return false
   }
 
 }
