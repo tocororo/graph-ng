@@ -14,7 +14,7 @@ export interface Configuration {
   export interface Mapping {
     _class: string;
     required: string[];
-    properties: { [key: string]: string | NestedMapping | NestedMappings };
+    properties: { [key: string]: string |string[] | NestedMapping | NestedMappings };
     relationship: { [key: string]: Relationship };
     valuesOf: { [key: string]: { [key: string]: string } };
   }

@@ -17,6 +17,7 @@ export class TransformRulesComponent {
   items: any
   entity_label: string
   entities: Entity[] = []
+  subproperties:any[]=[]
 
   @ViewChild('inputField') inputField: ElementRef;
 
@@ -24,6 +25,7 @@ export class TransformRulesComponent {
   checked: boolean = true
   constructor(private configurationService: ConfigurationJsonService) { }
   ngOnInit(): void {
+    
     this.chargeEntitiesbyConfiguration()
     this.getRulesbyEntityName()
 
@@ -57,8 +59,6 @@ export class TransformRulesComponent {
 
           this.entity_label = label
           this.entities.map((entity) => {
-            console.log("entity", entity.name);
-            console.log("entity_label", this.entity_label);
             if (entity.name === this.entity_label) {
               console.log("es la q busco", entity.mapping.properties);
               const properties = entity.mapping.properties;
@@ -69,9 +69,7 @@ export class TransformRulesComponent {
               this.items = rules
             }
           })
-        } else {
-          throw new Error("The label is null.");
-
+          this.updatePropertiesSectionConfig()
         }
       } catch (error) {
         console.error(error);
@@ -97,63 +95,136 @@ export class TransformRulesComponent {
 
     const inputValue = this.inputField.nativeElement.value;
     if (inputValue) {
- // Find the item with the matching key
- this.items.map((obj: Rule) => {
-  // Check if the value is already an array
-  if (obj.key === key) {
+      // Find the item with the matching key
+      this.items.map((obj: Rule) => {
+        // Check if the value is already an array
+        if (obj.key === key) {
 
-    if (Array.isArray(obj.value)) {
-      obj.value.push(inputValue)
-    } else {
-      // If it's not an array, convert it to an array and add both the existing value and the inputValue
-      obj.value = [obj.value, inputValue];
+          if (Array.isArray(obj.value)) {
+            obj.value.push(inputValue)
+          } else {
+            // If it's not an array, convert it to an array and add both the existing value and the inputValue
+            obj.value = [obj.value, inputValue];
+
+          }
+
+        }
+      })
+      // Clear the input field
+
+      this.inputField.nativeElement.value = ""
+      this.updatePropertiesSectionConfig()
 
     }
 
   }
-})
-// Clear the input field
 
-this.inputField.nativeElement.value = ""
-    }
-   
-  }
- 
   /**
    * 
-   * @param value 
-   * @returns 
+   * @param value
+   * @returns
    */
   /** 
  * Checks if the given value is an array. 
  *  
  * @param value The value to be checked. 
  * @returns True if the value is an array, false otherwise. 
- */ 
-isAnArrayofValues(value): boolean { 
-  return Array.isArray(value); 
-}
-
-/**
- * Deletes a rule from the items array based on the given value and optional key.
- * If a key is provided, it will only delete the rule with a matching key.
- * If no key is provided, it will delete all rules with the given value.
- * 
- * @param value The value to be deleted from the rules.
- * @param key (Optional) The key of the rule to be deleted.
  */
-ToDeleteRule(value: string, key?: string){
-  if (key) {
-    console.log(key);
-    this.items.map((item)=>{
-      if (item.key===key) {
-        item.value = item.value.filter(item => item !== value);
-      }
-    })
-  } else {
-    this.items.value = this.items.value.filter(item => item !== value);
+  isAnArrayofValues(value): boolean {
+    return Array.isArray(value);
   }
+
+  isJSONObject(value): boolean {
+    this.subproperties=[]
+    try {
+      if (typeof value === 'object' && value !== null) {
+        for (const subkey in value) {
+         if (value.hasOwnProperty(subkey)) {
+          return true;
+  }
+
+      }
+
+
+    } }catch (error) {
+      console.error("Error parsing JSON:", error);
+      return false;
+    }
+  }
+  getObjectKeys(obj: any): string[] {
+    return Object.keys(obj);
+  }
+  
+/*   try {
+    console.log("essss",typeof parsedValue === 'object' && parsedValue !== null);
+    
+  } catch (error) {
+    return false;
+  }
+ */
+  /**
+   * Deletes a rule from the items array based on the given value and optional key.
+   * If a key is provided, it will only delete the rule with a matching key.
+   * If no key is provided, it will delete all rules with the given value.
+   * 
+   * @param value The value to be deleted from the rules.
+   * @param key (Optional) The key of the rule to be deleted.
+   */
+  ToDeleteRule(value: string, key?: string,subkey?: string) {
+   
+    if (key) {
+      console.log(key);
+      this.items.map((item) => {
+        if (item.key === key) {
+          if (subkey) {
+console.log(12345,subkey);
+const subitem=item.value[subkey]
+if (this.isJSONObject(subitem)) {
+  subitem.value = subitem.value.filter(item => item !== value);
+
+}else{
+  console.log("no es un arreglo ");
+  const temp_value=subitem.value
+  subitem.value=[]
+  subitem.value.push(temp_value)
+  console.log(" es un arreglo ",subitem.value);
+
+  
+  
 }
 
+          }else{
+            item.value = item.value.filter(item => item !== value);
+
+          }
+        }
+      })
+      this.updatePropertiesSectionConfig()
+    } else {
+      this.items.value = this.items.value.filter(item => item !== value);
+    }
+  }
+  updatePropertiesSectionConfig() {
+    try {
+      let new_configuration: Configuration;
+      this.configurationService.getConfigurationJson().subscribe((configuration: Configuration) => {
+        configuration.entities.map((entity) => {
+          if (entity.name === this.entity_label) {
+            console.log("son iguales", entity.name, this.entity_label);
+            this.items.map((item: Rule) => {
+              entity.mapping.properties[item.key] = item.value;
+            });
+          }
+        });
+        new_configuration = configuration;
+      });
+  
+      if (new_configuration) {
+        this.configurationService.setConfigurationJson(new_configuration);
+      }
+    } catch (error) {
+      console.error('Error updating properties section configuration:', error);
+    }
+  }
 }
 
