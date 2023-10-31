@@ -21,7 +21,7 @@
             <div class="rule-description">
               <p>{{item.value}}</p>
               <div class="action-container">
-                <span class="material-symbols-outlined delete-icon" (click)="ToDeleteRule(item.value)">
+                <span class="material-symbols-outlined delete-icon" (click)="ToDeleteRule(item.value,item.key)">
                   delete
                 </span>
                 <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
@@ -69,7 +69,7 @@
               </div>
             </div>
           </ng-container>
-<ng-container *ngIf="!isAnArrayofValues(item.value) && !isJSONObject(item.value)">
+<ng-container >
   <mat-form-field  class="add-value">
     <mat-label>Add</mat-label>
     <input type="url" matInput #inputField>

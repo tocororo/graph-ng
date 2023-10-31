@@ -17,7 +17,7 @@ export class TransformRulesComponent {
   items: any
   entity_label: string
   entities: Entity[] = []
-  subproperties:any[]=[]
+  subproperties: any[] = []
 
   @ViewChild('inputField') inputField: ElementRef;
 
@@ -25,7 +25,7 @@ export class TransformRulesComponent {
   checked: boolean = true
   constructor(private configurationService: ConfigurationJsonService) { }
   ngOnInit(): void {
-    
+
     this.chargeEntitiesbyConfiguration()
     this.getRulesbyEntityName()
 
@@ -135,18 +135,19 @@ export class TransformRulesComponent {
   }
 
   isJSONObject(value): boolean {
-    this.subproperties=[]
+    this.subproperties = []
     try {
       if (typeof value === 'object' && value !== null) {
         for (const subkey in value) {
-         if (value.hasOwnProperty(subkey)) {
-          return true;
-  }
+          if (value.hasOwnProperty(subkey)) {
+            return true;
+          }
+
+        }
+
 
       }
-
-
-    } }catch (error) {
+    } catch (error) {
       console.error("Error parsing JSON:", error);
       return false;
     }
@@ -154,14 +155,14 @@ export class TransformRulesComponent {
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
-  
-/*   try {
-    console.log("essss",typeof parsedValue === 'object' && parsedValue !== null);
-    
-  } catch (error) {
-    return false;
-  }
- */
+
+  /*   try {
+      console.log("essss",typeof parsedValue === 'object' && parsedValue !== null);
+      
+    } catch (error) {
+      return false;
+    }
+   */
   /**
    * Deletes a rule from the items array based on the given value and optional key.
    * If a key is provided, it will only delete the rule with a matching key.
@@ -170,39 +171,49 @@ export class TransformRulesComponent {
    * @param value The value to be deleted from the rules.
    * @param key (Optional) The key of the rule to be deleted.
    */
-  ToDeleteRule(value: string, key?: string,subkey?: string) {
-   
-    if (key) {
-      console.log(key);
+  ToDeleteRule(value: string, key?: string, subkey?: string) {
+
+
+
+    if (subkey) {
+      console.log("subkey", subkey);
       this.items.map((item) => {
         if (item.key === key) {
-          if (subkey) {
-console.log(12345,subkey);
-const subitem=item.value[subkey]
-if (this.isJSONObject(subitem)) {
-  subitem.value = subitem.value.filter(item => item !== value);
+          const subkeys = this.getObjectKeys(item.value)
+          subkeys.map((key) => {
+            if (key === subkey) {
+              if (this.isAnArrayofValues(item.value[subkey])) {
+                console.log("array");
+                item.value[subkey] = item.value[subkey].filter(item => item !== value);
+              } else {
+                console.log("convertir array");
+                item.value[subkey] = []
+              }
 
-}else{
-  console.log("no es un arreglo ");
-  const temp_value=subitem.value
-  subitem.value=[]
-  subitem.value.push(temp_value)
-  console.log(" es un arreglo ",subitem.value);
 
-  
-  
-}
-
-          }else{
-            item.value = item.value.filter(item => item !== value);
-
-          }
+            }
+          })
         }
       })
-      this.updatePropertiesSectionConfig()
+
     } else {
-      this.items.value = this.items.value.filter(item => item !== value);
+      if (key) {
+        this.items.map((item)=>{
+          if (item.key === key) {
+            if (this.isAnArrayofValues(item.value)) {
+              item.value = item.value.filter(item => item !== value);
+
+              
+            }else{
+              item.value =[]
+            }
+
+          }
+        })
+      }
     }
+    this.updatePropertiesSectionConfig()
+
   }
   updatePropertiesSectionConfig() {
     try {
@@ -218,7 +229,7 @@ if (this.isJSONObject(subitem)) {
         });
         new_configuration = configuration;
       });
-  
+
       if (new_configuration) {
         this.configurationService.setConfigurationJson(new_configuration);
       }
