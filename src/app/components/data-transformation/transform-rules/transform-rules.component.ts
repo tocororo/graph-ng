@@ -156,37 +156,37 @@ export class TransformRulesComponent {
     return Object.keys(obj);
   }
 
-  /*   try {
-      console.log("essss",typeof parsedValue === 'object' && parsedValue !== null);
-      
-    } catch (error) {
-      return false;
-    }
-   */
   /**
-   * Deletes a rule from the items array based on the given value and optional key.
-   * If a key is provided, it will only delete the rule with a matching key.
-   * If no key is provided, it will delete all rules with the given value.
-   * 
-   * @param value The value to be deleted from the rules.
-   * @param key (Optional) The key of the rule to be deleted.
+   * Deletes a rule from the items array.
+   * @param value - The value to delete.
+   * @param key - (Optional) The key to match.
+   * @param subkey - (Optional) The subkey to match.
    */
   ToDeleteRule(value: string, key?: string, subkey?: string) {
-
-
-
+    // If a subkey is provided, log it to the console
     if (subkey) {
-      console.log("subkey", subkey);
+      // Iterate through the items array
       this.items.map((item) => {
+        // Check if the item key matches the provided key
         if (item.key === key) {
+          // Get the subkeys of the item value object
+
           const subkeys = this.getObjectKeys(item.value)
+          // Iterate through the subkeys
+
           subkeys.map((key) => {
+            // Check if the subkey matches the provided subkey
+
             if (key === subkey) {
+              // Check if the value corresponding to the subkey is an array
+
               if (this.isAnArrayofValues(item.value[subkey])) {
-                console.log("array");
+                // Filter out the value from the array
+
                 item.value[subkey] = item.value[subkey].filter(item => item !== value);
               } else {
-                console.log("convertir array");
+                // If the value is not an array, assign an empty array to it
+
                 item.value[subkey] = []
               }
 
@@ -198,14 +198,24 @@ export class TransformRulesComponent {
 
     } else {
       if (key) {
-        this.items.map((item)=>{
+        // If only a key is provided, iterate through the items array
+
+        this.items.map((item) => {
+          // Check if the item key matches the provided key
+
           if (item.key === key) {
+            // Check if the value is an array
+
             if (this.isAnArrayofValues(item.value)) {
+              // Filter out the value from the array
+
               item.value = item.value.filter(item => item !== value);
 
-              
-            }else{
-              item.value =[]
+
+            } else {
+              // If the value is not an array, assign an empty array to it
+
+              item.value = []
             }
 
           }
