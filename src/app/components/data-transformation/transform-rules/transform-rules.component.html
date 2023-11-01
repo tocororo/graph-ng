@@ -17,7 +17,9 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="expansion-panel-body-container">
-          <ng-container *ngIf="!isAnArrayofValues(item.value) && !isJSONObject(item.value)">
+          <!-- Para cuando es un string  -->
+
+          <ng-container *ngIf="isString(item.value)">
             <div class="rule-description">
               <p>{{item.value}}</p>
               <div class="action-container">
@@ -27,9 +29,13 @@
                 <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
               </div>
             </div>
+            <label for="">{{item.value}}</label>
           </ng-container>
-          <ng-container *ngIf="isJSONObject(item.value)">
-           <mat-accordion *ngFor="let subkey of getObjectKeys(item.value)" class="w-100-h-100">
+
+
+          <!-- Para cuando es un objeto json  -->
+          <ng-container *ngIf="isJSONObject(item.value) && !isAnArrayofValues(item.value)">
+            <mat-accordion *ngFor="let subkey of getObjectKeys(item.value)" class="w-100-h-100">
               <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
                 class="expansion-panel">
                 <mat-expansion-panel-header>
@@ -38,19 +44,40 @@
                     {{ subkey }}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-
-                <div class="rule-description">
-                  <p>{{item.value[subkey]}}</p>
-                  <div class="action-container">
-                    <span class="material-symbols-outlined delete-icon" (click)="ToDeleteRule(item.value[subkey],item.key,subkey)" >
-                      delete
-                    </span>
-                    <mat-checkbox color="primary"></mat-checkbox>
-                  </div></div>
-                  <mat-form-field class="add-value">
-                    <mat-label>Add</mat-label>
-                    <input type="url" matInput #inputField>
-                  </mat-form-field>
+<ng-container *ngIf="isAnArrayofValues(item.value[subkey])">
+  <div class="rule-description" *ngFor="let subvalue of item.value[subkey]" >
+    <p>{{subvalue}}</p>
+    <div class="action-container">
+      <span class="material-symbols-outlined delete-icon"
+        (click)="ToDeleteRule(subvalue,item.key,subkey)">
+        delete
+      </span>
+      <mat-checkbox color="primary"></mat-checkbox>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isAnArrayofValues(item.value[subkey])">
+  <p>jasjansjabsj</p>
+  <div class="rule-description"  >
+    <p>{{item.value[subkey]}}</p>
+    <div class="action-container">
+      <span class="material-symbols-outlined delete-icon"
+        (click)="ToDeleteRule(item.value[subkey],item.key,subkey)">
+        delete
+      </span>
+      <mat-checkbox color="primary"></mat-checkbox>
+    </div>
+  </div>
+  <mat-form-field class="add-value">
+    <mat-label>Add</mat-label>
+    <input type="url" matInput #inputField>
+  </mat-form-field>
+  <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key,subkey)"
+    color="basic">ADD</button>
+</div>
+</ng-container>
+               
+                
               </mat-expansion-panel>
 
             </mat-accordion>
@@ -58,7 +85,9 @@
 
 
           </ng-container>
-          <ng-container *ngIf="isAnArrayofValues(item.value) && !isJSONObject(item.value) ">
+          <!-- Para cuando es un arreglo  -->
+
+          <ng-container *ngIf="isAnArrayofValues(item.value) ">
             <div class="rule-description" *ngFor="let value of item.value">
               <p>{{value}}</p>
               <div class="action-container">
@@ -68,17 +97,30 @@
                 <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
               </div>
             </div>
+            <mat-form-field class="add-value">
+              <mat-label>Add</mat-label>
+              <input type="url" matInput #inputField>
+            </mat-form-field>
+            <div class="add-button-container">
+              <button mat-button (click)="toAddValue(item.key)" color="basic">ADD</button>
+            </div>
           </ng-container>
-<ng-container >
-  <mat-form-field  class="add-value">
-    <mat-label>Add</mat-label>
-    <input type="url" matInput #inputField>
-  </mat-form-field>
-  <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key)"
-      color="basic">ADD</button>
-  </div>
-</ng-container>
-          
+
+
+
+
+
+          <ng-container *ngIf="isString(item.value)|| !(isAnArrayofValues(item.value)&& isJSONObject(item.value))">
+            <mat-form-field class="add-value">
+              <mat-label>Add</mat-label>
+              <input type="url" matInput #inputField>
+            </mat-form-field>
+            <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key)"
+                color="basic">ADD</button>
+            </div>
+          </ng-container>
+
+
         </div>
       </mat-expansion-panel>
 
