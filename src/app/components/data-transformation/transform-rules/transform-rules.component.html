@@ -29,13 +29,12 @@
                 <mat-checkbox color="primary" (click)="toAddRule($event, item)"></mat-checkbox>
               </div>
             </div>
-            <label for="">{{item.value}}</label>
           </ng-container>
 
 
           <!-- Para cuando es un objeto json  -->
           <ng-container *ngIf="isJSONObject(item.value) && !isAnArrayofValues(item.value)">
-            <mat-accordion *ngFor="let subkey of getObjectKeys(item.value)" class="w-100-h-100">
+            <mat-accordion *ngFor="let subkey of getObjectKeys(item.value);let posi=index" class="w-100-h-100">
               <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
                 class="expansion-panel">
                 <mat-expansion-panel-header>
@@ -57,7 +56,6 @@
   </div>
 </ng-container>
 <ng-container *ngIf="!isAnArrayofValues(item.value[subkey])">
-  <p>jasjansjabsj</p>
   <div class="rule-description"  >
     <p>{{item.value[subkey]}}</p>
     <div class="action-container">
@@ -68,14 +66,15 @@
       <mat-checkbox color="primary"></mat-checkbox>
     </div>
   </div>
-  <mat-form-field class="add-value">
-    <mat-label>Add</mat-label>
-    <input type="url" matInput #inputField>
-  </mat-form-field>
-  <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key,subkey)"
-    color="basic">ADD</button>
-</div>
+ 
 </ng-container>
+<mat-form-field class="add-value">
+  <mat-label>Add</mat-label>
+  <input type="url" matInput [(ngModel)]="inputValue">
+</mat-form-field>
+<div class="add-button-container"> <button mat-button (click)="toAddValue(item.key,subkey,inputValue)"
+  color="basic">ADD</button>
+</div>
                
                 
               </mat-expansion-panel>

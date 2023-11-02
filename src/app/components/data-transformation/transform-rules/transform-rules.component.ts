@@ -18,8 +18,9 @@ export class TransformRulesComponent {
   entity_label: string
   entities: Entity[] = []
   subproperties: any[] = []
+  inputValue: string = ""
+  @ViewChild('inputField', { static: false }) inputFieldinJSON: ElementRef;
 
-  @ViewChild('inputField') inputField: ElementRef;
 
 
   checked: boolean = true
@@ -91,73 +92,78 @@ export class TransformRulesComponent {
  * 
  * @param key The key to identify the item.
  */
-  toAddValue(key, subkey?: string) {
-    const inputValue = this.inputField.nativeElement.value;
-    if (inputValue) {
-      if (subkey) {
-        console.log("subkey",subkey);
-        
-        // Iterate through the items array
-        this.items.map((item) => {
-          if (item.key === key) {
-            // Get the subkeys of the item value object
+  toAddValue(key, subkey?: string, inputValue?: string) {
+    console.log("inputID", this.inputValue);
 
-            const subkeys = this.getObjectKeys(item.value)
-            // Iterate through the subkeys
 
-            subkeys.map((key) => {
-              if (key === subkey) {
-                // Check if the value corresponding to the subkey is an array
 
-                if (this.isAnArrayofValues(item.value[subkey])) {
-                  item.value[subkey].push(inputValue)
-                  
-                }else{
-                  item.value[subkey]=[]
-                  item.value[subkey].push(inputValue)
-                }
+    if (subkey) {
+
+      // Iterate through the items array
+      this.items.map((item) => {
+        if (item.key === key) {
+          // Get the subkeys of the item value object
+
+          const subkeys = this.getObjectKeys(item.value)
+          // Iterate through the subkeys
+
+          subkeys.map((key) => {
+            if (key === subkey) {
+              // Check if the value corresponding to the subkey is an array
+
+              if (this.isAnArrayofValues(item.value[subkey])) {
+                item.value[subkey].push(inputValue)
+
+              } else {
+                const temp = item.value[subkey]
+                item.value[subkey] = []
+                item.value[subkey].push(temp)
+
+                item.value[subkey].push(inputValue)
               }
-            })
-          }
-        })
-
-
-      }
-      else {
-        console.log("099");
-        
-          // Find the item with the matching key
-          this.items.map((obj: Rule) => {
-            // Check if the value is already an array
-            if (obj.key === key) {
-            if (this.isAnArrayofValues(obj.value )) {
-           obj.value.push(inputValue)
-console.log("obj.value",obj.value);
-
-  
-}else{
-  const tem_array=[]
-  tem_array.push(obj.value)
-
-
-  tem_array.push(inputValue)
-  obj.value=tem_array
-  console.log("obj.valueobj.value",obj.value);
-
-
-  
-}
-
             }
           })
+        }
+      })
 
 
-        
-      }
+    }
+    else {
+      console.log("099");
+      const inputElement = this.inputFieldinJSON.nativeElement;
+
+      // Find the item with the matching key
+      this.items.map((obj: Rule) => {
+        // Check if the value is already an array
+        if (obj.key === key) {
+          if (this.isAnArrayofValues(obj.value)) {
+            obj.value.push(inputElement.value)
+            console.log("obj.value", obj.value);
+
+
+          } else {
+            const tem_array = []
+            tem_array.push(obj.value)
+
+
+            tem_array.push(inputElement.value)
+            obj.value = tem_array
+            console.log("obj.valueobj.value", obj.value);
+
+            inputElement.value = ""
+
+
+          }
+
+        }
+      })
+
+
+
     }
 
 
-    this.inputField.nativeElement.value = ""
+    this.inputValue = ""
     this.updatePropertiesSectionConfig()
 
   }
@@ -177,7 +183,7 @@ console.log("obj.value",obj.value);
 
     return Array.isArray(value);
   }
- 
+
   isJSONObject(value): boolean {
 
     this.subproperties = []
@@ -197,8 +203,8 @@ console.log("obj.value",obj.value);
       return false;
     }
   }
-   isString(valor: any): boolean {
-    
+  isString(valor: any): boolean {
+
     return typeof valor === 'string';
   }
   getObjectKeys(obj: any): string[] {
