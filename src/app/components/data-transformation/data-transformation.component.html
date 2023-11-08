@@ -5,8 +5,11 @@
       [breakpoint]="get_breakpoint_service.getBreakpoint()">
 
       </app-entity-panel >
-      <div class="button-import-container">
-        <button mat-raised-button (click)="openDialog('0ms', '0ms')">Import</button>
+      <div class="button-container">
+       <!--  <button mat-raised-button (click)="openDialog('0ms', '0ms')">Import</button> -->
+            <button mat-raised-button (click)="openDialog('0ms', '0ms')" [color]="item.color" *ngFor="let item of buttons_array">
+              {{ item.label | translate }}
+            </button>
 
 
       </div>
@@ -26,14 +29,7 @@
   </mat-grid-tile>
   <mat-grid-tile class="buttons-section">
     <section class="button-spinner-container">
-      <section class="button-container">
-
-        <div class="example-button-row" *ngFor="let item of buttons_array">
-          <button mat-raised-button [color]="item.color">
-            {{ item.label | translate }}
-          </button>
-        </div>
-      </section>
+      
       <mat-card class="spinner-card-container">
         <mat-card-content>
 

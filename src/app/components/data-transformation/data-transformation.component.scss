@@ -1,3 +1,18 @@
+
+.button-container button:hover {
+  background-color: #e0e0e0; /* Cambia el color según tus preferencias */
+  color: black;
+
+}
+.button-container button {
+  transition: background-color 0.3s ease; /* Ajusta la duración y el tipo de animación según tus preferencias */
+}
+.button-container button:hover {
+  transform: scale(1.05); /* Ajusta el valor según tus preferencias */
+}
+
+
+
 .buttons-section {
   display: flex;
 
@@ -193,24 +208,29 @@
 
   }
 
-  .button-import-container {
+  .button-container {
     height: 100%;
     width: 40%;
     margin-top: 1em;
-    display: flex;
+    display: grid;
     justify-content: center;
-    align-items: center;
+    align-content: center;
 
     button {
-      width: 50%;
-    }
+      width: 85%;
+      height: 6vh;
+      margin: 2em;   
+     }
+     
   }
+ 
 
   .tile-height-rules-panel {
     height: 42em;
     width: 100%;
     margin: 5px
   }
+  
 
   .progress-spinner {
     width: 10em !important;

@@ -23,9 +23,11 @@ export class DataTransformationComponent implements OnInit{
   modal_widht: string="30vh";
 
   public buttons_array: any[] = [
-    { label: "GUARDAR", color: "basic" },
-    { label: "CANCELAR", color: "primary" },
-    { label: "TRANSFORMAR", color: "accent" },
+    { label: "IMPORTAR", color: "basic", },
+
+    { label: "GUARDAR", color: "primary", },
+    { label: "CANCELAR", color: "accent" },
+    { label: "TRANSFORMAR", color: "ligth-green" },
 
   ];
 
