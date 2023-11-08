@@ -75,8 +75,7 @@
 <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key,subkey,inputValue)"
   color="basic">ADD</button>
 </div>
-               
-                
+
               </mat-expansion-panel>
 
             </mat-accordion>
@@ -98,7 +97,7 @@
             </div>
             <mat-form-field class="add-value">
               <mat-label>Add</mat-label>
-              <input type="url" matInput #inputField>
+              <input type="url" matInput #inputField [(ngModel)]="inputValue">
             </mat-form-field>
             <div class="add-button-container">
               <button mat-button (click)="toAddValue(item.key)" color="basic">ADD</button>
@@ -109,10 +108,10 @@
 
 
 
-          <ng-container *ngIf="isString(item.value)|| !(isAnArrayofValues(item.value)&& isJSONObject(item.value))">
+          <ng-container *ngIf="isString(item.value)">
             <mat-form-field class="add-value">
               <mat-label>Add</mat-label>
-              <input type="url" matInput #inputField>
+              <input type="url" matInput #inputField [(ngModel)]="inputValue">
             </mat-form-field>
             <div class="add-button-container"> <button mat-button (click)="toAddValue(item.key)"
                 color="basic">ADD</button>

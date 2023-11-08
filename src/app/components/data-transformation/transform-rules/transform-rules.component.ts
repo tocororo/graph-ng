@@ -91,6 +91,8 @@ export class TransformRulesComponent {
  * Adds a value to the value array of an item or converts it to an array if it's not already.
  * 
  * @param key The key to identify the item.
+ * @param subkey
+ * @param inputValue
  */
   toAddValue(key, subkey?: string, inputValue?: string) {
     console.log("inputID", this.inputValue);
@@ -129,7 +131,6 @@ export class TransformRulesComponent {
 
     }
     else {
-      console.log("099");
       const inputElement = this.inputFieldinJSON.nativeElement;
 
       // Find the item with the matching key
@@ -138,8 +139,6 @@ export class TransformRulesComponent {
         if (obj.key === key) {
           if (this.isAnArrayofValues(obj.value)) {
             obj.value.push(inputElement.value)
-            console.log("obj.value", obj.value);
-
 
           } else {
             const tem_array = []
