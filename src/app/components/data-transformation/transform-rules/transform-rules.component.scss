@@ -14,7 +14,7 @@
   height: 100%;
 }
 .expansion-subpanel {
-  background-color:map-get($md-green, 50);
+  background-color:map-get($md-greylight, 100);
   
   
 
@@ -34,6 +34,9 @@
   cdk-virtual-scroll-viewport{
     height: 80%;
     margin-top: 3em;
+    .virtual-scroll-container{
+      width: 78%;
+    }
     mat-expansion-panel-header{
       padding: 0px;
     }
@@ -122,6 +125,7 @@ width: 70%;
     cdk-virtual-scroll-viewport{
       height: 80%;
       margin-top: 3em;
+    
   .rule-description{
     display: flex;
   align-items: center;

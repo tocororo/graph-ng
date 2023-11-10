@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Configuration } from '../app/models/configuration.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Configuration } from '../app/models/configuration.interface';
 export class ConfigurationJsonService {
   private configurationJson$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   private rulespropertieslabel$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getConfigurationJson(): Observable<Configuration> {
     return this.configurationJson$.asObservable();
   }
@@ -25,6 +26,21 @@ export class ConfigurationJsonService {
     this.rulespropertieslabel$.next(label);
     
   }
+
+  sendConfiguracionFile(configuration: any) {
+
+    this.http.post('URL_DEL_BACKEND', configuration)
+      .subscribe(
+        response => {
+
+          
+          // Lógica para manejar la respuesta del backend
+        },
+        error => {
+          // Lógica para manejar errores
+        }
+
+      );}
 
 
 

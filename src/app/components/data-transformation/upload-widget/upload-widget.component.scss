@@ -10,32 +10,32 @@
 }
     ngx-dropzone{
         margin: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
         .main-drop-label{
             font-size: x-large;
         }
     }
-    .button-container{
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        margin: 1em;
-    }}
+    }
 
 /* Tamaño  para pantallas pequenas */
 
 @media screen and (max-width: 600px) {
+    .head-title{
+        font-size: x-large;
+
+    }
     ngx-dropzone{
         margin: 0.5em;
-        height: 50%;
+        height: 25vh;
         .main-drop-label{
             font-size: x-large;
         }
         ngx-dropzone-preview {
             height: 15vh;
             min-width: 42vw;
-            .name-label{
-                font-size: small;
-            }
 
         }
     }
@@ -48,7 +48,11 @@
 
 /* Tamaño  para pantallas medianas */
 
-@media screen and (min-width: 601px) and (max-width: 1200px) {}
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+    .button-container{
+        display: grid;
+    }
+}
 /* Tamaño  para pantallas grandes */
 
 @media screen and (min-width: 1201px) {
@@ -77,6 +81,12 @@
             }
 
         }
+    }
+    .button-container{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin: 1em;
     }
  
 }

@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 import { GetBreakpointService } from "src/services/shared-services/get-breakpoint.service";
 import { UploadWidgetComponent } from "./upload-widget/upload-widget.component";
 import { MatDialog } from "@angular/material/dialog";
+import { ConfigurationJsonService } from "src/services/configuration-json.service";
 
 @Component({
   selector: "app-data-transformation",
@@ -19,20 +20,20 @@ export class DataTransformationComponent implements OnInit{
   cols_section1: number = 2;
   cols_section2: number = 3;
   colspan_section2: number = 1;
-  modal_height: string="30vh";
-  modal_widht: string="30vh";
+  modal_height: string="45vh";
+  modal_widht: string="50vh";
 
   public buttons_array: any[] = [
-    { label: "IMPORTAR", color: "basic", },
+    { label: "IMPORT", color: "basic", },
 
-    { label: "GUARDAR", color: "primary", },
+    { label: "EXPORT", color: "primary", },
     { label: "CANCELAR", color: "accent" },
     { label: "TRANSFORMAR", color: "ligth-green" },
 
   ];
 
   constructor(
-   public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog
+   public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog, public config_service:ConfigurationJsonService
   ) {
 
     this.currentBreakpoint = get_breakpoint_service.getBreakpoint();
@@ -51,15 +52,13 @@ export class DataTransformationComponent implements OnInit{
     if (this.get_breakpoint_service.getBreakpoint() === "Handset") {
       this.cols_section1 = 1;
       this.cols_section2 = 1;
-      this.modal_widht="60vw"
-      this.modal_height="48vh"
+   
     } else if (this.get_breakpoint_service.getBreakpoint() === "Tablet") {
       this.cols_section1 = 2;
       this.cols_section2 = 3;
       this.colspan_section2=2;
-    } else {
-      this.modal_widht="40vw"
-      this.modal_height="40vh"
+    } else if (this.get_breakpoint_service.getBreakpoint() === "Mobil"){
+   
       this.cols_section1 = 2;
       this.colspan_section2 = 2;
     }
@@ -74,6 +73,28 @@ export class DataTransformationComponent implements OnInit{
       exitAnimationDuration,
     });
   }
+  handleButtonClick(label: string) {
+    if (label === 'IMPORT') {
+      this.openDialog('0ms', '0ms');
+    } else if (label === 'EXPORT') {
+console.log("save");
+    } 
+    else if (label === 'TRANSFORMAR') {
+      console.log("TRANSFORMAR");
+      this.transformWithConfigurationFile()
 
+          }else {
+            console.log("CANCELAR");
+
+      // Otra condición o acción por defecto
+    }
+  }
+  transformWithConfigurationFile(){
+    this.config_service.getConfigurationJson().subscribe(configuration=>{
+
+     this.config_service.sendConfiguracionFile(configuration)
+
+    })
+  }
 
 }
