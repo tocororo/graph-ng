@@ -1,14 +1,5 @@
 <ng-container
 class="container">
 <h2 class="title"> {{"SALIDA_ALGORITMO" | translate}}</h2>
-<mat-card class="output-container">
-  <mat-card-content>
-    <cdk-virtual-scroll-viewport itemSize="10">
-      <mat-list role="list">
-    <mat-list-item *cdkVirtualFor="let item of items"  role="listitem">{{item}}</mat-list-item>
 
-  </mat-list>
-</cdk-virtual-scroll-viewport>
-  </mat-card-content>
-</mat-card>
 </ng-container>

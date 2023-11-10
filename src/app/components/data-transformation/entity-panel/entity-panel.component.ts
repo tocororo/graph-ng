@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Configuration } from 'src/app/models/configuration.interface';
 import { ConfigurationJsonService } from 'src/services/configuration-json.service';
+import { MatDialog } from "@angular/material/dialog";
+import { UploadWidgetComponent } from '../upload-widget/upload-widget.component';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 @Component({
   selector: 'app-entity-panel',
@@ -18,7 +21,7 @@ public isMobile: boolean=true;
  * use to know the actual breakpoint(handset,table or desktop)
  */
 @Input() breakpoint: string;
-constructor(private  configurationService: ConfigurationJsonService){}
+constructor(private  configurationService: ConfigurationJsonService,public dialog: MatDialog){}
 ngOnInit(): void {
   this.chargeEntitiesbyConfiguration()
 
@@ -61,4 +64,19 @@ chargeProperties(event){
 
   }
 }
+deleteEntity(){
+  console.log(1234);
+  
+}
+openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  this.dialog.open(EditDialogComponent, {
+    width: "30vw",
+    height: "30vw",
+    maxHeight:"30vw",
+    
+    enterAnimationDuration,
+    exitAnimationDuration,
+  });
+}
+
 }

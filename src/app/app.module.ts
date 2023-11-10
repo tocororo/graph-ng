@@ -73,6 +73,7 @@ import { DataTransformationComponent } from "./components/data-transformation/da
 import { TransformRulesComponent } from "./components/data-transformation/transform-rules/transform-rules.component";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { UploadWidgetComponent } from "./components/data-transformation/upload-widget/upload-widget.component";
+import { EditDialogComponent } from './components/data-transformation/edit-dialog/edit-dialog.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -113,7 +114,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         DocumentationViewComponent,
         QueryViewComponent,
         HistorialViewComponent,
-        UploadWidgetComponent
+        UploadWidgetComponent,
+        
 
 
 
