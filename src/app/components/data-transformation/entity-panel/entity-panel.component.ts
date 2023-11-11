@@ -70,9 +70,9 @@ deleteEntity(){
 }
 openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
   this.dialog.open(EditDialogComponent, {
-    width: "30vw",
-    height: "30vw",
-    maxHeight:"30vw",
+    width: "450px",
+    height: "350px",
+   
     
     enterAnimationDuration,
     exitAnimationDuration,

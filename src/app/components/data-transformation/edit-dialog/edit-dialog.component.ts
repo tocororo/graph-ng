@@ -10,22 +10,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {AsyncPipe, NgFor} from '@angular/common';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { ConfigurationJsonService } from 'src/services/configuration-json.service';
 
 @Component({
   selector: 'app-edit-dialog',
   templateUrl: './edit-dialog.component.html',
   styleUrls: ['./edit-dialog.component.scss'],
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatFormFieldModule,
-    MatChipsModule,
-    NgFor,
-    MatIconModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule,
-    AsyncPipe,
-  ],
+ 
 })
 export class EditDialogComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -34,15 +27,23 @@ export class EditDialogComponent {
   entities: string[] = ['Lemon'];
   allentities: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
-  @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
+  @ViewChild('entityInput') entityInput: ElementRef<HTMLInputElement>;
 
   announcer = inject(LiveAnnouncer);
 
-  constructor() {
+  constructor(private configurationService: ConfigurationJsonService) {
     this.filteredEntities = this.entityCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allentities.slice())),
     );
+  }
+  ngOnInit(): void {
+
+    this.configurationService.getConfigurationJson().subscribe((configuration)=>{
+      this.allentities=configuration.order_for_mapping
+      this.entities=configuration.order_for_mapping
+    })
+
   }
 
   add(event: MatChipInputEvent): void {
@@ -71,7 +72,7 @@ export class EditDialogComponent {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.entities.push(event.option.viewValue);
-    this.fruitInput.nativeElement.value = '';
+    this.entityInput.nativeElement.value = '';
     this.entityCtrl.setValue(null);
   }
 

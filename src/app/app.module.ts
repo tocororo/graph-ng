@@ -115,6 +115,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         QueryViewComponent,
         HistorialViewComponent,
         UploadWidgetComponent,
+        EditDialogComponent
         
 
 
