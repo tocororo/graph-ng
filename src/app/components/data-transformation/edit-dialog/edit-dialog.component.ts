@@ -24,8 +24,8 @@ export class EditDialogComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   entityCtrl = new FormControl('');
   filteredEntities: Observable<string[]>;
-  entities: string[] = ['Lemon'];
-  allentities: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  entities: string[] = [];
+  allentities: string[] = [];
 
   @ViewChild('entityInput') entityInput: ElementRef<HTMLInputElement>;
 
@@ -41,7 +41,10 @@ export class EditDialogComponent {
 
     this.configurationService.getConfigurationJson().subscribe((configuration)=>{
       this.allentities=configuration.order_for_mapping
-      this.entities=configuration.order_for_mapping
+      if (this.entities) {
+        this.entities=configuration.order_for_mapping
+
+      }
     })
 
   }
@@ -81,6 +84,17 @@ export class EditDialogComponent {
 
     return this.allentities.filter(fruit => fruit.toLowerCase().includes(filterValue));
   }
+
+  onSaveEntityOrder(){
+let configuration
+let entitiesarray=this.entities
+this.configurationService.getConfigurationJson().subscribe((config)=>{
+  config.order_for_mapping=this.entities
+  this.allentities=this.entities
+  configuration=config
+
+}) 
+this.configurationService.setConfigurationJson(configuration) }
 }
 
 
