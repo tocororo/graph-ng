@@ -20,7 +20,6 @@
     justify-content: center;
     gap: 1em;
     button{
-      width: 16vw;
       margin: 1px;
 
     }
@@ -56,12 +55,28 @@ button:hover {
   }
 
 }
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .button-container{
+    display: grid;
+    justify-content: center;
+    gap: 1em;
+    button{
+      width: 30vw;
+
+
+    }}
+}
 
   /* Tamaño  para pantallas grandes */
 
 @media screen and (min-width: 1201px) {
  
-     
+  .button-container{
+   
+    button{
+      width: 16vw;
+
+    }
     
-  
+  }
     }

@@ -33,6 +33,9 @@ export class UploadWidgetComponent {
   }
 
   onSave() {
+    if (this.files[0]) {
+      
+    }
     let selectedFile = this.files[0];
     const fileReader = new FileReader();
     // Read the content of the file

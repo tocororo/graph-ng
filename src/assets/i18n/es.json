@@ -85,6 +85,11 @@
     "HISTORIAL":"Historial",
     "SALIDA_ALGORITMO":"Salida del algoritmo",
     "EXPORTAR":"Exportar",
+    "IMPOPRTE_SU_FICHERO":"Importe su fichero .json de configuracion",
+    "AQUI":"En este lugar",
+    "PUT_ORDER":"Establece el orden de las entidades",
+    "NEW_ENTITY":"Nueva entidad....",
+
 
 
     "FOOTER_TEXT_DEVELOP": "desarrollado con",

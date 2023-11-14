@@ -103,14 +103,20 @@ transformWithConfigurationFile() {
 }
 exportConfigurationFile() {
   this.config_service.getConfigurationJson().subscribe((configuration: any) => {
-    const json = JSON.stringify(configuration);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'config.json';
-    a.click();
-    window.URL.revokeObjectURL(url);
+    if (configuration) {
+      const json = JSON.stringify(configuration);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'config.json';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
+    else{
+      console.error("No configuration file to export")
+    }
+   
   });
 }
 }
