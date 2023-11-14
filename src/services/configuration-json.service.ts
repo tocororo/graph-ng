@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ConfigurationJsonService {
+  URL_DEL_BACKEND= "https://127.0.0.1:5000/api/graph/config"
   private configurationJson$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   private rulespropertieslabel$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor(private http: HttpClient) { }
@@ -22,25 +23,33 @@ export class ConfigurationJsonService {
     return this.rulespropertieslabel$.asObservable();
 
   }
-  setRulesPropertiesLabel(label: string): void {
-    this.rulespropertieslabel$.next(label);
+ /**
+ * Sets the label for the rules properties.
+ * 
+ * @param label The label to set.
+ */
+setRulesPropertiesLabel(label: string): void {
+  this.rulespropertieslabel$.next(label);
+}
+
+  sendConfiguracionFile(configuration: File) {
+    const formData = new FormData();
     
-  }
+    formData.append('file', (configuration));
+    console.log(formData.get('file'));
 
-  sendConfiguracionFile(configuration: any) {
-
-    this.http.post('URL_DEL_BACKEND', configuration)
+    this.http.post(this.URL_DEL_BACKEND, formData)
       .subscribe(
         response => {
-
-          
           // Lógica para manejar la respuesta del backend
+          console.log('Respuesta del backend:', response);
         },
         error => {
           // Lógica para manejar errores
+          console.error('Error en la solicitud:', error);
         }
-
-      );}
+      );
+  }
 
 
 

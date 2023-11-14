@@ -78,12 +78,13 @@
     "HOME":"Inicio",
     "CONSULTAS_SPARQL":"Consultas SPARQL",
     "PANEL_ENTIDADES":"Panel de Entidades",
-    "REGLAS_TRANSFORMACION":"Reglas de Transformacion",
+    "REGLAS_TRANSFORMACION":"Reglas de Transformación",
     "TABLA":"Tabla",
     "GRAFO":"Grafo",
     "DOCUMENTACION":"Documentacion",
     "HISTORIAL":"Historial",
     "SALIDA_ALGORITMO":"Salida del algoritmo",
+    "EXPORTAR":"Exportar",
 
 
     "FOOTER_TEXT_DEVELOP": "desarrollado con",

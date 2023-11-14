@@ -26,7 +26,7 @@ export class DataTransformationComponent implements OnInit{
   public buttons_array: any[] = [
     { label: "IMPORT", color: "basic", },
 
-    { label: "EXPORT", color: "primary", },
+    { label: "EXPORTAR", color: "primary", },
     { label: "CANCELAR", color: "accent" },
     { label: "TRANSFORMAR", color: "ligth-green" },
 
@@ -76,8 +76,9 @@ export class DataTransformationComponent implements OnInit{
   handleButtonClick(label: string) {
     if (label === 'IMPORT') {
       this.openDialog('0ms', '0ms');
-    } else if (label === 'EXPORT') {
+    } else if (label === 'EXPORTAR') {
 console.log("save");
+this.exportConfigurationFile()
     } 
     else if (label === 'TRANSFORMAR') {
       console.log("TRANSFORMAR");
@@ -89,12 +90,27 @@ console.log("save");
       // Otra condición o acción por defecto
     }
   }
-  transformWithConfigurationFile(){
-    this.config_service.getConfigurationJson().subscribe(configuration=>{
-
-     this.config_service.sendConfiguracionFile(configuration)
-
-    })
-  }
-
+/**
+ * Transforms the configuration into a File and sends it to the backend.
+ */
+transformWithConfigurationFile() {
+  this.config_service.getConfigurationJson().subscribe((configuration: any) => {
+    // Create a new File object with the configuration content
+    const file = new File([JSON.stringify(configuration)], 'config.json', { type: 'application/json' });
+    // Send the file to the backend
+    this.config_service.sendConfiguracionFile(file);
+  });
+}
+exportConfigurationFile() {
+  this.config_service.getConfigurationJson().subscribe((configuration: any) => {
+    const json = JSON.stringify(configuration);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'config.json';
+    a.click();
+    window.URL.revokeObjectURL(url);
+  });
+}
 }

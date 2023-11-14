@@ -18,7 +18,6 @@ export class UploadWidgetComponent {
    */
   async onSelect(event) {
     const selectedFile = event.addedFiles[0]
-    console.log("12", selectedFile);
     const isValidFile = await this.processFile(selectedFile);
     if (isValidFile) {
       this.files.push(selectedFile);
