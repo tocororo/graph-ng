@@ -74,6 +74,7 @@ import { TransformRulesComponent } from "./components/data-transformation/transf
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { UploadWidgetComponent } from "./components/data-transformation/upload-widget/upload-widget.component";
 import { EditDialogComponent } from './components/data-transformation/edit-dialog/edit-dialog.component';
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 
 
 export function storageFactory(): OAuthStorage {
@@ -127,6 +128,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         HttpClientModule,
         MatTableModule,
         MatPaginatorModule,
+        MonacoEditorModule,
+        
         
         TranslateModule.forRoot({
             loader: {

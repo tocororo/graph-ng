@@ -1526,6 +1526,13 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@materia-ui/ngx-monaco-editor@^6.0.0":
+  version "6.0.0"
+  resolved "https://r.cnpmjs.org/@materia-ui/ngx-monaco-editor/-/ngx-monaco-editor-6.0.0.tgz#9ae93666019e9a6d4f787370b4373cbb63a04a38"
+  integrity sha512-gTqNQjOGznZxOC0NlmKdKSGCJuTts8YmK4dsTQAGc5IgIV7cZdQWiW6AL742h0ruED6q0cAunEYjXT6jzHBoIQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@material/animation@15.0.0-canary.684e33d25.0":
   version "15.0.0-canary.684e33d25.0"
   resolved "https://registry.yarnpkg.com/@material/animation/-/animation-15.0.0-canary.684e33d25.0.tgz#d42ecdd31da5635ff5b44a53c6fc8746de7f5a5a"
@@ -6439,6 +6446,11 @@ moment@^2.22.2:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
+monaco-editor@^0.44.0:
+  version "0.44.0"
+  resolved "https://r.cnpmjs.org/monaco-editor/-/monaco-editor-0.44.0.tgz#3c0fe3655923bbf7dd647057302070b5095b6c59"
+  integrity sha512-5SmjNStN6bSuSE5WPT2ZV+iYn1/yI9sd4Igtk23ChvqB7kDk9lZbB9F5frsuvpB+2njdIeGGFf2G4gbE6rCC9Q==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -6490,6 +6502,13 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+ng-monaco-editor@^5.1.0:
+  version "5.1.0"
+  resolved "https://r.cnpmjs.org/ng-monaco-editor/-/ng-monaco-editor-5.1.0.tgz#65b95da2558aa3f508be6b909e561c659afcdf01"
+  integrity sha512-AhtmSEsAx7fe6K9xL5KoLDqTqLmNBHsQkZIg/TBuMoov+g124GwRjafBZu/SUzGgtOaFTKPyYwAuDOXrXdWKwQ==
+  dependencies:
+    tslib "^2.3.0"
 
 ngx-dropzone@^3.1.0:
   version "3.1.0"

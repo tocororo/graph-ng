@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./sparql-input.component.scss']
 })
 export class SparqlInputComponent {
+  editorOptions = {theme: 'vs-light', language: 'sparql'};
+  code: string = 'SELECT * WHERE { ?s ?p ?o . }';
+  originalCode: string = 'function x() { // TODO }';
 
 }
