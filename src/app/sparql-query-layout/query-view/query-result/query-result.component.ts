@@ -23,7 +23,19 @@ export class QueryResultComponent implements OnInit {
       label: 'd'
     }
   ]
-  links: Edge[]=[]
+  links: Edge[]=[
+    {
+      id: 'a',
+      source: 'first',
+    target: 'second',
+      label: 'is parent of'
+    }, {
+      id: 'b',
+      source: 'first',
+      target: 'third',
+      label: 'custom label'
+    }
+  ]
 
   constructor(private sparql_service: SparqlService) {
 
@@ -35,7 +47,7 @@ export class QueryResultComponent implements OnInit {
         this.nodes = []
         this.links=[]
         console.log(results);
-        results.forEach((element) => {
+        results.forEach((element,index) => {
           if (element) {
             if (element[0]) {
               console.log("element[0]", element[0]);
@@ -43,7 +55,7 @@ export class QueryResultComponent implements OnInit {
               this.addNode(element[0])
               if (element[2]) {
                 this.addNode(element[2])
-              this.addLink(results.indexOf(element).toString(),element[0],element[2],element[1])
+              this.addLink(index.toString(),element[0],element[2],element[1])
 
                 
               }
@@ -54,21 +66,8 @@ export class QueryResultComponent implements OnInit {
         }
 
         );
-        results.forEach(element => {
-            if (element[3]) {
-              console.log(this.links,"links");
-
-           /*    this.links=[]
-              this.addLink(results.indexOf(element).toString(),element[0],element[3],element[2]) */
-              
-            
-
-          }
-
-
-
-
-        })
+        console.log("links",this.links);
+        
 
     
   }

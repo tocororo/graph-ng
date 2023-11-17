@@ -2383,10 +2383,10 @@
     rfdc "^1.3.0"
     tslib "^2.0.0"
 
-"@swimlane/ngx-graph@^8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@swimlane/ngx-graph/-/ngx-graph-8.2.2.tgz#5fd29d89bf66d24199c3a61cb1e45b75b9242616"
-  integrity sha512-GKiwqz0IlXGErLXIyppeIhVqAPDkO/IbxlujVVsFEgZ0qw7sxetJS6GJr/2HfZPK+GysQW3/OFeHhl6z3KToQQ==
+"@swimlane/ngx-graph@^8.2.3":
+  version "8.2.3"
+  resolved "https://r.cnpmjs.org/@swimlane/ngx-graph/-/ngx-graph-8.2.3.tgz#74f580684b03112abf742694e9db8d3d7dbc7438"
+  integrity sha512-RnNGIAuC3ilO+8lwKA068Fd5sqv5NaW7d+Fz0zhLJp+jm+j6VG72nz65lAd002J0fCCuBV4KXUX9KzOVwBcpIQ==
   dependencies:
     d3-dispatch "^1.0.3"
     d3-ease "^1.0.5"
