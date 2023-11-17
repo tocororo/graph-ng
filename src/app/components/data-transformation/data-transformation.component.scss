@@ -5,7 +5,7 @@
 
 }
 .button-container button {
-  transition: background-color 0.3s ease; /* Ajusta la duración y el tipo de animación según tus preferencias */
+  transition: all 0.3s ease-in-out; /* Agrega una transición suave de 0.3 segundos */
 }
 .button-container button:hover {
   transform: scale(1.05); /* Ajusta el valor según tus preferencias */

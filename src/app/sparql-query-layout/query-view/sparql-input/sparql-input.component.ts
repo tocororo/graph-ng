@@ -10,4 +10,10 @@ export class SparqlInputComponent {
   code: string = 'SELECT * WHERE { ?s ?p ?o . }';
   originalCode: string = 'function x() { // TODO }';
 
+
+
+    getQuery(){
+      console.log(this.code,"code");
+      
+    }
 }
