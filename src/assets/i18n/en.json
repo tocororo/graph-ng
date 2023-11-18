@@ -91,6 +91,13 @@
     "AQUI":"In this site",
     "PUT_ORDER":"Put the order of the entities",
     "NEW_ENTITY":"New entity....",
+    "REGLAS_DE":"Rules of  ",
+    "IMPORTAR_TOLTIP":"Import the configuration file.",
+    "EXPORTAR_TOLTIP":"Export the configuration file.",
+    "CANCELAR_TOLTIP":"Cancel transformation process.",
+    "TRANSFORMAR_TOLTIP":"Transform according to the configuration file.",
+
+
 
 
 

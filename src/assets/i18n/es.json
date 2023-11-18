@@ -85,10 +85,15 @@
     "HISTORIAL":"Historial",
     "SALIDA_ALGORITMO":"Salida del algoritmo",
     "EXPORTAR":"Exportar",
-    "IMPOPRTE_SU_FICHERO":"Importe su fichero .json de configuracion",
+    "IMPOPRTE_SU_FICHERO":"Importe su fichero .json de configuración",
     "AQUI":"En este lugar",
     "PUT_ORDER":"Establece el orden de las entidades",
     "NEW_ENTITY":"Nueva entidad....",
+    "REGLAS_DE":"Reglas de ",
+    "IMPORTAR_TOLTIP":"Importe su fichero de configuración",
+    "EXPORTAR_TOLTIP":"Exporte su fichero de configuración",
+    "CANCELAR_TOLTIP":"Cancelar proceso de transformación",
+    "TRANSFORMAR_TOLTIP":"Transformar de acuerdo al fichero de configuración ",
 
 
 

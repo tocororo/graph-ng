@@ -7,11 +7,11 @@
       </app-entity-panel >
       <div class="button-container">
        <!--  <button mat-raised-button (click)="openDialog('0ms', '0ms')">Import</button> -->
-            <button mat-raised-button (click)="handleButtonClick(item.label)" 
-            [color]="item.color" 
-            *ngFor="let item of buttons_array">
-              {{ item.label | translate }}
-            </button>
+       <button mat-raised-button  [matTooltip]="item.toltip| translate " (click)="handleButtonClick(item.label)" 
+       [color]="item.color" 
+       *ngFor="let item of buttons_array">
+         {{ item.label | translate }}
+       </button>
 
 
       </div>

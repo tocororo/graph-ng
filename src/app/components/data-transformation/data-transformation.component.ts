@@ -24,11 +24,11 @@ export class DataTransformationComponent implements OnInit{
   modal_widht: string="50vh";
 
   public buttons_array: any[] = [
-    { label: "IMPORT", color: "basic", },
+    { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP" },
 
-    { label: "EXPORTAR", color: "primary", },
-    { label: "CANCELAR", color: "accent" },
-    { label: "TRANSFORMAR", color: "ligth-green" },
+    { label: "EXPORTAR", color: "primary",toltip:"EXPORTAR_TOLTIP" },
+    { label: "CANCELAR", color: "accent",toltip:"CANCELAR_TOLTIP" },
+    { label: "TRANSFORMAR", color: "ligth-green",toltip:"TRANSFORMAR_TOLTIP" },
 
   ];
 

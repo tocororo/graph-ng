@@ -4,7 +4,9 @@
 </header>
 
 <div class="transform-rules-container">
-  <h1 class="title">{{ "REGLAS_TRANSFORMACION" | translate }}</h1>
+  <h1 class="title" *ngIf="!entity_label" >{{ "REGLAS_TRANSFORMACION" | translate }} {{entity_label}}</h1>
+  <h1 class="title" *ngIf="entity_label" >{{ "REGLAS_DE" | translate }} {{entity_label}}</h1>
+
   <cdk-virtual-scroll-viewport itemSize="50">
     <div class="virtual-scroll-container">
       <mat-accordion *cdkVirtualFor="let item of items" class="w-100-h-100">
