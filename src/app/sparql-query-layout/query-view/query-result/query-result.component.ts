@@ -8,8 +8,15 @@ import { SparqlService } from 'src/services/sparql.service';
   styleUrls: ['./query-result.component.scss']
 })
 export class QueryResultComponent implements OnInit {
-  code:string
-  editorOptions = {theme: 'vs-light', language: 'sparql'};
+  code:any=JSON.stringify({
+    "type": "team",
+    "test": {
+      "testPage": "tools/testing/run-tests.htm",
+      "enabled": true
+    }
+  })
+  json_array_to_display:any[]=[]
+  editorOptions = {theme: 'vs-light', language: 'json'};
 
   nodes: Node[] = [
     {
@@ -49,14 +56,12 @@ export class QueryResultComponent implements OnInit {
         const results: Array<any> = response.results
         this.nodes = []
         this.links=[]
-        console.log(results);
-        this.code=JSON.stringify(results)
-
+        this.code=[]
         results.forEach((element,index) => {
           if (element) {
+            this.parseToJson(element,index)
 
             if (element[0]) {
-              console.log("element[0]", element[0]);
 
               this.addNode(element[0])
               if (element[2]) {
@@ -71,9 +76,11 @@ export class QueryResultComponent implements OnInit {
           
 
         }
+        
 
         );
-        console.log("links",this.links);
+        this.code=JSON.stringify(this.json_array_to_display)
+
         
 
     
@@ -82,7 +89,20 @@ export class QueryResultComponent implements OnInit {
     })
   }
 
-
+ parseToJson(array,index){
+  console.log("entro a parse");
+  
+    const json={[index]:{
+      subject:array[0],
+      predicate:array[1],
+    object_value:array[2]}
+    }
+  console.log(json);
+  this.json_array_to_display.push(json)
+  
+  
+  
+}
   addNode(id_node: string): void {
     const new_node: Node = {
       id: '',
@@ -131,7 +151,6 @@ export class QueryResultComponent implements OnInit {
       }
       // Añadir el enlace a la lista de enlaces
       this.links.push(new_link);
-      console.log('============================', this.links);
     } catch (error) {
       // Manejar el error
       console.error(error);
