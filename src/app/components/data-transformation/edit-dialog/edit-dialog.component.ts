@@ -26,6 +26,7 @@ export class EditDialogComponent {
   filteredEntities: Observable<string[]>;
   entities: string[] = [];
   allentities: string[] = [];
+   persisten_entities:string[]=[]
 
   @ViewChild('entityInput') entityInput: ElementRef<HTMLInputElement>;
 
@@ -34,31 +35,45 @@ export class EditDialogComponent {
   constructor(private configurationService: ConfigurationJsonService) {
     this.filteredEntities = this.entityCtrl.valueChanges.pipe(
       startWith(null),
-      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allentities.slice())),
+      map((entity: string | null) => (entity ? this._filter(entity) : this.allentities.slice())),
     );
   }
   ngOnInit(): void {
+    
 
     this.configurationService.getConfigurationJson().subscribe((configuration) => {
-      this.allentities = configuration.order_for_mapping
       if (this.entities) {
         this.entities = configuration.order_for_mapping
+this.allentities=this.entities
+  this.entities.forEach(item=>{
+    if (item) {
+      this.persisten_entities.push(item)
+
+    }
+  })
+  
+  
+
+
 
       }
     })
+
 
   }
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
-    console.log(value);
+    console.log("this.entities.indexOf(value) ===-1",this.entities.indexOf(value) ===-1);
     
 
     // Add our entity
-    if (this.entities.indexOf(value) >= 0) {
-      return
+    if (this.entities.indexOf(value) ===-1) {
+      console.log("no esta en las entidades");
+     
     } else {
-      this.entities.push(value);
+      console.log(" esta en las entidades");
+
 
     }
 
@@ -69,19 +84,28 @@ export class EditDialogComponent {
   }
 
   remove(entity: string): void {
-    const index = this.entities.indexOf(entity);
 
+    
+    const index = this.entities.indexOf(entity);
     if (index >= 0) {
       this.entities.splice(index, 1);
-
       this.announcer.announce(`Removed ${entity}`);
+      this.allentities=this.persisten_entities
     }
+ 
+
+  
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.entities.push(event.option.viewValue);
+    if (this.entities.indexOf(event.option.viewValue)===-1) {
+      this.entities.push(event.option.viewValue);
+      this.allentities=this.persisten_entities
+
+    }
     this.entityInput.nativeElement.value = '';
     this.entityCtrl.setValue(null);
+    
   }
 
   private _filter(value: string): string[] {
