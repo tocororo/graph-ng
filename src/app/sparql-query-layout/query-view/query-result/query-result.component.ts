@@ -8,6 +8,9 @@ import { SparqlService } from 'src/services/sparql.service';
   styleUrls: ['./query-result.component.scss']
 })
 export class QueryResultComponent implements OnInit {
+  code:string
+  editorOptions = {theme: 'vs-light', language: 'sparql'};
+
   nodes: Node[] = [
     {
       id: 'first',
@@ -47,8 +50,11 @@ export class QueryResultComponent implements OnInit {
         this.nodes = []
         this.links=[]
         console.log(results);
+        this.code=JSON.stringify(results)
+
         results.forEach((element,index) => {
           if (element) {
+
             if (element[0]) {
               console.log("element[0]", element[0]);
 
@@ -56,6 +62,7 @@ export class QueryResultComponent implements OnInit {
               if (element[2]) {
                 this.addNode(element[2])
               this.addLink(index.toString(),element[0],element[2],element[1])
+
 
                 
               }

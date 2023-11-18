@@ -4,7 +4,11 @@ mat-tab-group {
 
 
 }
+.editor-container{
+  height: 28vh;
+  width: 100%;
 
+}
 @media screen and (max-width: 600px) {
   /* Tamaño de fuente para pantallas pequeñas */
 
@@ -27,4 +31,14 @@ mat-tab-group {
   }
 
 
+}
+
+@media screen and (min-width: 1201px)  {
+
+  /* Tamaño de fuente para pantallas grandes */
+  .editor-container{
+    height: 28vh;
+    width: 100%;
+  
+  }
 }

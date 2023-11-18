@@ -32,9 +32,7 @@
             {{ link.label }}
           </textPath>
         </svg:text>
-        <svg:text class="edge-label" text-anchor="middle" [attr.x]="link.source.x + (link.target.x - link.source.x) / 2" [attr.y]="link.source.y + (link.target.y - link.source.y) / 2">
-          {{ link.label }}
-        </svg:text>
+        
       </svg:g>
     </ng-template>
     <ng-template #defsTemplate>
@@ -44,7 +42,12 @@
     </ng-template>
     
     </ngx-graph></mat-tab>
-    <mat-tab [label]="'TABLA' | translate "></mat-tab>
+    <mat-tab [label]="'TABLA' | translate ">
+<div class="editor-container">
+  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+
+</div>
+    </mat-tab>
 
   </mat-tab-group>
 

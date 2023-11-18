@@ -19,7 +19,7 @@ export class SparqlService {
     
   }
 
-  getQuery(query: string) {
+  getQuery(query: string ) {
     const formData = new FormData();
     
     formData.append('query', (query));
