@@ -64,9 +64,14 @@ export class QueryResultComponent implements OnInit {
             if (element[0]) {
 
               this.addNode(element[0])
+              if (element[1]) {
+                this.addNode(element[1])
+              this.addLink(Math.random(),element[0],element[1],"")
               if (element[2]) {
                 this.addNode(element[2])
-              this.addLink(index.toString(),element[0],element[2],element[1])
+              this.addLink(Math.random(),element[1],element[2],"")
+                
+              }
 
 
                 
@@ -128,14 +133,14 @@ export class QueryResultComponent implements OnInit {
       // Realizar cualquier acción adicional necesaria, como mostrar un mensaje de error al usuario
     }
   }
-  addLink(id_link: string, source: string, target: string, label_link: string): void {
+  addLink(id_link: any, source: string, target: string, label_link: string): void {
     const new_link: Edge = {
       id: '',
       source: '',
       target: '',
       label: ''
     };
-    new_link.id = id_link;
+    new_link.id = id_link.toString();
     new_link.source = source;
     new_link.target = target;
     new_link.label = label_link;
