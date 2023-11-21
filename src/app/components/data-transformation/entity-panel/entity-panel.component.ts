@@ -4,6 +4,7 @@ import { ConfigurationJsonService } from 'src/services/configuration-json.servic
 import { MatDialog } from "@angular/material/dialog";
 import { UploadWidgetComponent } from '../upload-widget/upload-widget.component';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-entity-panel',
@@ -21,7 +22,7 @@ public isMobile: boolean=true;
  * use to know the actual breakpoint(handset,table or desktop)
  */
 @Input() breakpoint: string;
-constructor(private  configurationService: ConfigurationJsonService,public dialog: MatDialog){}
+constructor(private  configurationService: ConfigurationJsonService,public dialog: MatDialog,private snackBar: MatSnackBar){}
 ngOnInit(): void {
   this.chargeEntitiesbyConfiguration()
 
@@ -49,6 +50,11 @@ chargeEntitiesbyConfiguration() {
         this.items = ["1", ...configuration.order_for_mapping];
 
       }
+      else{
+        this.items = ["1"];
+    
+
+      }
     }else{
       this.items = ["1"];
     }
@@ -69,14 +75,24 @@ deleteEntity(){
   
 }
 openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-  this.dialog.open(EditDialogComponent, {
-    width: "450px",
-    height: "350px",
-   
+  if (this.items.length>1) {
+    this.dialog.open(EditDialogComponent, {
+      width: "450px",
+      height: "350px",
+     
+      
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+  else{
+    this.snackBar.open("Este fichero .json  no cumple con la estructura de fichero de configuracion", 'Cerrar', {
+      duration: 3000
+    });
     
-    enterAnimationDuration,
-    exitAnimationDuration,
-  });
+
+  }
+  
 }
 
 }

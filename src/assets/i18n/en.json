@@ -97,7 +97,11 @@
     "CANCELAR_TOLTIP":"Cancel transformation process.",
     "TRANSFORMAR_TOLTIP":"Transform according to the configuration file.",
 
+    "ERRORES":{
+        ".JSONERROR":"The file does not have a .json extension",
+        "JSONVALIDODECONF":"The file is not a valid configuration JSON"
 
+     },
 
 
 

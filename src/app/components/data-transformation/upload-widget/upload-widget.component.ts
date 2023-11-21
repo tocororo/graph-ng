@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfigurationJsonService } from 'src/services/configuration-json.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ConfigurationJsonService } from 'src/services/configuration-json.servic
 })
 export class UploadWidgetComponent {
   files: File[] = [];
-  constructor(private configurationService: ConfigurationJsonService) { }
+  constructor(private configurationService: ConfigurationJsonService,private snackBar: MatSnackBar) { }
   /** 
    * This method handles the selection of a file and performs a validation process on it. 
    * It saves the first selected file in the  selectedFile  variable and waits for the  processFile  method to validate the file. 
@@ -47,13 +48,20 @@ export class UploadWidgetComponent {
         this.configurationService.setConfigurationJson(parsedData);
         // The 'parsedData' now contains the parsed JSON object from the file
         console.log('Valid JSON file:', parsedData);
+        this.openErrorSnackBar( 
+          "El fichero se cargo correctamente "
+   
+   );
         this.configurationService.getConfigurationJson().subscribe(json => {
-          console.log("asdsd", json);
-
+          if (json) {
+       
+          }
+        
           // Realiza acciones adicionales con el JSON de configuración
         });
       } catch (error) {
         console.error('The file is not a valid JSON.', error);
+      
         selectedFile = null;
       }
     };
@@ -72,7 +80,19 @@ export class UploadWidgetComponent {
       return true
     } else {
       console.error('The file does not have a .json extension');
+      this.openErrorSnackBar( 
+       "El fichero no tiene una extension .json "
+
+);
+
       return false
     }
+  }
+
+  openErrorSnackBar(message: string): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000
+      , // Duración en milisegundos
+    });
   }
 }

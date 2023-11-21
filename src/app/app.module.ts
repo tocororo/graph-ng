@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule, provideAnimations } from "@angular/platform-browser/animations";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { MarkdownModule } from "ngx-markdown";
@@ -185,6 +185,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         }),
     ],
     providers: [
+       
         SearchService,
         SourceServiceNoAuth,
         OrganizationServiceNoAuth,
