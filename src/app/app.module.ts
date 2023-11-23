@@ -76,6 +76,7 @@ import { UploadWidgetComponent } from "./components/data-transformation/upload-w
 import { EditDialogComponent } from './components/data-transformation/edit-dialog/edit-dialog.component';
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 import { CustomSnakbarComponent } from './components/data-transformation/custom-snakbar/custom-snakbar.component';
+import { ChangeMetadataConfigurationDialogComponent } from './components/data-transformation/change-metadata-configuration-dialog/change-metadata-configuration-dialog.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -118,7 +119,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         HistorialViewComponent,
         UploadWidgetComponent,
         EditDialogComponent,
-        CustomSnakbarComponent
+        CustomSnakbarComponent,
+        ChangeMetadataConfigurationDialogComponent
         
 
 

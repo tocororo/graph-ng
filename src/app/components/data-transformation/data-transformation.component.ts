@@ -22,6 +22,8 @@ export class DataTransformationComponent implements OnInit{
   colspan_section2: number = 1;
   modal_height: string="45vh";
   modal_widht: string="50vh";
+  configuration_name:string=""
+  configuration_description:string=""
 
   public buttons_array: any[] = [
     { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP",isdisabled:false   },
@@ -49,7 +51,15 @@ export class DataTransformationComponent implements OnInit{
             
           }
         })
+      if (config.name) {
+        this.configuration_name=config.name
+        
       }
+    if (config.description) {
+      this.configuration_description=config.description
+
+      
+    }}
     })
   }
 
