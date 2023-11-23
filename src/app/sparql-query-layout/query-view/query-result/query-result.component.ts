@@ -8,15 +8,40 @@ import { SparqlService } from 'src/services/sparql.service';
   styleUrls: ['./query-result.component.scss']
 })
 export class QueryResultComponent implements OnInit {
-  code:any=JSON.stringify({
+   ELEMENT_DATA:any[]=[]
+   dataSource:any
+   columns = [
+    {
+      columnDef: 'position',
+      header: 'No.',
+      cell: (element: any) => `${element.position}`,
+    },
+    {
+      columnDef: 'subject',
+      header: 'Subject',
+      cell: (element: any) => `${element.subject}`,
+    },
+    {
+      columnDef: 'predicate',
+      header: 'Predicate',
+      cell: (element: any) => `${element.predicate}`,
+    },
+    {
+      columnDef: 'object',
+      header: 'Object',
+      cell: (element: any) => `${element.object_value}`,
+    },
+  ];
+   displayedColumns = this.columns.map(c => c.columnDef);
+  code: any = JSON.stringify({
     "type": "team",
     "test": {
       "testPage": "tools/testing/run-tests.htm",
       "enabled": true
     }
   })
-  json_array_to_display:any[]=[]
-  editorOptions = {theme: 'vs-light', language: 'json'};
+  json_array_to_display: any[] = []
+  editorOptions = { theme: 'vs-light', language: 'json' };
 
   nodes: Node[] = [
     {
@@ -33,11 +58,11 @@ export class QueryResultComponent implements OnInit {
       label: 'd'
     }
   ]
-  links: Edge[]=[
+  links: Edge[] = [
     {
       id: 'a',
       source: 'first',
-    target: 'second',
+      target: 'second',
       label: 'is parent of'
     }, {
       id: 'b',
@@ -46,7 +71,7 @@ export class QueryResultComponent implements OnInit {
       label: 'custom label'
     }
   ]
-
+  temp_data:any
   constructor(private sparql_service: SparqlService) {
 
   }
@@ -55,67 +80,95 @@ export class QueryResultComponent implements OnInit {
       if (response) {
         const results: Array<any> = response.results
         this.nodes = []
-        this.links=[]
-        this.code=[]
-        results.forEach((element,index) => {
+        this.links = []
+        this.code = []
+        results.forEach((element, index) => {
           if (element) {
-            this.parseToJson(element,index)
+            this.parseToJson(element, index)
 
             if (element[0]) {
-
-              this.addNode(element[0])
+              if (element[0].value) {
+                this.addNode(element[0].value,this.checkSubstring(element[0].type))
+                    this.temp_data={position:index,subject:element[0].value,predicate:"",object_value:""}
+              }
               if (element[1]) {
-                this.addNode(element[1])
-              this.addLink(Math.random(),element[0],element[1],"")
-              if (element[2]) {
-                this.addNode(element[2])
-              this.addLink(Math.random(),element[1],element[2],"")
-                
+                if (element[1].value) {
+                  this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:""}
+
+                  this.addNode(element[1].value, this.checkSubstring(element[1].type))
+                  this.addLink(Math.random(), element[0].value, element[1].value, "")
+
+                }
+                if (element[2]) {
+                  if (element[2].value) {
+                    this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:element[2].value}
+
+                    this.addNode(element[2].value,this.checkSubstring(element[2].type))
+                    this.addLink(Math.random(), element[1].value, element[2].value, "")
+
+                  }
+
+                }
+
+
+
               }
 
+            }
+            this.ELEMENT_DATA.push(this.temp_data)
+            console.log("this.ELEMENT_DATA",this.ELEMENT_DATA);
+            
+          }
 
-                
-              }
-
-            }     }
-          
+          this.dataSource = this.ELEMENT_DATA;
 
         }
-        
+
 
         );
-        this.code=JSON.stringify(this.json_array_to_display)
+        this.code = JSON.stringify(this.json_array_to_display)
 
-        
 
-    
-  }
+
+
+      }
 
     })
   }
-
- parseToJson(array,index){
-  console.log("entro a parse");
-  
-    const json={[index]:{
-      subject:array[0],
-      predicate:array[1],
-    object_value:array[2]}
+  checkSubstring(texto) {
+    if (texto.includes("URIRef")) {
+      return "URIRef"
+      
     }
-  console.log(json);
-  this.json_array_to_display.push(json)
-  
-  
-  
-}
-  addNode(id_node: string): void {
+    if (texto.includes("Literal")) {
+      return "Literal"
+      
+    }
+  }
+  parseToJson(array, index) {
+    console.log("entro a parse");
+
+    const json = {
+      [index]: {
+        subject: array[0],
+        predicate: array[1],
+        object_value: array[2]
+      }
+    }
+    console.log(json);
+    this.json_array_to_display.push(json)
+
+
+
+  }
+  addNode(id_node: string,type?:string): void {
     const new_node: Node = {
       id: '',
       label: ''
     };
     new_node.id = id_node;
-    new_node.label = id_node;
-  
+    new_node.label = type;
+
     try {
       // Validar que el id del nodo no esté vacío
       if (new_node.id === "") {
@@ -144,7 +197,7 @@ export class QueryResultComponent implements OnInit {
     new_link.source = source;
     new_link.target = target;
     new_link.label = label_link;
-  
+
     try {
       // Validar que el id del enlace no esté vacío
       if (new_link.id === '') {

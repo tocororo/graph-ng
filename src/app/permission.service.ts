@@ -48,7 +48,7 @@ export class AdminPermissionService implements CanActivate{
     }
     this._router.navigate(['/']);
     const m = new MessageHandler(this._snackBar);
-    m.showMessage(StatusCode.OK, "Usted no tiene los permisos para acceder");
+    m.showMessage(StatusCode.OK, "Usted no tiene los permisos para acceder", );
     return false;
   }
 }

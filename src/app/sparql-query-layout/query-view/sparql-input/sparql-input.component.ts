@@ -15,19 +15,7 @@ WHERE {
   ?org a <https://w3id.org/cerif/model#Organizations> ;
        <tieneNombre> ?name .
 } 
-Find all records with a specific keyword:
-SELECT ?record ?title
-WHERE {
-  ?record a <https://w3id.org/cerif/model#Record> ;
-          <tienePalabrasClave> "ARQUITECTURA" ;
-          <tieneTítulo> ?title .
-}
-List all records with their titles:
-SELECT ?record ?title
-WHERE {
-  ?record a <https://w3id.org/cerif/model#Record> ;
-          <tieneTítulo> ?title .
-}*/
+*/
 
 
   originalCode: string = 'SELECT ?s ?p ?o WHERE { ?s ?p ?o FILTER (?o = "active") }';

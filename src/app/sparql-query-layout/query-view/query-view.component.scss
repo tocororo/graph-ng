@@ -16,6 +16,12 @@
 @media screen and (min-width: 1201px) {
 
   /* pantallas grandes */
+
+  mat-toolbar{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   app-query-output {
     width: 100%;
     margin: 1em;

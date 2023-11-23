@@ -1,3 +1,6 @@
+<mat-toolbar *ngIf="graph_label" >
+    <p>{{graph_label}}</p>
+</mat-toolbar>
 <mat-grid-list cols="1" rowHeight="25em">
     <mat-grid-tile>
       <app-sparql-input>
