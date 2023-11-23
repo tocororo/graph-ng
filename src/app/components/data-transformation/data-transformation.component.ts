@@ -8,6 +8,8 @@ import { GetBreakpointService } from "src/services/shared-services/get-breakpoin
 import { UploadWidgetComponent } from "./upload-widget/upload-widget.component";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfigurationJsonService } from "src/services/configuration-json.service";
+import { ChangeMetadataConfigurationDialogComponent } from "./change-metadata-configuration-dialog/change-metadata-configuration-dialog.component";
+import { Configuration } from "src/app/models/configuration.interface";
 
 @Component({
   selector: "app-data-transformation",
@@ -24,6 +26,8 @@ export class DataTransformationComponent implements OnInit{
   modal_widht: string="50vh";
   configuration_name:string=""
   configuration_description:string=""
+   configuration:Configuration
+
 
   public buttons_array: any[] = [
     { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP",isdisabled:false   },
@@ -45,22 +49,48 @@ export class DataTransformationComponent implements OnInit{
     this.addGridStyle();
     this.config_service.getConfigurationJson().subscribe((config)=>{
       if (config) {
+        this.configuration=config
         this.buttons_array.forEach((button)=>{
           if (button.label=="TRANSFORMAR"||button.label=="EXPORTAR") {
             button.isdisabled=false
             
           }
         })
-      if (config.name) {
+      if (this.configuration.name) {
         this.configuration_name=config.name
         
+        
       }
-    if (config.description) {
+    if (this.configuration.description) {
       this.configuration_description=config.description
 
       
     }}
     })
+  }
+  openEDitDescriptionDialog(old_description:string){
+    
+    const dialogRef = this.dialog.open(ChangeMetadataConfigurationDialogComponent, {
+      data: old_description,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+      this.configuration.description=result
+      this.config_service.setConfigurationJson(this.configuration)
+    });
+  }
+  openEDitNameDialog(old_name:string){
+    
+    const dialogRef = this.dialog.open(ChangeMetadataConfigurationDialogComponent, {
+      data: old_name,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+      this.configuration.name=result
+      this.config_service.setConfigurationJson(this.configuration)
+    });
   }
 
   /**
