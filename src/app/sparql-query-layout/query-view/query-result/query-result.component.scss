@@ -9,6 +9,16 @@ mat-tab-group {
   width: 100%;
 
 }
+:host ::ng-deep .tab-group-container{
+  .mat-mdc-tab-body{
+    overflow: hidden;
+  }
+
+  .mat-mdc-tab-body-content{
+    overflow: hidden;
+  }
+}
+
 @media screen and (max-width: 600px) {
   /* Tamaño de fuente para pantallas pequeñas */
 

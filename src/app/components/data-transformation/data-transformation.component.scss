@@ -1,4 +1,7 @@
 
+
+
+
 .button-container button:hover {
   background-color: #e0e0e0; /* Cambia el color según tus preferencias */
   color: black;
@@ -177,7 +180,7 @@
     height: 100%;
     width: 40%;
     margin-top: 1em;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-content: center;
 

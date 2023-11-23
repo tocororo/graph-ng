@@ -75,6 +75,7 @@ import { NgxDropzoneModule } from "ngx-dropzone";
 import { UploadWidgetComponent } from "./components/data-transformation/upload-widget/upload-widget.component";
 import { EditDialogComponent } from './components/data-transformation/edit-dialog/edit-dialog.component';
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
+import { CustomSnakbarComponent } from './components/data-transformation/custom-snakbar/custom-snakbar.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -116,7 +117,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         QueryViewComponent,
         HistorialViewComponent,
         UploadWidgetComponent,
-        EditDialogComponent
+        EditDialogComponent,
+        CustomSnakbarComponent
         
 
 

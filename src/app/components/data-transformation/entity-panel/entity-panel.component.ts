@@ -87,7 +87,9 @@ openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string): v
   }
   else{
     this.snackBar.open("Este fichero .json  no cumple con la estructura de fichero de configuracion", 'Cerrar', {
-      duration: 3000
+      duration: 3000,
+      panelClass: 'my-snackbar' // Agrega la clase CSS personalizada
+
     });
     
 

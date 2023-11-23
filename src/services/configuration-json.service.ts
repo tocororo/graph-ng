@@ -44,9 +44,7 @@ setRulesPropertiesLabel(label: string): void {
         response => {
           // Lógica para manejar la respuesta del backend
           console.log('Respuesta del backend:', response);
-          this.snackBar.open("Proceso completado", 'Cerrar', {
-            duration: 3000
-          });
+         
         },
         error => {
           // Lógica para manejar errores
@@ -57,6 +55,11 @@ setRulesPropertiesLabel(label: string): void {
       
         }
       );
+      this.snackBar.open("Proceso completado", 'Cerrar', {
+        duration: 3000,
+        panelClass: ["snack-styles"]
+
+      });
   }
 
 

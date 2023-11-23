@@ -24,11 +24,11 @@ export class DataTransformationComponent implements OnInit{
   modal_widht: string="50vh";
 
   public buttons_array: any[] = [
-    { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP" },
+    { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP",isdisabled:false   },
 
-    { label: "EXPORTAR", color: "primary",toltip:"EXPORTAR_TOLTIP" },
-    { label: "CANCELAR", color: "accent",toltip:"CANCELAR_TOLTIP" },
-    { label: "TRANSFORMAR", color: "ligth-green",toltip:"TRANSFORMAR_TOLTIP" },
+    { label: "EXPORTAR", color: "primary",toltip:"EXPORTAR_TOLTIP",isdisabled:true  },
+    // { label: "CANCELAR", color: "accent",toltip:"CANCELAR_TOLTIP" },
+    { label: "TRANSFORMAR", color: "accent",toltip:"TRANSFORMAR_TOLTIP",isdisabled:true },
 
   ];
 
@@ -41,6 +41,16 @@ export class DataTransformationComponent implements OnInit{
 
   ngOnInit() {
     this.addGridStyle();
+    this.config_service.getConfigurationJson().subscribe((config)=>{
+      if (config) {
+        this.buttons_array.forEach((button)=>{
+          if (button.label=="TRANSFORMAR"||button.label=="EXPORTAR") {
+            button.isdisabled=false
+            
+          }
+        })
+      }
+    })
   }
 
   /**

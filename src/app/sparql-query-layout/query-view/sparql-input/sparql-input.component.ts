@@ -28,6 +28,8 @@ WHERE {
   ?record a <https://w3id.org/cerif/model#Record> ;
           <tieneTítulo> ?title .
 }*/
+
+
   originalCode: string = 'SELECT ?s ?p ?o WHERE { ?s ?p ?o FILTER (?o = "active") }';
   label_response:string
 constructor(private sparql_service:SparqlService){}

@@ -1,5 +1,13 @@
 @import "../../../../styles.scss";
 
+.my-snackbar {
+  p{  font-size: xx-large; /* Cambia el tamaño de fuente */
+  }
+  background-color: #ff0000; /* Cambia el color de fondo */
+  color: #ffffff; /* Cambia el color del texto */
+  /* Agrega más reglas de estilo según tus necesidades */
+}
+
 
 .entity-container {
   .button-container {
