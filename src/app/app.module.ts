@@ -77,6 +77,8 @@ import { EditDialogComponent } from './components/data-transformation/edit-dialo
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 import { CustomSnakbarComponent } from './components/data-transformation/custom-snakbar/custom-snakbar.component';
 import { ChangeMetadataConfigurationDialogComponent } from './components/data-transformation/change-metadata-configuration-dialog/change-metadata-configuration-dialog.component';
+import { GraphComponent } from './components/query-view/graph/graph.component';
+import { TableResultsComponent } from './components/query-view/table-results/table-results.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -120,7 +122,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         UploadWidgetComponent,
         EditDialogComponent,
         CustomSnakbarComponent,
-        ChangeMetadataConfigurationDialogComponent
+        ChangeMetadataConfigurationDialogComponent,
+        GraphComponent,
+        TableResultsComponent
         
 
 

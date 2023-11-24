@@ -1,4 +1,70 @@
+.example-container {
+  width: 98%;
+  height: 95%;
+  margin: 10px;
+  border: 1px solid #555;
 
+  mat-list {
+    margin: 5px;
+    mat-list-item{
+      height: 10vh;
+      width: 6vw;
+    }
+  }
+  .item-container{
+    display: flex;
+   
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    margin: 5px;
+    align-items: center;
+  }
+}
+main{
+  height: 62vh;
+  overflow: hidden;
+  .query-input-section{
+    height: 10% ;
+    width: 98%;
+    display: flex;
+    margin: 10px;
+    border: 1px solid #555;
+    .editor-container{
+      width: 95%;
+      
+    }
+    .button-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+   
+  }
+  .query-output-section{
+    height: 89%;
+    .results-section{
+      display: flex;
+      width: 80%;
+      height: 100%;  
+      app-graph{
+        height: 100%;
+        width: 100%;
+      } 
+      app-table-results{
+        height: 100%;
+        width: 100%;
+      } }
+
+  }
+}
+
+
+.selected-item {
+  background-color: aqua !important;
+  color: white !important;
+}
 
 @media screen and (max-width: 600px) {
   app-query-output {
