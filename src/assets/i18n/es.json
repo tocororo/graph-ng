@@ -94,6 +94,8 @@
     "EXPORTAR_TOLTIP":"Exporte su fichero de configuración",
     "CANCELAR_TOLTIP":"Cancelar proceso de transformación",
     "TRANSFORMAR_TOLTIP":"Transformar de acuerdo al fichero de configuración ",
+    "OVERVIEW":"Ver",
+
      "ERRORES":{
         ".JSONERROR":"El fichero no tiene una extension .json ",
         "JSONVALIDODECONF":"El fichero no es un JSON de configuracion valido "

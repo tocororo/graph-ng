@@ -26,6 +26,15 @@ export class QueryViewComponent {
       }
     })
   }
+
+  public ngOnInit(): void {
+    this.sparql_service.getLabelResponse().subscribe(label=>{
+      if (label) {
+        this.label_response=label
+  
+      }
+    })
+  }
   getQuery(){
     console.log(this.code,"code");
     this.sparql_service.getQuery(this.code)

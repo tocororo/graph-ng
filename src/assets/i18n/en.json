@@ -96,6 +96,7 @@
     "EXPORTAR_TOLTIP":"Export the configuration file.",
     "CANCELAR_TOLTIP":"Cancel transformation process.",
     "TRANSFORMAR_TOLTIP":"Transform according to the configuration file.",
+    "OVERVIEW":"Overview",
 
     "ERRORES":{
         ".JSONERROR":"The file does not have a .json extension",
