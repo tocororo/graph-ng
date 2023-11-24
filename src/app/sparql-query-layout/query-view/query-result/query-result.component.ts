@@ -8,6 +8,7 @@ import { SparqlService } from 'src/services/sparql.service';
   styleUrls: ['./query-result.component.scss']
 })
 export class QueryResultComponent implements OnInit {
+
    ELEMENT_DATA:any[]=[]
    dataSource:any
    columns = [
@@ -44,32 +45,10 @@ export class QueryResultComponent implements OnInit {
   editorOptions = { theme: 'vs-light', language: 'json' };
 
   nodes: Node[] = [
-    {
-      id: 'first',
-      label: 'hagagabab'
-    }, {
-      id: 'second',
-      label: 'B'
-    }, {
-      id: 'third',
-      label: 'C'
-    }, {
-      id: 'four',
-      label: 'd'
-    }
+ 
   ]
   links: Edge[] = [
-    {
-      id: 'a',
-      source: 'first',
-      target: 'second',
-      label: 'is parent of'
-    }, {
-      id: 'b',
-      source: 'first',
-      target: 'third',
-      label: 'custom label'
-    }
+    
   ]
   temp_data:any
   constructor(private sparql_service: SparqlService) {
@@ -78,56 +57,69 @@ export class QueryResultComponent implements OnInit {
   public ngOnInit(): void {
     this.sparql_service.getQueryResponse().subscribe((response) => {
       if (response) {
+        console.log("response",response.results);
+        
         const results: Array<any> = response.results
         this.nodes = []
         this.links = []
         this.code = []
-        results.forEach((element, index) => {
+        this.ELEMENT_DATA=[]
+
+        this.dataSource = this.ELEMENT_DATA;
+
+        results.forEach((element:Array<any>, index) => {
           if (element) {
-            this.parseToJson(element, index)
 
-            if (element[0]) {
-              if (element[0].value) {
-                this.addNode(element[0].value,this.checkSubstring(element[0].type))
-                    this.temp_data={position:index,subject:element[0].value,predicate:"",object_value:""}
-              }
-              if (element[1]) {
-                if (element[1].value) {
-                  this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:""}
+            if (element.length===3) {
+              console.log(22222);
+              element.forEach((item)=>{
+                this.addNode(item.value,this.checkSubstring(item.type))
 
-                  this.addNode(element[1].value, this.checkSubstring(element[1].type))
-                  this.addLink(Math.random(), element[0].value, element[1].value, "")
-
-                }
-                if (element[2]) {
-                  if (element[2].value) {
-                    this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:element[2].value}
-
-                    this.addNode(element[2].value,this.checkSubstring(element[2].type))
-                    this.addLink(Math.random(), element[1].value, element[2].value, "")
-
-                  }
-
-                }
-
-
-
-              }
-
+              })
+              this.addLink(Math.random(), element[0].value, element[1].value, "")
+              this.addLink(Math.random(), element[1].value, element[2].value, "")
+              this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:element[2].value}
+this.ELEMENT_DATA.push(this.temp_data)
+              
             }
-            this.ELEMENT_DATA.push(this.temp_data)
+            
+            if (element.length===2) {
+              console.log(22222);
+              element.forEach((item)=>{
+                this.addNode(item.value,this.checkSubstring(item.type))
+
+              })
+              this.addLink(Math.random(), element[0].value, element[1].value, "---")
+              this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:"---"}
+              this.ELEMENT_DATA.push(this.temp_data)
+
+              
+              
+            }
+            if (element.length===1) {
+              console.log(1111);
+              this.addNode(element[0].value,this.checkSubstring(element[0].type))
+              this.temp_data={position:index,subject:element[0].value,predicate:"---",object_value:"---"}
+              this.ELEMENT_DATA.push(this.temp_data)
+              
+              
+              
+            }
+            this.parseToJson(element, index)
+            this.dataSource=this.ELEMENT_DATA
             console.log("this.ELEMENT_DATA",this.ELEMENT_DATA);
+
             
           }
-
-          this.dataSource = this.ELEMENT_DATA;
+        
 
         }
+        
 
 
         );
-        this.code = JSON.stringify(this.json_array_to_display)
-
+/*         this.code = JSON.stringify(this.json_array_to_display)
+ */
 
 
 
@@ -135,6 +127,17 @@ export class QueryResultComponent implements OnInit {
 
     })
   }
+  addToTable( index,subject?,predicate?,object_value?){
+    const temp_data={position:index,
+      subject:subject,predicate:predicate,
+      object_value:object_value}
+      this.ELEMENT_DATA.push(temp_data)
+       this.dataSource = this.ELEMENT_DATA; 
+       console.log("dataSource",this.dataSource);
+       
+    
+  }
+ 
   checkSubstring(texto) {
     if (texto.includes("URIRef")) {
       return "URIRef"
@@ -176,7 +179,6 @@ export class QueryResultComponent implements OnInit {
       }
       // Validar que el id del nodo no exista ya
       if (this.nodes.find(node => node.id === new_node.id)) {
-        console.log("El id del nodo ya existe");
       }
       // Añadir el nodo a la lista de nodos
       this.nodes.push(new_node);

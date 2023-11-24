@@ -10,12 +10,7 @@ export class SparqlInputComponent {
   editorOptions = {theme: 'vs-light', language: 'sparql'};
   editorOptionsjson={theme: 'vs-light', language: 'json'}
   code: string = 'SELECT ?s ?p ?o WHERE { ?s ?p ?o FILTER (?o = "active") }';
-/*   SELECT ?org ?name
-WHERE {
-  ?org a <https://w3id.org/cerif/model#Organizations> ;
-       <tieneNombre> ?name .
-} 
-*/
+
 
 
   originalCode: string = 'SELECT ?s ?p ?o WHERE { ?s ?p ?o FILTER (?o = "active") }';
