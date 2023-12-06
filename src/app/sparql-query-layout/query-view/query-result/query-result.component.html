@@ -14,13 +14,22 @@
     >
     <ng-template #nodeTemplate let-node>
       <svg:g class="node">
-        <svg:rect
+        <svg:rect *ngIf="node.label=='URIRef'"
           [attr.width]="node.dimension.width"
           [attr.height]="node.dimension.height"
           [attr.fill]="node.data.color"
         />
+        <svg:ellipse *ngIf="node.label=='Literal'"
+        [attr.cx]="node.dimension.width/2"
+        [attr.cy]="node.dimension.height/2"
+        [attr.fill]="node.data.color"
+        [attr.rx]="node.dimension.width/2"
+        [attr.ry]="node.dimension.height/2"
+
+        />  
+
         <svg:text alignment-baseline="central" [attr.x]="10" [attr.y]="node.dimension.height / 2">
-          {{node.label}}
+          {{node.id}}
         </svg:text>
       </svg:g>
     </ng-template>
@@ -34,10 +43,40 @@
     </ngx-graph></mat-tab>
     <mat-tab [label]="'JSON' | translate ">
 <div class="editor-container">
-  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
 
+
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Elemento 1 </th>
+        <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="predicate">
+        <th mat-header-cell *matHeaderCellDef> Elemento 2 </th>
+        <td mat-cell *matCellDef="let element"> {{element.predicate}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="object">
+        <th mat-header-cell *matHeaderCellDef> Elemento 3 </th>
+        <td mat-cell *matCellDef="let element"> {{element.object_value}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
 </div>
     </mat-tab>
 
   </mat-tab-group>
-

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfigurationJsonService } from 'src/services/configuration-json.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-upload-widget',
@@ -48,17 +49,14 @@ export class UploadWidgetComponent {
         this.configurationService.setConfigurationJson(parsedData);
         // The 'parsedData' now contains the parsed JSON object from the file
         console.log('Valid JSON file:', parsedData);
-        this.openErrorSnackBar( 
-          "El fichero se cargo correctamente "
-   
-   );
-        this.configurationService.getConfigurationJson().subscribe(json => {
-          if (json) {
-       
-          }
-        
-          // Realiza acciones adicionales con el JSON de configuración
-        });
+        Swal.fire({
+      title: "Importación exitosa",
+      text: "Fichero Importado correctamente",
+      icon: "success",
+      confirmButtonColor:"#26915b "     
+
+    });
+
       } catch (error) {
         console.error('The file is not a valid JSON.', error);
       
@@ -80,19 +78,18 @@ export class UploadWidgetComponent {
       return true
     } else {
       console.error('The file does not have a .json extension');
-      this.openErrorSnackBar( 
-       "El fichero no tiene una extension .json "
+Swal.fire({
+  title: "Error en la importación",
+  text: "El fichero no tiene una extension .json",
+  icon: "error",
+  confirmButtonColor:"#26915b "     
 
-);
+ 
+});
 
       return false
     }
   }
 
-  openErrorSnackBar(message: string): void {
-    this.snackBar.open(message, 'Cerrar', {
-      duration: 3000
-      , // Duración en milisegundos
-    });
-  }
+
 }

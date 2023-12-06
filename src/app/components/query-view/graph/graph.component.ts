@@ -1,59 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Node, Edge } from '@swimlane/ngx-graph';
+import { Component } from '@angular/core';
+import { Edge,Node } from '@swimlane/ngx-graph';
 import { SparqlService } from 'src/services/sparql.service';
 
 @Component({
-  selector: 'app-query-result',
-  templateUrl: './query-result.component.html',
-  styleUrls: ['./query-result.component.scss']
+  selector: 'app-graph',
+  templateUrl: './graph.component.html',
+  styleUrls: ['./graph.component.scss']
 })
-export class QueryResultComponent implements OnInit {
-
-   ELEMENT_DATA:any[]=[]
-   dataSource:any
-   columns = [
-    {
-      columnDef: 'position',
-      header: 'No.',
-      cell: (element: any) => `${element.position}`,
-    },
-    {
-      columnDef: 'subject',
-      header: 'Subject',
-      cell: (element: any) => `${element.subject}`,
-    },
-    {
-      columnDef: 'predicate',
-      header: 'Predicate',
-      cell: (element: any) => `${element.predicate}`,
-    },
-    {
-      columnDef: 'object',
-      header: 'Object',
-      cell: (element: any) => `${element.object_value}`,
-    },
-  ];
-   displayedColumns = this.columns.map(c => c.columnDef);
-  code: any = JSON.stringify({
-    "type": "team",
-    "test": {
-      "testPage": "tools/testing/run-tests.htm",
-      "enabled": true
-    }
-  })
-  json_array_to_display: any[] = []
-  editorOptions = { theme: 'vs-light', language: 'json' };
-
-  nodes: Node[] = [
- 
-  ]
-  links: Edge[] = [
-    
-  ]
-  temp_data:any
+export class GraphComponent {
+  nodes: Node[] = []
+  links: Edge[] = []
   constructor(private sparql_service: SparqlService) {
 
   }
+
   public ngOnInit(): void {
     this.sparql_service.getQueryResponse().subscribe((response) => {
       if (response) {
@@ -62,11 +22,6 @@ export class QueryResultComponent implements OnInit {
         const results: Array<any> = response.results
         this.nodes = []
         this.links = []
-        this.code = []
-        this.ELEMENT_DATA=[]
-
-        this.dataSource = this.ELEMENT_DATA;
-
         results.forEach((element:Array<any>, index) => {
           if (element) {
 
@@ -78,8 +33,6 @@ export class QueryResultComponent implements OnInit {
               })
               this.addLink(Math.random(), element[0].value, element[1].value, "")
               this.addLink(Math.random(), element[1].value, element[2].value, "")
-              this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:element[2].value}
-this.ELEMENT_DATA.push(this.temp_data)
               
             }
             
@@ -90,8 +43,6 @@ this.ELEMENT_DATA.push(this.temp_data)
 
               })
               this.addLink(Math.random(), element[0].value, element[1].value, "---")
-              this.temp_data={position:index,subject:element[0].value,predicate:element[1].value,object_value:"---"}
-              this.ELEMENT_DATA.push(this.temp_data)
 
               
               
@@ -99,15 +50,10 @@ this.ELEMENT_DATA.push(this.temp_data)
             if (element.length===1) {
               console.log(1111);
               this.addNode(element[0].value,this.checkSubstring(element[0].type))
-              this.temp_data={position:index,subject:element[0].value,predicate:"---",object_value:"---"}
-              this.ELEMENT_DATA.push(this.temp_data)
               
               
               
             }
-            this.parseToJson(element, index)
-            this.dataSource=this.ELEMENT_DATA
-            console.log("this.ELEMENT_DATA",this.ELEMENT_DATA);
 
             
           }
@@ -118,26 +64,12 @@ this.ELEMENT_DATA.push(this.temp_data)
 
 
         );
-/*         this.code = JSON.stringify(this.json_array_to_display)
- */
-
-
 
       }
 
     })
   }
-  addToTable( index,subject?,predicate?,object_value?){
-    const temp_data={position:index,
-      subject:subject,predicate:predicate,
-      object_value:object_value}
-      this.ELEMENT_DATA.push(temp_data)
-       this.dataSource = this.ELEMENT_DATA; 
-       console.log("dataSource",this.dataSource);
-       
-    
-  }
- 
+
   checkSubstring(texto) {
     if (texto.includes("URIRef")) {
       return "URIRef"
@@ -147,22 +79,6 @@ this.ELEMENT_DATA.push(this.temp_data)
       return "Literal"
       
     }
-  }
-  parseToJson(array, index) {
-    console.log("entro a parse");
-
-    const json = {
-      [index]: {
-        subject: array[0],
-        predicate: array[1],
-        object_value: array[2]
-      }
-    }
-    console.log(json);
-    this.json_array_to_display.push(json)
-
-
-
   }
   addNode(id_node: string,type?:string): void {
     const new_node: Node = {

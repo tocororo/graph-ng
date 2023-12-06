@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -34,13 +35,28 @@ export class SparqlService {
           // Lógica para manejar la respuesta del backend
           console.log('Respuesta del backend:', response);
           this.setQueryResponse(response)
-          this.label_response$.next(response.success)
+          this.label_response$.next(response)
+          Swal.fire({
+            title: "Proceso completado",
+            text: response.message,
+            icon: "success",
+            confirmButtonColor:"#26915b "     
+
+            
+          });
         },
         error => {
           // Lógica para manejar errores
           console.error('Error en la solicitud:', error);
           this.label_response$.next((JSON.stringify(error)))
+          Swal.fire({
+            title: "Error en la solicitud",
+            text: error.message,
+            icon: "error",
+            confirmButtonColor:"#26915b "     
 
+            
+          });
         }
       );
 

@@ -5,6 +5,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { UploadWidgetComponent } from '../upload-widget/upload-widget.component';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-entity-panel',
@@ -86,8 +87,13 @@ openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string): v
     });
   }
   else{
-    this.snackBar.open("Este fichero .json  no cumple con la estructura de fichero de configuracion", 'Cerrar', {
-      duration: 3000
+    Swal.fire({
+      title: "Error cargando el fichero",
+      text: "Compruebe la estructura de su fichero de configuracion",
+      icon: "error",
+      confirmButtonColor:"#26915b "     
+
+      
     });
     
 

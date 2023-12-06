@@ -75,6 +75,11 @@ import { NgxDropzoneModule } from "ngx-dropzone";
 import { UploadWidgetComponent } from "./components/data-transformation/upload-widget/upload-widget.component";
 import { EditDialogComponent } from './components/data-transformation/edit-dialog/edit-dialog.component';
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
+import { CustomSnakbarComponent } from './components/data-transformation/custom-snakbar/custom-snakbar.component';
+import { ChangeMetadataConfigurationDialogComponent } from './components/data-transformation/change-metadata-configuration-dialog/change-metadata-configuration-dialog.component';
+import { GraphComponent } from './components/query-view/graph/graph.component';
+import { TableResultsComponent } from './components/query-view/table-results/table-results.component';
+import { OverviewComponent } from './components/query-view/overview/overview.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -116,7 +121,12 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         QueryViewComponent,
         HistorialViewComponent,
         UploadWidgetComponent,
-        EditDialogComponent
+        EditDialogComponent,
+        CustomSnakbarComponent,
+        ChangeMetadataConfigurationDialogComponent,
+        GraphComponent,
+        TableResultsComponent,
+        OverviewComponent
         
 
 

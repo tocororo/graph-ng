@@ -1,0 +1,23 @@
+@import '../../../../styles.scss';
+
+.backend-response-container{    
+    border: 1px solid;
+    height: 27%;
+    margin: 0.5em;
+
+   }
+
+.success-styles{
+        background-color:map-get($md-green, 50);
+         border: 1px solid map-get($md-green, 100);
+         font-size: x-large;
+         font-weight: 400;
+           }
+.error-styles{
+               background-color:map-get($md-grey, 50);
+                border: 1px solid map-get($md-grey, A200);
+                max-width: 95%;
+                margin: 0.5em;
+
+
+                  }

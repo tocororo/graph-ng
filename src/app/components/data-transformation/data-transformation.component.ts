@@ -8,6 +8,11 @@ import { GetBreakpointService } from "src/services/shared-services/get-breakpoin
 import { UploadWidgetComponent } from "./upload-widget/upload-widget.component";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfigurationJsonService } from "src/services/configuration-json.service";
+import { ChangeMetadataConfigurationDialogComponent } from "./change-metadata-configuration-dialog/change-metadata-configuration-dialog.component";
+import { Configuration } from "src/app/models/configuration.interface";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { MainService } from "src/services/shared-services/main-service.service";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: "app-data-transformation",
@@ -22,18 +27,22 @@ export class DataTransformationComponent implements OnInit{
   colspan_section2: number = 1;
   modal_height: string="45vh";
   modal_widht: string="50vh";
+  configuration_name:string=""
+  configuration_description:string=""
+   configuration:Configuration
+
 
   public buttons_array: any[] = [
-    { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP" },
+    { label: "IMPORT", color: "basic",toltip:"IMPORTAR_TOLTIP",isdisabled:false   },
 
-    { label: "EXPORTAR", color: "primary",toltip:"EXPORTAR_TOLTIP" },
-    { label: "CANCELAR", color: "accent",toltip:"CANCELAR_TOLTIP" },
-    { label: "TRANSFORMAR", color: "ligth-green",toltip:"TRANSFORMAR_TOLTIP" },
+    { label: "EXPORTAR", color: "primary",toltip:"EXPORTAR_TOLTIP",isdisabled:true  },
+    // { label: "CANCELAR", color: "accent",toltip:"CANCELAR_TOLTIP" },
+    { label: "TRANSFORMAR", color: "accent",toltip:"TRANSFORMAR_TOLTIP",isdisabled:true },
 
   ];
 
   constructor(
-   public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog, public config_service:ConfigurationJsonService
+    private snackBar: MatSnackBar, public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog,public main_service:MainService, public config_service:ConfigurationJsonService
   ) {
 
     this.currentBreakpoint = get_breakpoint_service.getBreakpoint();
@@ -41,6 +50,50 @@ export class DataTransformationComponent implements OnInit{
 
   ngOnInit() {
     this.addGridStyle();
+    this.config_service.getConfigurationJson().subscribe((config)=>{
+      if (config) {
+        this.configuration=config
+        this.buttons_array.forEach((button)=>{
+          if (button.label=="TRANSFORMAR"||button.label=="EXPORTAR") {
+            button.isdisabled=false
+            
+          }
+        })
+      if (this.configuration.name) {
+        this.configuration_name=config.name
+        
+        
+      }
+    if (this.configuration.description) {
+      this.configuration_description=config.description
+
+      
+    }}
+    })
+  }
+  openEDitDescriptionDialog(old_description:string){
+    
+    const dialogRef = this.dialog.open(ChangeMetadataConfigurationDialogComponent, {
+      data: old_description,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+      this.configuration.description=result
+      this.config_service.setConfigurationJson(this.configuration)
+    });
+  }
+  openEDitNameDialog(old_name:string){
+    
+    const dialogRef = this.dialog.open(ChangeMetadataConfigurationDialogComponent, {
+      data: old_name,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+      this.configuration.name=result
+      this.config_service.setConfigurationJson(this.configuration)
+    });
   }
 
   /**
@@ -112,9 +165,18 @@ exportConfigurationFile() {
       a.download = 'config.json';
       a.click();
       window.URL.revokeObjectURL(url);
+      Swal.fire({
+        title: "Exportación exitosa",
+        text: "Fichero exportado correctamente",
+        icon: "success",
+        confirmButtonColor:"#26915b "     
+
+      });
+      
     }
     else{
       console.error("No configuration file to export")
+      
     }
    
   });

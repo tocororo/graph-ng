@@ -1,4 +1,8 @@
 
+@import "/src/styles.scss";
+
+
+
 .button-container button:hover {
   background-color: #e0e0e0; /* Cambia el color según tus preferencias */
   color: black;
@@ -172,12 +176,35 @@
 
 
   }
+  
+  .chip-item{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    mat-chip{
+      width: fit-content;
+      
+    }
+    .text-container{
+      margin: 0px;
+      max-width: 40vw; 
+
+  white-space: nowrap; /* evita que el texto se envuelva */
+  overflow: hidden; /* oculta el texto que se desborda */
+  transition: transform 0.3s ease-in-out; /* Agrega una transición suave al cambio de tamaño */
+p{
+  margin: 0px;
+}}
+    .text-container:hover {
+      transform: scale(1.05); /* Aumenta el tamaño del texto en un 10% al pasar el cursor sobre él */
+    }
+  }
 
   .button-container {
     height: 100%;
     width: 40%;
     margin-top: 1em;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-content: center;
 
