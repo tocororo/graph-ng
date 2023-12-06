@@ -48,6 +48,7 @@
     "ngx-dropzone": "^3.1.0",
     "ngx-markdown": "^15.1.2",
     "rxjs": "~6.6.7",
+    "sweetalert2": "^11.10.1",
     "toco-lib": "0.0.7",
     "tslib": "^2.0.0",
     "util": "^0.12.5",

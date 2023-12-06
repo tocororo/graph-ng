@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Configuration } from '../app/models/configuration.interface';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -49,16 +50,23 @@ setRulesPropertiesLabel(label: string): void {
         error => {
           // Lógica para manejar errores
           console.error('Error en la solicitud:', error);
-          this.snackBar.open("Error en la solicitud ", 'Cerrar', {
-            duration: 3000
+          Swal.fire({
+            title: "Error en la solicitud",
+            text: error.message,
+            icon: "error",
+            confirmButtonColor:"#26915b "     
+
+            
           });
-      
         }
       );
-      this.snackBar.open("Proceso completado", 'Cerrar', {
-        duration: 3000,
-        panelClass: ["snack-styles"]
+      Swal.fire({
+        title: "Proceso completado",
+        text: "Se realizo la transformación con exito",
+        icon: "success",
+        confirmButtonColor:"#26915b "     
 
+       
       });
   }
 

@@ -10,6 +10,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { ConfigurationJsonService } from "src/services/configuration-json.service";
 import { ChangeMetadataConfigurationDialogComponent } from "./change-metadata-configuration-dialog/change-metadata-configuration-dialog.component";
 import { Configuration } from "src/app/models/configuration.interface";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { MainService } from "src/services/shared-services/main-service.service";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: "app-data-transformation",
@@ -39,7 +42,7 @@ export class DataTransformationComponent implements OnInit{
   ];
 
   constructor(
-   public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog, public config_service:ConfigurationJsonService
+    private snackBar: MatSnackBar, public get_breakpoint_service:GetBreakpointService,public dialog: MatDialog,public main_service:MainService, public config_service:ConfigurationJsonService
   ) {
 
     this.currentBreakpoint = get_breakpoint_service.getBreakpoint();
@@ -162,9 +165,18 @@ exportConfigurationFile() {
       a.download = 'config.json';
       a.click();
       window.URL.revokeObjectURL(url);
+      Swal.fire({
+        title: "Exportación exitosa",
+        text: "Fichero exportado correctamente",
+        icon: "success",
+        confirmButtonColor:"#26915b "     
+
+      });
+      
     }
     else{
       console.error("No configuration file to export")
+      
     }
    
   });

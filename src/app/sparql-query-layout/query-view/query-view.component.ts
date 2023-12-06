@@ -12,10 +12,12 @@ export class QueryViewComponent {
   editorOptionsjson={theme: 'vs-light', language: 'json'}
   code: string = 'SELECT ?s ?p ?o WHERE { ?s ?p ?o FILTER (?o = "active") }';
   selectedOutput:string='Grafo'
+  panelOpenState = false;
 
   originalCode: string = 'SELECT ?s ?p ?o WHERE { ?s ?p ?o FILTER (?o = "active") }';
   label_response:string
   graph_label:string
+  is_disabled:boolean=true
   constructor( private  configurationService: ConfigurationJsonService,private sparql_service:SparqlService){
     this.selectedOutput='Grafo'
 

@@ -82,7 +82,7 @@
     "PANEL_ENTIDADES":"Entity Pane",
     "REGLAS_TRANSFORMACION":"Transformation Rules",
     "TABLA":"Table",
-    "GRAFO":"Graph",
+    "GRAFO":"Vis",
     "DOCUMENTACION":"Documentation",
     "HISTORIAL":"History",
     "SALIDA_ALGORITMO":"Output of the algorithm",
@@ -96,7 +96,9 @@
     "EXPORTAR_TOLTIP":"Export the configuration file.",
     "CANCELAR_TOLTIP":"Cancel transformation process.",
     "TRANSFORMAR_TOLTIP":"Transform according to the configuration file.",
-    "OVERVIEW":"Overview",
+    "OVERVIEW":"Log",
+    "ADD":"Add",
+
 
     "ERRORES":{
         ".JSONERROR":"The file does not have a .json extension",

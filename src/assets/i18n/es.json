@@ -80,7 +80,7 @@
     "PANEL_ENTIDADES":"Panel de Entidades",
     "REGLAS_TRANSFORMACION":"Reglas de Transformación",
     "TABLA":"Tabla",
-    "GRAFO":"Grafo",
+    "GRAFO":"Vis",
     "DOCUMENTACION":"Documentacion",
     "HISTORIAL":"Historial",
     "SALIDA_ALGORITMO":"Salida del algoritmo",
@@ -94,7 +94,8 @@
     "EXPORTAR_TOLTIP":"Exporte su fichero de configuración",
     "CANCELAR_TOLTIP":"Cancelar proceso de transformación",
     "TRANSFORMAR_TOLTIP":"Transformar de acuerdo al fichero de configuración ",
-    "OVERVIEW":"Ver",
+    "OVERVIEW":"Log",
+    "ADD":"Añadir",
 
      "ERRORES":{
         ".JSONERROR":"El fichero no tiene una extension .json ",

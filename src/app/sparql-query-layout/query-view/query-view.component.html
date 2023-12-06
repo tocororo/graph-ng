@@ -39,9 +39,10 @@
                         <mat-icon>table_chart</mat-icon>
                         <label for="">{{'TABLA' | translate}}</label>
                     </div></mat-list-item>
-                    <mat-list-item  
+                    <mat-list-item  *ngIf="label_response"
                      (click)="drawer.toggle()" role="listitem"> <div class="item-container" >
-                        <mat-icon>visibility</mat-icon>
+                        <mat-icon >visibility</mat-icon>
+                        
                         <label class="overview-label" for="">{{'OVERVIEW' | translate}}</label>
                     </div></mat-list-item>
 
@@ -50,8 +51,7 @@
             <mat-drawer-content>
                 <mat-drawer-container  class="example-container"  hasBackdrop="false">
                     <mat-drawer class="overview-drawer" #drawer position="end" mode="side">
-                        
-                    </mat-drawer>
+                        <app-overview></app-overview>                    </mat-drawer>
                     <mat-drawer-content>
                       
                         <section class="results-section">

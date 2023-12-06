@@ -1,0 +1,8 @@
+<div   *ngIf="label_response.success"  class="backend-response-container success-styles">
+    {{label_response.success}}
+
+  </div>
+  <div   *ngIf="!label_response.success" >
+<textarea class="error-styles" name="" id="" cols="30" rows="10">    {{label_response}}
+</textarea>
+  </div>

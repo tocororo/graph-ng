@@ -79,6 +79,7 @@ import { CustomSnakbarComponent } from './components/data-transformation/custom-
 import { ChangeMetadataConfigurationDialogComponent } from './components/data-transformation/change-metadata-configuration-dialog/change-metadata-configuration-dialog.component';
 import { GraphComponent } from './components/query-view/graph/graph.component';
 import { TableResultsComponent } from './components/query-view/table-results/table-results.component';
+import { OverviewComponent } from './components/query-view/overview/overview.component';
 
 
 export function storageFactory(): OAuthStorage {
@@ -124,7 +125,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         CustomSnakbarComponent,
         ChangeMetadataConfigurationDialogComponent,
         GraphComponent,
-        TableResultsComponent
+        TableResultsComponent,
+        OverviewComponent
         
 
 
