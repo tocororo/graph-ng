@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule, provideAnimations } from "@angular/platform-browser/animations";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { MarkdownModule } from "ngx-markdown";
@@ -30,19 +30,18 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 
 import { OAuthModule, OAuthStorage } from "angular-oauth2-oidc";
 import {
-  AngularMaterialModule,
-  AuthenticationModule,
-  CoreModule,
-  Environment, OrganizationServiceNoAuth, SearchModule,
-  SearchService,
-  SourceServiceNoAuth,
-  StaticsModule,
-  TocoFormsModule, OrganizationsModule
+    AngularMaterialModule,
+    AuthenticationModule,
+    CoreModule,
+    Environment, OrganizationServiceNoAuth, SearchModule,
+    SearchService,
+    SourceServiceNoAuth,
+    StaticsModule,
+    TocoFormsModule, OrganizationsModule
 } from "toco-lib";
 
 import { allowedURLS, environment } from "src/environments/environment";
 
-import { NgxDropzoneModule } from "node_modules/ngx-dropzone";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -52,55 +51,73 @@ import { MenuComponent } from "./header/menu/menu.component";
 import { HomeComponent } from "./home/home.component";
 
 import { MainlayoutComponent } from "./layout/mainlayout/mainlayout.component";
-import { PeopleLayoutComponent } from "./layout/people-layout/people-layout.component";
+
 import { OrgService } from "./org.service";
 import { PageNotFoundPeopleComponent } from "./page-not-found-people/page-not-found-people.component";
-import { GeneralTabComponent } from "./people-view/general-tab/general-tab.component";
-import { PeopleViewComponent } from "./people-view/people-view.component";
-import { SearchListComponent } from "./search-list/search-list.component";
-import { SearchComponent } from "./search/search.component";
-import { SelectOrgComponent } from "./select-org/select-org.component";
-import { DataTransformationComponent } from './data-transformation/data-transformation.component';
 
-import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
-import { TransformRulesComponent } from './transform-rules/transform-rules.component';
+
+
+import { SparqlQueryLayoutComponent } from './sparql-query-layout/sparql-query-layout.component';
 import { ScrollingModule } from "@angular/cdk/scrolling";
-import { EntityPanelComponent } from './entity-panel/entity-panel.component';
-import { OutputsComponent } from './outputs/outputs.component';
+import { EntityPanelComponent } from './components/data-transformation/entity-panel/entity-panel.component';
+import { OutputsComponent } from './components/data-transformation/outputs/outputs.component';
+import { NgxGraphModule } from "@swimlane/ngx-graph";
+import { DocumentationViewComponent } from './documentation-view/documentation-view.component';
+import { QueryViewComponent } from './sparql-query-layout/query-view/query-view.component';
+import { HistorialViewComponent } from './sparql-query-layout/historial-view/historial-view.component';
+import { SparqlInputComponent } from "./sparql-query-layout/query-view/sparql-input/sparql-input.component";
+import { QueryOutputComponent } from "./sparql-query-layout/query-view/query-output/query-output.component";
+import { QueryResultDetailComponent } from "./sparql-query-layout/query-view/query-result-detail/query-result-detail.component";
+import { QueryResultComponent } from "./sparql-query-layout/query-view/query-result/query-result.component";
+import { DataTransformationComponent } from "./components/data-transformation/data-transformation.component";
+import { TransformRulesComponent } from "./components/data-transformation/transform-rules/transform-rules.component";
+import { NgxDropzoneModule } from "ngx-dropzone";
+import { UploadWidgetComponent } from "./components/data-transformation/upload-widget/upload-widget.component";
+import { EditDialogComponent } from './components/data-transformation/edit-dialog/edit-dialog.component';
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 
 
 export function storageFactory(): OAuthStorage {
-  return localStorage;
+    return localStorage;
 }
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
-    exports: [MainlayoutComponent, PeopleLayoutComponent],
+    exports: [MainlayoutComponent],
     declarations: [
         AppComponent,
         HomeComponent,
         PageNotFoundPeopleComponent,
         FooterComponent,
-        SearchComponent,
-        SearchListComponent,
-        PeopleViewComponent,
+
+
         MainlayoutComponent,
-        PeopleLayoutComponent,
-        GeneralTabComponent,
+        DocumentationViewComponent,
+
         HeaderComponent,
         MenuComponent,
         MenuItemComponent,
 
-        SelectOrgComponent,
-         DataTransformationComponent,
-         SparqlQueryViewComponent,
-         SparqlQueryViewComponent,
-         TransformRulesComponent,
-         EntityPanelComponent,
-         OutputsComponent,
+
+        DataTransformationComponent,
+        SparqlQueryLayoutComponent,
+
+        TransformRulesComponent,
+        EntityPanelComponent,
+        OutputsComponent,
+        SparqlInputComponent,
+        QueryOutputComponent,
+        QueryResultComponent,
+        QueryResultDetailComponent,
+        DocumentationViewComponent,
+        QueryViewComponent,
+        HistorialViewComponent,
+        UploadWidgetComponent,
+        EditDialogComponent
+        
 
 
 
@@ -111,7 +128,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         HttpClientModule,
         MatTableModule,
         MatPaginatorModule,
-        NgxDropzoneModule,
+        MonacoEditorModule,
+        
+        
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -154,6 +173,10 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         AppRoutingModule,
         FlexLayoutModule,
         ScrollingModule,
+        NgxGraphModule,
+        NgxDropzoneModule
+        ,
+
         OAuthModule.forRoot({
             resourceServer: {
                 allowedUrls: allowedURLS,
@@ -162,6 +185,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         }),
     ],
     providers: [
+       
         SearchService,
         SourceServiceNoAuth,
         OrganizationServiceNoAuth,
@@ -171,4 +195,4 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

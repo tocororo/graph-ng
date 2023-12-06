@@ -1,3 +1,4 @@
+@import "../styles.scss";
 .header-container{
   box-shadow: none;
 }
@@ -33,7 +34,7 @@
 
 h3{
   text-align: center;
-  color: white;
+  color: $color-white;
   margin: 0px;
   font-size: 3em;
 }
@@ -41,7 +42,7 @@ h3{
 }
 }
 .container-component{
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .menu-icon-button{
     border: inherit;
@@ -49,8 +50,8 @@ h3{
 }
 
 .color-white{
-    color: white !important;
-    text-emphasis: white;
+    color: $color-white!important;
+    text-emphasis: $color-white;
     text-decoration: none !important;
 }
 
@@ -85,7 +86,7 @@ h3{
     position: absolute;
     right: 23px;
     top: 11px;
-    color: white;
+    color: $color-white;
     -ms-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
@@ -94,8 +95,35 @@ h3{
 .center-elements {
     width: auto;
 }
-@media screen and (max-width: 490px) {
-    .center-elements {
-        width: 100%;
-    }
+.menu-item{
+  color: $color-white;
+  transform: scale(1.5);
+  margin-left: 8px;
+}
+@media screen and (min-width: 1201px) {
+  .menu-item{
+    display: none;
+ 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .center-elements {
+    width: 100%;
+}
+.div-toolbar{
+  height: 13vh !important ;
+}
+
+.div-font{
+  padding:10px 1em 10px 2em ;
+
+h3{
+  text-align: center;
+  color: $color-white;
+  margin: 0px;
+  font-size: 3em;
+}
+}
+
 }

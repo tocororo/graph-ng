@@ -4,18 +4,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundPeopleComponent } from './page-not-found-people/page-not-found-people.component';
-import { SearchComponent } from './search/search.component';
-import {PeopleViewComponent} from "./people-view/people-view.component";
-import {Layouts} from "./app.component";
+
+import { Layouts } from "./app.component";
 
 import { PeopleActiveResolverService } from './people/people-resolver';
-import { PeopleLayoutComponent } from './layout/people-layout/people-layout.component';
+
 import { MainlayoutComponent } from './layout/mainlayout/mainlayout.component';
-import { DataTransformationComponent } from './data-transformation/data-transformation.component';
-import { SparqlQueryViewComponent } from './sparql-query-view/sparql-query-view.component';
+import { SparqlQueryLayoutComponent } from './sparql-query-layout/sparql-query-layout.component';
+import { DocumentationViewComponent } from './documentation-view/documentation-view.component';
+import { QueryViewComponent } from './sparql-query-layout/query-view/query-view.component';
+import { HistorialViewComponent } from './sparql-query-layout/historial-view/historial-view.component';
+import { DataTransformationComponent } from './components/data-transformation/data-transformation.component';
 
 const routes: Routes = [
-	// {
+  // {
   {
     path: '',
     component: MainlayoutComponent,
@@ -29,38 +31,40 @@ const routes: Routes = [
         path: 'data',
         component: DataTransformationComponent,
         // data: { layout: Layouts.Main },
-      }, {
-        path: 'query',
-        component: SparqlQueryViewComponent,
-        // data: { layout: Layouts.Main },
       },
-
-
-    ],
-  },
-  {
-    path: 'person/:uuid',
-    component: PeopleLayoutComponent,
-    resolve: {
-      'person': PeopleActiveResolverService
-    },
-    children: [
       {
-        path: 'view',
-        component: PeopleViewComponent,
-        // data: { layout: Layouts.People },
+        path: 'query',
+        component: SparqlQueryLayoutComponent,
 
-      }]
+        children: [
+          {
+            path: 'documentation',
+            component: DocumentationViewComponent
+          },
+          {
+            path: 'view',
+            component: QueryViewComponent
+          },
+          {
+            path: 'historial',
+            component: HistorialViewComponent
+          }
+        ]
+
+      }
+
+
+    ]
   },
-	// {
-	// 	path: '**',
-	// 	component: PageNotFoundPeopleComponent
-	// }
+
+  // {
+  // 	path: '**',
+  // 	component: PageNotFoundPeopleComponent
+  // }
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes, {})],
+  imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule]
 })
-export class AppRoutingModule
-{ }
+export class AppRoutingModule { }

@@ -1,3 +1,4 @@
+
 <toco-header  [showMenuLang]="'true'" [icon]="'/assets/icons/apps/sceiba.svg'" [iconLabel]="'SCEIBA'" [iconAlt]="'SCEIBA'"></toco-header>
 
 <div class="menu-full">
@@ -8,7 +9,16 @@
 
 </div>
 <section class="toolbar-main" fxLayout="column" fxLayoutAlign="center center">
-  <div class=" bg-primary-color div-container" fxLayoutAlign="center center">
+  <div class=" bg-primary-color div-container div-toolbar" fxLayoutAlign="center center">
+    <mat-icon  class="menu-item" *ngIf="(view_title=='CONSULTAS_SPARQL')"
+     aria-hidden="false"  fontIcon="menu" 
+     [matMenuTriggerFor]="menu"></mat-icon>
+     <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/query/view" active="/query"  > {{'CONSULTAS_SPARQL' | translate}}</button>
+      <button mat-menu-item  routerLink="/query/documentation" active="/query/documentation">{{'DOCUMENTACION' | translate}}</button>
+      <button mat-menu-item  routerLink="/query/historial">{{'HISTORIAL' | translate}}</button>
+    </mat-menu>
+    
     <div class=" div-font">
         <h3 class="mat-display-2">{{ view_title | translate }}</h3>
     </div>

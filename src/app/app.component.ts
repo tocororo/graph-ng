@@ -49,7 +49,7 @@ export class AppComponent
    */
   public arrayMenuItems=[{content:'HOME',routerlink:"/"},
   {content:'TRANSFORMACION_DATOS',routerlink:"/data"},
-  {content:'CONSULTAS_SPARQL',routerlink:"query"}]
+  {content:'CONSULTAS_SPARQL',routerlink:"query/view"}]
   /**
    * use to display the view title
    */
